@@ -66,9 +66,9 @@
 				<!--<div class="sent-message">Your message has been sent. Thank you!</div>-->
 			  </div>
 			  <div class="text-center"> 
-				   <div class="g-recaptcha" data-sitekey="6LcxDBcaAAAAAJpdE5uHn_WeFva4xWR-RSUsvF4x" data-callback="submitMyForm"></div>
+				   <div class="g-recaptcha" data-sitekey="6LcxDBcaAAAAAJpdE5uHn_WeFva4xWR-RSUsvF4x" data-callback="recaptchaCallback"></div>
 			  </div>
-			  <div class="text-center"><button type="submit" class="btn btn-default hidden" id="btnSubmit">Send Message</button></div>
+			  <div class="text-center"><button type="submit" id="btnSubmit" disabled>Send Message</button></div>
 
         </form>
         </div>
@@ -101,17 +101,10 @@ $(function () {
   })
   
 function recaptchaCallback() {
-	
-	grecaptcha.reset();
-    grecaptcha.execute();
-	
-    alert('Clicked !');
+
 	var btnSubmit = document.getElementById("btnSubmit");
 
-	if ( btnSubmit.classList.contains("hidden") ) {
-		btnSubmit.classList.remove("hidden");
-		btnSubmitclassList.add("show");
-	}
+	btnSubmit.disabled = false;
 
 }
 
