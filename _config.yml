@@ -1,9 +1,9 @@
-title: Shengchen Liu
+title: Dr. Pablo G.
 author:
-  name: shengchen-liu
-  email: liu.sheng@gatech.edu
+  name: Dr. Pablo G.
+  email: ----
 description: > # this means to ignore newlines until "show_excerpts:"
-  Thi is Shengchen Liu's personal website.
+  Thi is Dr. Pablo G.s personal website.
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
@@ -15,7 +15,7 @@ minima:
 
   # generate social links in footer
   social_links:
-    github:  shengchen-liu
+    github:  https://github.com/Pablitinho/
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
