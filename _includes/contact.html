@@ -40,7 +40,7 @@
 		<div class="info-box mt-4">
 		    <i class="bx bx-envelope"></i>
             <h3>Email Me</h3>
-			<form name="contact" action="https://formspree.io/f/mvovvwkg" method="post" role="form" class="php-email-form">
+			<form id="contact-form" action="https://formspree.io/f/mvovvwkg" method="post" role="form" class="php-email-form">
 			  <div class="form-row">
 				<div class="col-md-6 form-group">
 				  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -66,7 +66,7 @@
 				<!--<div class="sent-message">Your message has been sent. Thank you!</div>-->
 			  </div>
 			  <div class="text-center"> 
-				   <div class="g-recaptcha" data-sitekey="6LcxDBcaAAAAAJpdE5uHn_WeFva4xWR-RSUsvF4x" data-callback="recaptchaCallback"></div>
+				   <div class="g-recaptcha" data-sitekey="6LcxDBcaAAAAAJpdE5uHn_WeFva4xWR-RSUsvF4x" data-callback="submitMyForm" data-size="invisible"></div>
 			  </div>
 			  <div class="text-center"><button type="submit" class="btn btn-default hidden" id="btnSubmit">Send Message</button></div>
 
@@ -83,14 +83,36 @@
 
 <script>
 
+var myForm = $('contact-form');
+
+function submitMyForm () {
+    myForm.trigger('submit', [true]);
+}
+
+$(function () {
+    myForm.on('submit', function (e, skipRecaptcha) {
+        if(skipRecaptcha) {
+            return;
+        }
+
+        e.preventDefault();
+        grecaptcha.execute();
+    });
+  })
+  
 function recaptchaCallback() {
+	
+	grecaptcha.reset();
+    grecaptcha.execute();
+	
+    alert('Clicked !');
 	var btnSubmit = document.getElementById("btnSubmit");
 
 	if ( btnSubmit.classList.contains("hidden") ) {
 		btnSubmit.classList.remove("hidden");
 		btnSubmitclassList.add("show");
 	}
-    alert('Clicked !');
+
 }
 
 $('#form-contact').submit(function (event) {
