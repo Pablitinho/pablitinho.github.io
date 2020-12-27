@@ -37,21 +37,8 @@
 			
       <div class="col-lg-6">
 
-	<form id="my-form"
-	  action="https://formspree.io/f/xayllpop"
-	  method="POST"
-	>
-    <div class="g-recaptcha" data-sitekey="6LcxDBcaAAAAAJpdE5uHn_WeFva4xWR-RSUsvF4x"></div>
-	  <label>Email:</label>
-	  <input type="email" name="email" />
-	  <label>Message:</label>
-	  <input type="text" name="message" />
-	  <button id="my-form-button">Submit</button>
-	  <p id="my-form-status"></p>
-	</form>
-
        <form action="https://formspree.io/f/mvovvwkg" method="post" role="form" class="php-email-form">
-	   <div class="g-recaptcha" data-sitekey="6LcxDBcaAAAAAJpdE5uHn_WeFva4xWR-RSUsvF4x"></div>
+	   
           <div class="form-row">
             <div class="col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -69,16 +56,14 @@
           </div>
           <div class="form-group">
             <textarea class="form-control" name="message" rows="6" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-			
             <div class="validate"></div>
           </div>
           <div class="mb-3">
             <div class="loading">Loading</div>
             <!--<div class="error-message"></div>-->
-		    
             <div class="sent-message">Your message has been sent. Thank you!</div>
-
           </div>
+		  <div class="g-recaptcha" data-sitekey="6LcxDBcaAAAAAJpdE5uHn_WeFva4xWR-RSUsvF4x"></div>
           <div class="text-center"><button type="submit">Send Message</button></div>
 
         </form>
