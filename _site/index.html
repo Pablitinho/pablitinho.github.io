@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -353,6 +355,18 @@
     </section><!-- End My Portfolio Section -->
 
 <!-- ======= Contact Me Section ======= -->
+<script>
+  grecaptcha.ready(function() {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      grecaptcha.execute('6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq', {action: 'submit'}).then(function(token) {
+        document.getElementById('g-recaptcha-response').value = token;
+        document.getElementById('contact-form').submit();
+      });
+    });
+  });
+</script>
+
 <section id="contact" class="contact">
   <div class="container">
 
@@ -367,7 +381,12 @@
 		<div class="info-box mt-2">
 		    <i class="bx bx-envelope"></i>
             <h3>Email Me :)-</h3>
-			<form id="contact-form" action="https://formspree.io/f/mvovvwkg" method="post" role="form" class="php-email-form">
+            <form id="contact-form" action="https://formspree.io/f/mvovvwkg" method="post" role="form" class="php-email-form">
+              <!-- Campos del formulario -->
+              <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+              <button type="submit">Enviar</button>
+            </form>
+			<!-- <form id="contact-form" action="https://formspree.io/f/mvovvwkg" method="post" role="form" class="php-email-form">
 			  <div class="form-row">
 				<div class="col-md-6 form-group">
 				  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -389,15 +408,15 @@
 			  </div>
 			  <div class="mb-3">
 				<div class="loading">Your message has been sent. Thank you!</div>
-				<!--<div class="error-message"></div>-->
-				<!--<div class="sent-message">Your message has been sent. Thank you!</div>-->
+				<div class="error-message"></div>
+				<div class="sent-message">Your message has been sent. Thank you!</div>
 			  </div>
 			  <div class="text-center"> 
 				   <div class="g-recaptcha" data-sitekey="6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq" data-callback="recaptchaCallback" data-expired-callback ="recaptchaExpiredCallback"  ></div>
 			  </div>
 			  <div class="text-center"><button type="submit" id="btnSubmit" disabled>Send Message</button></div>
 
-        </form>
+        </form> -->
         </div>
 	  </div>
 
