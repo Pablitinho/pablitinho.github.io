@@ -37,5 +37,5 @@
   $contact->add_message( $_POST['email'], 'Email');
   $contact->add_message( $_POST['message'], 'Message', 10);
 
-  echo "Success"//$contact->send();
+  echo "Success " //$contact->send();
 ?>

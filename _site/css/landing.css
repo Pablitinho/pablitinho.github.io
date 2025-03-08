@@ -122,7 +122,7 @@ video#bgvid {
 @media screen and (max-device-width: 800px) {
   .greeting {
     background: url(../img/intro_1.gif) 50% 0 no-repeat;
-    background-size: auto 110%;
+    background-size: auto 100%;
   }
   .slide3 {
     background-size: auto 90%;
