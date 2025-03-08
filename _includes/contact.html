@@ -1,142 +1,85 @@
-
-<!-- ======= Contact Me Section ======= -->
+<!-- Load reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
 <script>
   grecaptcha.ready(function() {
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      grecaptcha.execute('6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq', {action: 'submit'}).then(function(token) {
-        document.getElementById('g-recaptcha-response').value = token;
-        document.getElementById('contact-form').submit();
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      grecaptcha.execute('TU_SITE_KEY', {action: 'submit'}).then(function(token) {
+        let recaptchaInput = document.getElementById('g-recaptcha-response');
+
+        if (!recaptchaInput) {
+          recaptchaInput = document.createElement('input');
+          recaptchaInput.setAttribute('type', 'hidden');
+          recaptchaInput.setAttribute('name', 'g-recaptcha-response');
+          recaptchaInput.setAttribute('id', 'g-recaptcha-response');
+          form.appendChild(recaptchaInput);
+        }
+
+        recaptchaInput.value = token;
+        form.submit();
       });
     });
   });
 </script>
 
+
 <section id="contact" class="contact">
   <div class="container">
-
     <div class="section-title">
       <span>Contact Me</span>
       <h2>Contact Me</h2>
     </div>
-
     <div class="row">
-		
       <div class="col-lg-6">
-		<div class="info-box mt-2">
-		    <i class="bx bx-envelope"></i>
-            <h3>Email Me :)-</h3>
-            <!-- <form id="contact-form" action="https://formspree.io/f/mqapznqd" method="post" role="form" class="php-email-form">
-              <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-              <button type="submit">Enviar</button>
-            </form> -->
+        <div class="info-box mt-2">
+          <i class="bx bx-envelope"></i>
+          <h3>Email Me :)-</h3>
 
-			<form id="contact-form" action="https://formspree.io/f/mqapznqd" method="post" role="form" class="php-email-form">
-			  <div class="form-row">
-				<div class="col-md-6 form-group">
-				  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-				  <div class="validate"></div>
-				</div>
-				<div class="col-md-6 form-group">
-				  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-				  <div class="validate"></div>
-				</div>
-			  </div>
-			  <div class="form-group">
-				<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-				<input type="hidden" name="_next" value="thanks.html" />
-				<div class="validate"></div>
-			  </div>
-			  <div class="form-group">
-				<textarea class="form-control" name="message" rows="6" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-				<div class="validate"></div>
-			  </div>
-			  <div class="mb-3">
-				<div class="loading">Your message has been sent. Thank you!</div>
-				<div class="error-message"></div>
-				<div class="sent-message">Your message has been sent. Thank you!</div>
-			  </div>
-			  <div class="text-center"> 
-				   <div class="g-recaptcha" data-sitekey="6LeIWu4qAAAAAK0RZQgzIDbwgFR0kJ4U-xAfUYgW" data-callback="recaptchaCallback" data-expired-callback ="recaptchaExpiredCallback"  ></div>
-			  </div>
-			  <div class="text-center"><button type="submit" id="btnSubmit" disabled>Send Message</button></div>
+          <form id="contact-form" action="https://formspree.io/f/mqapznqd" method="POST" class="php-email-form">
+            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+            <input type="hidden" name="_next" value="thanks.html">
 
-        </form>
-        </div>
-	  </div>
-
-      <div class="col-lg-6">
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="info-box">
-              <i class="bx bx-share-alt"></i>
-              <h3>Social Profiles</h3>
-              <div class="social-links">
-                <a href="https://github.com/Pablitinho" class="github"><i class="icofont-github"></i>
-                <a href="https://www.linkedin.com/in/pablog3/" class="linkedin"><i class="icofont-linkedin"></i>
-                </a>
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required minlength="4">
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
               </div>
             </div>
-          </div>
-		  
+
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" required minlength="4">
+            </div>
+
+            <div class="form-group">
+              <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" id="btnSubmit">Send Message</button>
+            </div>
+          </form>
+
+          <div class="loading" style="display:none;">Sending your message...</div>
+          <div class="sent-message" style="display:none;">Your message has been sent. Thank you!</div>
+          <div class="error-message" style="display:none;"></div>
+
         </div>
-
       </div>
+
+      <div class="col-lg-6">
+        <div class="info-box">
+          <div class="social-links">
+            <a href="https://github.com/Pablitinho" class="github"><i class="icofont-github"></i></a>
+            <a href="https://www.linkedin.com/in/pablog3/" class="linkedin"><i class="icofont-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
     </div>
-
   </div>
-</section><!-- End Contact Me Section -->
-
-<!-- Place this script at the end of the body tag -->
-
-<script>
-
-var myForm = $('contact-form');
-
-function submitMyForm () {
-    myForm.trigger('submit', [true]);
-}
-
-$(function () {
-    myForm.on('submit', function (e, skipRecaptcha) {
-        if(skipRecaptcha) {
-            return;
-        }
-
-        e.preventDefault();
-        grecaptcha.execute();
-    });
-  })
-  
-// Disable buttom
-function recaptchaExpiredCallback()
- {
-  	var btnSubmit = document.getElementById("btnSubmit");
-
-	btnSubmit.disabled = true;
-
-}
-// Disable buttom
-function recaptchaCallback() 
-{
-
-	var btnSubmit = document.getElementById("btnSubmit");
-
-	btnSubmit.disabled = false;
-
-}
-
-$('#form-contact').submit(function (event) {
-    event.preventDefault();
-    grecaptcha.reset();
-    grecaptcha.execute();
-	alert('Form submit !');
-  });
-
-function formSubmit(response) {
-  
-  alert('Thanks !');
-}
-
-</script>
+</section>
