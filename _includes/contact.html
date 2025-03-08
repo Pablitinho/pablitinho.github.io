@@ -4,7 +4,7 @@
   grecaptcha.ready(function() {
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();
-      grecaptcha.execute('6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq', {action: 'submit'}).then(function(token) {
+      grecaptcha.execute('6LeIWu4qAAAAAK0RZQgzIDbwgFR0kJ4U-xAfUYgW', {action: 'submit'}).then(function(token) {
         document.getElementById('g-recaptcha-response').value = token;
         document.getElementById('contact-form').submit();
       });
@@ -57,7 +57,7 @@
 				<div class="sent-message">Your message has been sent. Thank you!</div>
 			  </div>
 			  <div class="text-center"> 
-				   <div class="g-recaptcha" data-sitekey="6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq" data-callback="recaptchaCallback" data-expired-callback ="recaptchaExpiredCallback"  ></div>
+				   <div class="g-recaptcha" data-sitekey="6LeIWu4qAAAAAK0RZQgzIDbwgFR0kJ4U-xAfUYgW" data-callback="recaptchaCallback" data-expired-callback ="recaptchaExpiredCallback"  ></div>
 			  </div>
 			  <div class="text-center"><button type="submit" id="btnSubmit" disabled>Send Message</button></div>
 
