@@ -4,7 +4,7 @@
   grecaptcha.ready(function() {
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();
-      grecaptcha.execute('6LeIWu4qAAAAAK0RZQgzIDbwgFR0kJ4U-xAfUYgW', {action: 'submit'}).then(function(token) {
+      grecaptcha.execute('6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq', {action: 'submit'}).then(function(token) {
         document.getElementById('g-recaptcha-response').value = token;
         document.getElementById('contact-form').submit();
       });
