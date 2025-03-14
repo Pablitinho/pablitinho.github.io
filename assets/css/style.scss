@@ -1637,3 +1637,13 @@
       display: none;
     }
   }
+
+  #experience {
+    position: relative;
+    z-index: 10;
+  }
+  
+  #publications {
+    position: relative;
+    z-index: 5;
+  }
