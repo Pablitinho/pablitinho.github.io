@@ -106,6 +106,7 @@
         <div class="row">
           <div class="col-lg-12">
             <ul class="timeline">
+              
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <img class="rounded-circle" src="../assets/img/ugr_logo.png" alt="" width="180" height="180">
@@ -376,20 +377,58 @@
 <!-- ======= My Experience ======= -->
 <section id="experience" class="resume">
   <style>
+ 
   .timeline-panel {
-    font-size: 14px; /* Reducir el tamaño del texto */
+    font-size: 14px;  
     padding: 15px; 
     max-width: 500px; 
+    
   }
   
   .timeline-body {
     line-height: 1.0;  
   }
   .timeline li {
-    margin-bottom: 1px; /* Aumentar el margen entre elementos */
+    margin-bottom: 1px;  
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    max-width: 600px; /* Ajusta según el diseño */
+    padding: 20px;
   }
-  
-  
+  .timeline-image {
+    width: 180px; /* Tamaño fijo del contenedor */
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Evita distorsiones si la imagen es más grande */
+    border-radius: 50%; /* Mantiene la forma circular */
+    margin: auto;
+    margin-bottom: 30px;
+    min-width: 100px; /* Evita que el círculo se haga demasiado pequeño */
+    min-height: 100px;    
+  }
+
+  .timeline-image img {
+      width: 100%; /* Evita que la imagen se expanda más del contenedor */
+      height: 100%;      
+      object-fit: cover; /* Mantiene la relación de aspecto */
+      border-radius: 50%;
+     
+  }
+  ul.timeline {
+      display: flex;
+      flex-direction: column; /* Asegura que los elementos se apilen */
+      align-items: center; /* Centra los elementos */
+      position: relative; /* Evita que se superponga con otras secciones */
+      padding: 0;
+      width: 100%;
+  }
+
   </style>
   <div class="container">
     <div class="section-title">
