@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .highlight .c { color: #998; font-style: italic; }
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
 .highlight .k { font-weight: bold; }
@@ -728,6 +729,8 @@ section { padding: 60px 0; }
   .timeline > li:nth-child(even) .timeline-panel { width: 100%; padding: 0 0 20px 14px; }
   .timeline > li:nth-child(odd) .timeline-panel { width: 100%; padding: 0 14px 20px 0px; }
   .timeline > li .line { display: none; } }
-#experience { position: relative; z-index: 10; }
+#experience, #publications { position: relative; width: 100%; clear: both; padding-top: 50px; /* Asegura separación entre secciones */ padding-bottom: 50px; }
 
-#publications { position: relative; z-index: 5; }
+#experience { margin-bottom: 100px; /* Ajusta la separación entre secciones */ }
+
+#publications { margin-top: 100px; }

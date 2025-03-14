@@ -1638,12 +1638,18 @@
     }
   }
 
-  #experience {
+  #experience, #publications {
     position: relative;
-    z-index: 10;
+    width: 100%;
+    clear: both;
+    padding-top: 50px; /* Asegura separación entre secciones */
+    padding-bottom: 50px;
+  }
+  
+  #experience {
+    margin-bottom: 100px; /* Ajusta la separación entre secciones */
   }
   
   #publications {
-    position: relative;
-    z-index: 5;
+    margin-top: 100px;
   }
