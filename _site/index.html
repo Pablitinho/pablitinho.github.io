@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
 
@@ -32,6 +33,35 @@
   <link rel="stylesheet" href="./assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
   <link rel="stylesheet" href="./assets/css/vendor/venobox/venobox.css" | relative_url }}">
   <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+    /* Cuando el dispositivo está en modo portrait, mostrar mensaje */
+    @media screen and (orientation: portrait) {
+        #rotate-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+        #content {
+            display: none;
+        }
+    }
+    
+    /* Cuando el dispositivo está en landscape, ocultar el mensaje y mostrar el contenido */
+    @media screen and (orientation: landscape) {
+        #rotate-message {
+            display: none;
+        }
+        #content {
+            display: block;
+        }
+    }
+    </style>
 </head>
 <body><header id = "header" class="fixed-top  d-flex justify-content-center align-items-center">
   <nav class="nav-menu d-none d-lg-block">
@@ -376,60 +406,7 @@
 </section><!-- End My Resume Section -->
 <!-- ======= My Experience ======= -->
 <section id="experience" class="resume">
-  <style>
  
-  .timeline-panel {
-    font-size: 14px;  
-    padding: 15px; 
-    max-width: 500px; 
-    
-  }
-  
-  .timeline-body {
-    line-height: 1.0;  
-  }
-  .timeline li {
-    margin-bottom: 1px;  
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 50px;
-    max-width: 600px; /* Ajusta según el diseño */
-    padding: 20px;
-  }
-  .timeline-image {
-    width: 180px; /* Tamaño fijo del contenedor */
-    height: 180px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; /* Evita distorsiones si la imagen es más grande */
-    border-radius: 50%; /* Mantiene la forma circular */
-    margin: auto;
-    margin-bottom: 30px;
-    min-width: 100px; /* Evita que el círculo se haga demasiado pequeño */
-    min-height: 100px;    
-  }
-
-  .timeline-image img {
-      width: 100%; /* Evita que la imagen se expanda más del contenedor */
-      height: 100%;      
-      object-fit: cover; /* Mantiene la relación de aspecto */
-      border-radius: 50%;
-     
-  }
-  ul.timeline {
-      display: flex;
-      flex-direction: column; /* Asegura que los elementos se apilen */
-      align-items: center; /* Centra los elementos */
-      position: relative; /* Evita que se superponga con otras secciones */
-      padding: 0;
-      width: 100%;
-  }
-
-  </style>
   <div class="container">
     <div class="section-title">
       <span>Experience</span>

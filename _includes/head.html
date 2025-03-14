@@ -1,5 +1,6 @@
 {% include base.html %}
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
 
@@ -24,4 +25,34 @@
 
   {%- include custom-head.html -%}
 
+
+  <style>
+    /* Cuando el dispositivo está en modo portrait, mostrar mensaje */
+    @media screen and (orientation: portrait) {
+        #rotate-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+        #content {
+            display: none;
+        }
+    }
+    
+    /* Cuando el dispositivo está en landscape, ocultar el mensaje y mostrar el contenido */
+    @media screen and (orientation: landscape) {
+        #rotate-message {
+            display: none;
+        }
+        #content {
+            display: block;
+        }
+    }
+    </style>
 </head>

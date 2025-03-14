@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
 
@@ -32,8 +33,95 @@
   <link rel="stylesheet" href="./assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
   <link rel="stylesheet" href="./assets/css/vendor/venobox/venobox.css" | relative_url }}">
   <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+    /* Cuando el dispositivo está en modo portrait, mostrar mensaje */
+    @media screen and (orientation: portrait) {
+        #rotate-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+        #content {
+            display: none;
+        }
+    }
+    
+    /* Cuando el dispositivo está en landscape, ocultar el mensaje y mostrar el contenido */
+    @media screen and (orientation: landscape) {
+        #rotate-message {
+            display: none;
+        }
+        #content {
+            display: block;
+        }
+    }
+    </style>
 </head>
-<body><header id = "header" class="fixed-top  d-flex justify-content-center align-items-center">
+<body>
+    <div id="rotate-message">
+      🔄 Please, rotate the device to watch this website properly.
+  </div>
+
+  <div id="content"><header id = "header" class="fixed-top  d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#experience">Work</a></li>
+          <li><a href="#publications">Publications</a></li>          
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#resume">Resume</a></li>
+
+        </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+          <div class="home"><h1 class="page-heading">Notes</h1>
+
+
+
+  <ul class="post-list"><li>
+        <span class="post-meta">Apr 30, 2014</span>
+        <h3>
+          <a class="post-link" href="/2014/04/30/hank-quinlan-site-launched.html">
+            Hank Quinlan, Horrible Cop, Launches Site
+          </a>
+        </h3></li></ul>
+
+    </div>
+
+        </div>
+      </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</div>
+    <!--<header id = "header" class="fixed-top  d-flex justify-content-center align-items-center">
   <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="/">Home</a></li>
@@ -85,6 +173,8 @@
 
 <!-- Template Main JS File -->
 <script src="../assets/js/main.js"></script>
-</body>
+-->
+
+  </body>
 
 </html>

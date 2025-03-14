@@ -4,8 +4,22 @@
   {%- include head.html -%}
 
   <body>
+    <div id="rotate-message">
+      🔄 Please, rotate the device to watch this website properly.
+  </div>
 
-    {%- include header.html -%}
+  <div id="content">
+      {%- include header.html -%}
+
+      <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+          {{ content }}
+        </div>
+      </main>
+
+      {%- include footer.html -%}
+  </div>
+    <!-- {%- include header.html -%}
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
@@ -13,7 +27,7 @@
       </div>
     </main>
 
-    {%- include footer.html -%}
+    {%- include footer.html -%} -->
 
   </body>
 
