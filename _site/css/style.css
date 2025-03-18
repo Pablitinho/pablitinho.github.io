@@ -1630,3 +1630,41 @@ section {
     display: none;
   }
 }
+
+/* Base styles for larger screens */
+/* .OEContainer {
+  background-color: lightblue;
+  border: 3px solid #000000;
+  min-height: 10em;
+  vertical-align: middle;
+  padding: 10px;
+  max-width: 1130px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+} */
+
+/* .OECell {
+  background-color: lightblue;
+  border: 3px solid #73AD21;
+  min-height: 10em;
+  vertical-align: middle;
+  padding: 0px;
+  width: 250px;
+  text-align: center;
+  margin: 5px;
+} */
+
+/* Styles for screens smaller than 600px */
+/* @media (max-width: 600px) {
+  .OEContainer {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .OECell {
+      width: 100%;
+      margin: 5px 0;
+  }
+} */

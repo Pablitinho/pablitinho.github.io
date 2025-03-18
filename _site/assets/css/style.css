@@ -734,3 +734,9 @@ section { padding: 60px 0; }
 #experience { margin-bottom: 100px; /* Ajusta la separación entre secciones */ }
 
 #publications { margin-top: 100px; }
+
+html, body { overflow-x: hidden; }
+
+@media (max-width: 768px) { #portfolio-flters { display: flex; flex-wrap: wrap; justify-content: center; padding: 0; margin: 0; }
+  #portfolio-flters li { flex: 1 1 auto; margin: 5px; padding: 10px 15px; list-style: none; background-color: #f8f9fa; /* Light background for better visibility */ border: 1px solid #dee2e6; /* Subtle border for separation */ border-radius: 5px; /* Rounded corners for better aesthetics */ text-align: center; }
+  #portfolio-flters li a { text-decoration: none; color: #495057; /* Dark text color for readability */ } }
