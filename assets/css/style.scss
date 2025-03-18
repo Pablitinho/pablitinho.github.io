@@ -1656,7 +1656,7 @@
 
   .portfolio-item {
     position: relative; /* Ensure elements are properly positioned */
-    z-index: 4; /* Make sure it's clickable */
+    z-index: 1; /* Make sure it's clickable */
   }
   
   .portfolio-container {
