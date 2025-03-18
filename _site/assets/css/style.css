@@ -734,3 +734,7 @@ section { padding: 60px 0; }
 #experience { margin-bottom: 100px; /* Ajusta la separación entre secciones */ }
 
 #publications { margin-top: 100px; }
+
+.portfolio-item { position: relative; /* Ensure elements are properly positioned */ z-index: 4; /* Make sure it's clickable */ }
+
+.portfolio-container { position: relative; overflow: hidden; /* Prevent overlapping elements from extending */ z-index: 1; /* Lower than portfolio-item */ }
