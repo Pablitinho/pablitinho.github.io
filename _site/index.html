@@ -35,25 +35,7 @@
   <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
 <style>
  
-    /* .timeline-panel {
-      font-size: 14px;  
-      padding: 15px; 
-      max-width: 500px; 
-      
-    } */
-/*     
-    .timeline-body {
-      line-height: 1.0;  
-    } */
-    /* .timeline li {
-      margin-bottom: 1px;  
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 50px;
-  
-    } */
+
     .timeline-image {
       width: 180px;  
       height: 180px;
@@ -72,45 +54,10 @@
         object-fit: cover;  
         border-radius: 50%;
     }
-    /* ul.timeline {
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        position: relative;  
-        padding: 0;
-    } */
+  
   
     </style>
-
-  <!-- <style>
-    /* Cuando el dispositivo está en modo portrait, mostrar mensaje */
-    @media screen and (orientation: portrait) {
-        #rotate-message {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
-            color: white;
-            text-align: center;
-            font-size: 1.5rem;
-            width: 100%;
-        }
-        #content {
-            display: none;
-        }
-    }
-    
-    /* Cuando el dispositivo está en landscape, ocultar el mensaje y mostrar el contenido */
-    @media screen and (orientation: landscape) {
-        #rotate-message {
-            display: none;
-        }
-        #content {
-            display: block;
-        }
-    }
-    </style> -->
+ 
 </head>
 <body><header id = "header" class="fixed-top  d-flex justify-content-center align-items-center">
   <nav class="nav-menu d-none d-lg-block">
@@ -124,6 +71,9 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <!-- <li><a href="/notes">Notes</a></li> -->
           <li><a href="#contact">Contact</a></li>
+
+          <!-- <li><a href="/blog/">Blog</a></li> -->
+
           <!-- <li><a href="#resume">Resume</a></li> -->
 
         </ul>
@@ -240,7 +190,7 @@
               </li>
  
 
-              <li>
+              <li class="timeline-inverted">
                 <div class="timeline-image">
                   <img class="rounded-circle img-responsive" src="../assets/img/csic_logo.jpeg" alt="">
                 </div>
@@ -290,16 +240,18 @@
                 <div class="line"></div>
               </li>
 
-              <li class="timeline-inverted">
+              <li >
                 <div class="timeline-image">
                   <img class="rounded-circle" src="../assets/img/uni_zaragoza.png" alt="" width="180" height="180">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>2005</h4>
-                    <h4 class="subheading"> Industrial Networks. </h4>
-                    <h4 class="subheading"> Ethernet, Profibus, AS-Interface and Profinet on Siemens S7 PLC. </h4>
-                    <h4 class="subheading"> University of Zaragoza, Spain. </h4>
+                    <div class="timeline-body">
+                      <h4>2005</h4>
+                      <h4 class="subheading"> Industrial Networks. </h4>
+                      <h4 class="subheading"> Ethernet, Profibus, AS-Interface and Profinet on Siemens S7 PLC. </h4>
+                      <h4 class="subheading"> University of Zaragoza, Spain. </h4>
+                    </div>
                   </div>
                 </div>
                 <div class="line"></div>
@@ -322,7 +274,7 @@
                 <div class="line"></div>
               </li>
 
-              <li class="timeline-inverted">
+              <li>
                 <div class="timeline-image">
                   <img class="rounded-circle" src="../assets/img/samk.png" alt="" width="180" height="180">
                 </div>
@@ -358,7 +310,7 @@
                 <div class="line"></div>
               </li>
 
-              <li class="timeline-inverted">
+              <li>
                 <div class="timeline-image">
                   <img class="rounded-circle" src="../assets/img/qa_system_logo.jpeg" alt="" width="180" height="180">
                 </div>
@@ -391,7 +343,7 @@
               </li>
 
 
-              <li class="timeline-inverted">
+              <li>
                 <div class="timeline-image">
                   <img class="rounded-circle" src="../assets/img/visum_logo.png" alt="" width="180" height="180">
                 </div>
@@ -423,7 +375,7 @@
               </li>
 
 
-              <li class="timeline-inverted">
+              <li class=>
                 <div class="timeline-image">
                   <img class="rounded-circle" src="../assets/img/udacity_logo.png" alt="" width="180" height="180">
                 </div>
@@ -604,8 +556,9 @@
         </div>
         <div class="line"></div>
       </li>
+      
 
-      <li>
+      <li class="timeline-inverted">
         <div class="timeline-image">
           <img class="rounded-circle img-responsive" src="../assets/img/iaa_logo.jpeg" alt="">
         </div>
@@ -619,8 +572,9 @@
             <p>Reconstruction of High Energies using Cherenkov Telescope Arrays using Deeplearning.</p>
           </div>
         </div>
-    
+     
       </li>
+
     </ul>
   </div>
 </section><!-- End My Experience Section -->
@@ -864,7 +818,15 @@
             </div>
           </div>
 
-          
+          <!-- Optical Flow -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-cv" data-date-order="11">
+            <div class="portfolio-img"><img src="assets/img/optical_flow.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Total Variation: Optical Flow</h4>
+              <p>Computer Vision</p>
+              <a href="https://www.youtube.com/watch?v=iXgbpVPNmVw" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
+            </div>
+          </div>          
         </div>
 
       </div>

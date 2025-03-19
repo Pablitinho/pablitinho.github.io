@@ -4,14 +4,13 @@ layout: feed
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Hank Quinlan's Blog</title>
+ <title>Pablos's Blog</title>
  <link href="http://pablitinho.github.io/blog/atom.xml" rel="self"/>
  <link href="http://pablitinho.github.io/blog"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://pablitinho.github.io/blog</id>
  <author>
    <name>Dr. Pablo Guzman</name>
-   <email>xxx@gmail.com</email>
  </author>
 
  {% for post in site.posts %}

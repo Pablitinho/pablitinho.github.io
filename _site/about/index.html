@@ -36,25 +36,7 @@
   <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
 <style>
  
-    /* .timeline-panel {
-      font-size: 14px;  
-      padding: 15px; 
-      max-width: 500px; 
-      
-    } */
-/*     
-    .timeline-body {
-      line-height: 1.0;  
-    } */
-    /* .timeline li {
-      margin-bottom: 1px;  
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 50px;
-  
-    } */
+
     .timeline-image {
       width: 180px;  
       height: 180px;
@@ -73,45 +55,10 @@
         object-fit: cover;  
         border-radius: 50%;
     }
-    /* ul.timeline {
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        position: relative;  
-        padding: 0;
-    } */
+  
   
     </style>
-
-  <!-- <style>
-    /* Cuando el dispositivo está en modo portrait, mostrar mensaje */
-    @media screen and (orientation: portrait) {
-        #rotate-message {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
-            color: white;
-            text-align: center;
-            font-size: 1.5rem;
-            width: 100%;
-        }
-        #content {
-            display: none;
-        }
-    }
-    
-    /* Cuando el dispositivo está en landscape, ocultar el mensaje y mostrar el contenido */
-    @media screen and (orientation: landscape) {
-        #rotate-message {
-            display: none;
-        }
-        #content {
-            display: block;
-        }
-    }
-    </style> -->
+ 
 </head>
 <header id = "header" class="fixed-top  d-flex justify-content-center align-items-center">
   <nav class="nav-menu d-none d-lg-block">
@@ -125,6 +72,9 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <!-- <li><a href="/notes">Notes</a></li> -->
           <li><a href="#contact">Contact</a></li>
+
+          <!-- <li><a href="/blog/">Blog</a></li> -->
+
           <!-- <li><a href="#resume">Resume</a></li> -->
 
         </ul>
@@ -162,6 +112,18 @@
 
 <!-- Template Main JS File -->
 <script src="../assets/js/main.js"></script>
-</body>
+<script>
+      window.addEventListener('resize', function() {
+          var portfolioFilters = document.querySelector('#portfolio-flters');
+          if (portfolioFilters) { // Verifica si el elemento existe
+              if (window.innerWidth <= 992) {
+                  portfolioFilters.classList.add('responsive');
+              } else {
+                  portfolioFilters.classList.remove('responsive');
+              }
+          }
+      });
+    </script>    
+  </body>
 
 </html>
