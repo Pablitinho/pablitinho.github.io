@@ -744,3 +744,18 @@ html, body { overflow-x: hidden; }
 .play-button { position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; background: url("https://cdn2.iconfinder.com/data/icons/social-icons-color/512/youtube-64.png") no-repeat center center; background-size: contain; transform: translate(-50%, -50%); opacity: 0.8; }
 
 .play-button:hover { opacity: 1; }
+
+/* Estilo base para el hidden-list */
+.hidden-list { display: none; position: absolute; top: 100%; /* Aparece justo debajo del timeline-panel */ left: 50%; /* Centrado horizontalmente */ transform: translateX(-50%); /* Ajuste fino para centrar */ background-color: #f9f9f9; border: 1px solid #ccc; padding: 15px; /* Aumenta el padding para más espacio interno */ border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; /* Asegura que esté por encima de otros elementos */ margin-top: 10px; /* Espacio entre el timeline-panel y la lista */ width: 450px; /* Ancho fijo para la caja de texto */ max-width: 90%; /* Limita el ancho máximo para pantallas pequeñas */ box-sizing: border-box; /* Incluye padding y border en el ancho total */ }
+
+/* Mostrar la lista cuando se pasa el ratón por encima del timeline-panel */
+.timeline-panel:hover .hidden-list { display: block; }
+
+/* Estilo para el timeline-panel */
+.timeline-panel { position: relative; /* Necesario para posicionar correctamente el hidden-list */ cursor: pointer; /* Cambia el cursor al pasar por encima */ }
+
+/* Asegura que el timeline-image no interfiera con el texto emergente */
+.timeline-image { position: relative; z-index: 1; /* Menor que el z-index del hidden-list */ }
+
+/* Ajuste para los párrafos dentro del hidden-list */
+.hidden-list p { margin-bottom: 10px; /* Espacio entre párrafos */ text-align: left; /* Asegura que el texto esté alineado a la izquierda */ }
