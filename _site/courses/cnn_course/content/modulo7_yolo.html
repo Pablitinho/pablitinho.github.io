@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo7_yolo.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo7_yolo.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo7_yolo.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-7-arquitecturas-para-detección-de-objetos">Módulo 7: Arquitecturas para Detección de Objetos</h1>
+
+<h2 id="lección-1-yolo-you-only-look-once">Lección 1: YOLO (You Only Look Once)</h2>
+
+<h3 id="introducción-a-yolo">Introducción a YOLO</h3>
+
+<p>YOLO (You Only Look Once) representa una revolución en el campo de la detección de objetos en imágenes. Introducida por Joseph Redmon y sus colaboradores en 2015, esta familia de arquitecturas transformó radicalmente el enfoque para la detección de objetos, pasando de los tradicionales métodos de dos etapas a un paradigma de una sola etapa que permite detección en tiempo real.</p>
+
+<p>A diferencia de los enfoques anteriores como R-CNN y sus variantes, que primero generaban regiones de interés y luego clasificaban cada región, YOLO reformula la detección de objetos como un único problema de regresión. La red procesa la imagen completa en una sola pasada, prediciendo simultáneamente múltiples cuadros delimitadores y las probabilidades de clase para cada cuadro. Este enfoque unificado es el origen del nombre “You Only Look Once” (Solo Miras Una Vez).</p>
+
+<p>La innovación clave de YOLO radica en su capacidad para considerar el contexto global de la imagen al hacer predicciones, lo que le permite aprender representaciones generalizables de los objetos. Esto, combinado con su arquitectura eficiente, permite que YOLO alcance velocidades de inferencia significativamente mayores que los métodos anteriores, posibilitando aplicaciones en tiempo real.</p>
+
+<p>Desde su introducción, YOLO ha evolucionado a través de múltiples versiones (v1, v2, v3, v4, v5, v6, v7, v8), cada una mejorando aspectos específicos de precisión, velocidad o facilidad de uso. Esta familia de modelos ha tenido un impacto profundo tanto en la investigación académica como en aplicaciones industriales, estableciendo nuevos estándares para el equilibrio entre velocidad y precisión en detección de objetos.</p>
+
+<h3 id="yolo-enfoque-de-una-etapa">YOLO: Enfoque de Una Etapa</h3>
+
+<p>El paradigma de detección en una sola etapa es la característica definitoria de YOLO, distinguiéndolo fundamentalmente de los enfoques anteriores de dos etapas.</p>
+
+<h4 id="enfoques-tradicionales-de-dos-etapas">Enfoques Tradicionales de Dos Etapas</h4>
+
+<p>Antes de YOLO, los detectores de objetos dominantes seguían un proceso de dos etapas:</p>
+
+<ol>
+  <li><strong>Generación de Propuestas de Región</strong>:
+    <ul>
+      <li>Algoritmos como Selective Search o Region Proposal Network (RPN) generaban regiones candidatas que podrían contener objetos</li>
+      <li>Típicamente se generaban miles de propuestas por imagen</li>
+    </ul>
+  </li>
+  <li><strong>Clasificación y Refinamiento</strong>:
+    <ul>
+      <li>Cada región propuesta se procesaba independientemente</li>
+      <li>Una CNN clasificaba la región y refinaba las coordenadas del cuadro delimitador</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Este enfoque, ejemplificado por la familia R-CNN (R-CNN, Fast R-CNN, Faster R-CNN), era preciso pero computacionalmente costoso y lento, con múltiples componentes que debían entrenarse por separado o mediante esquemas complejos.</p>
+
+<h4 id="el-paradigma-yolo">El Paradigma YOLO</h4>
+
+<p>YOLO reformula radicalmente la detección de objetos como un único problema de regresión:</p>
+
+<ol>
+  <li><strong>Procesamiento Unificado</strong>:
+    <ul>
+      <li>La imagen completa se procesa en una sola pasada a través de una única red neuronal</li>
+      <li>No hay etapa separada de propuestas de región</li>
+    </ul>
+  </li>
+  <li><strong>Predicción Simultánea</strong>:
+    <ul>
+      <li>La red predice directamente todos los cuadros delimitadores y sus clases</li>
+      <li>Todas las predicciones se generan simultáneamente como salidas de la misma red</li>
+    </ul>
+  </li>
+  <li><strong>División en Cuadrícula</strong>:
+    <ul>
+      <li>La imagen se divide en una cuadrícula S×S (por ejemplo, 7×7 en YOLOv1)</li>
+      <li>Cada celda de la cuadrícula es responsable de predecir objetos cuyo centro cae dentro de ella</li>
+    </ul>
+  </li>
+  <li><strong>Predicciones por Celda</strong>:
+    <ul>
+      <li>Cada celda predice B cuadros delimitadores (por ejemplo, B=2 en YOLOv1)</li>
+      <li>Cada predicción incluye: coordenadas (x, y, w, h), confianza y probabilidades de clase</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="ventajas-del-enfoque-de-una-etapa">Ventajas del Enfoque de Una Etapa</h4>
+
+<p>El paradigma de una sola etapa de YOLO ofrece varias ventajas significativas:</p>
+
+<ol>
+  <li>
+    <p><strong>Velocidad</strong>: Al eliminar la etapa de propuestas y procesar la imagen completa en una pasada, YOLO es órdenes de magnitud más rápido que los detectores de dos etapas.</p>
+  </li>
+  <li>
+    <p><strong>Contexto Global</strong>: Al “ver” la imagen completa, YOLO puede utilizar información contextual para sus predicciones, reduciendo los falsos positivos en fondos.</p>
+  </li>
+  <li>
+    <p><strong>Generalización</strong>: Aprende representaciones generalizables de los objetos, permitiendo mejor transferencia a nuevos dominios o datos no vistos.</p>
+  </li>
+  <li>
+    <p><strong>Entrenamiento de Extremo a Extremo</strong>: Toda la red puede entrenarse conjuntamente con una función de pérdida unificada, simplificando el proceso de entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Arquitectura Unificada</strong>: No requiere componentes separados o pipelines complejos, facilitando la implementación y despliegue.</p>
+  </li>
+</ol>
+
+<h4 id="desafíos-iniciales">Desafíos Iniciales</h4>
+
+<p>A pesar de sus ventajas, las primeras versiones de YOLO enfrentaban algunos desafíos:</p>
+
+<ol>
+  <li>
+    <p><strong>Precisión Espacial</strong>: Menor precisión en la localización de objetos comparado con métodos de dos etapas.</p>
+  </li>
+  <li>
+    <p><strong>Objetos Pequeños</strong>: Dificultad para detectar objetos pequeños o agrupados.</p>
+  </li>
+  <li>
+    <p><strong>Generalización a Nuevas Proporciones</strong>: Limitaciones al generalizar a objetos con proporciones inusuales o no vistas durante el entrenamiento.</p>
+  </li>
+</ol>
+
+<p>Estos desafíos fueron abordados progresivamente en versiones posteriores de YOLO.</p>
+
+<h3 id="evolución-yolov1-a-yolov8">Evolución: YOLOv1 a YOLOv8</h3>
+
+<p>La familia YOLO ha evolucionado significativamente desde su introducción, con cada versión abordando limitaciones específicas y mejorando el rendimiento general.</p>
+
+<h4 id="yolov1-2015">YOLOv1 (2015)</h4>
+
+<p>La versión original introdujo el paradigma fundamental:</p>
+
+<ol>
+  <li><strong>Arquitectura</strong>:
+    <ul>
+      <li>Inspirada en GoogLeNet, con 24 capas convolucionales seguidas de 2 capas completamente conectadas</li>
+      <li>División de la imagen en cuadrícula 7×7</li>
+      <li>Cada celda predice 2 cuadros delimitadores y 20 probabilidades de clase (para PASCAL VOC)</li>
+    </ul>
+  </li>
+  <li><strong>Innovaciones</strong>:
+    <ul>
+      <li>Primera implementación del enfoque de detección en una sola etapa</li>
+      <li>Función de pérdida unificada que balanceaba localización, confianza y clasificación</li>
+      <li>Entrenamiento con imágenes completas</li>
+    </ul>
+  </li>
+  <li><strong>Rendimiento</strong>:
+    <ul>
+      <li>45 FPS en GPU Titan X</li>
+      <li>63.4 mAP en PASCAL VOC 2007 (significativamente menor que Faster R-CNN)</li>
+    </ul>
+  </li>
+  <li><strong>Limitaciones</strong>:
+    <ul>
+      <li>Dificultad con objetos pequeños y agrupados</li>
+      <li>Precisión de localización limitada</li>
+      <li>Estructura de predicción rígida</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="yolov2--yolo9000-2016">YOLOv2 / YOLO9000 (2016)</h4>
+
+<p>Mejoró significativamente la precisión manteniendo la velocidad:</p>
+
+<ol>
+  <li><strong>Mejoras Arquitectónicas</strong>:
+    <ul>
+      <li>Batch Normalization en todas las capas convolucionales</li>
+      <li>Clasificador de mayor resolución (224×224 → 448×448)</li>
+      <li>Eliminación de capas completamente conectadas, usando anchor boxes predefinidos</li>
+    </ul>
+  </li>
+  <li><strong>Innovaciones</strong>:
+    <ul>
+      <li>Anchor boxes (cajas de anclaje) para mejorar predicciones de forma</li>
+      <li>Dimensionality clusters: agrupamiento k-means de dimensiones de cajas para seleccionar mejores anchors</li>
+      <li>Fine-grained features: conexiones de características de resolución más alta</li>
+      <li>Multi-scale training: entrenamiento con múltiples resoluciones</li>
+    </ul>
+  </li>
+  <li><strong>YOLO9000</strong>:
+    <ul>
+      <li>Capacidad para detectar más de 9,000 categorías de objetos</li>
+      <li>Entrenamiento jerárquico conjunto con datos de detección y clasificación</li>
+      <li>Uso de WordTree para combinar conjuntos de datos</li>
+    </ul>
+  </li>
+  <li><strong>Rendimiento</strong>:
+    <ul>
+      <li>67 FPS en GPU Titan X</li>
+      <li>78.6 mAP en PASCAL VOC 2007</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="yolov3-2018">YOLOv3 (2018)</h4>
+
+<p>Refinó la arquitectura para mejorar la detección de objetos pequeños:</p>
+
+<ol>
+  <li><strong>Mejoras Arquitectónicas</strong>:
+    <ul>
+      <li>Backbone Darknet-53 con conexiones residuales</li>
+      <li>Predicciones a tres escalas diferentes (similar a Feature Pyramid Network)</li>
+      <li>Más anchor boxes (9 en total, 3 por escala)</li>
+    </ul>
+  </li>
+  <li><strong>Innovaciones</strong>:
+    <ul>
+      <li>Predicción multi-escala para mejor detección de objetos de diferentes tamaños</li>
+      <li>Mejor extractor de características con conexiones residuales</li>
+      <li>Predicción de clase con sigmoid independiente en lugar de softmax (para datasets con clases no mutuamente excluyentes)</li>
+    </ul>
+  </li>
+  <li><strong>Rendimiento</strong>:
+    <ul>
+      <li>30 FPS en GPU Titan X (versión completa)</li>
+      <li>57.9 AP50 en COCO (comparable a SSD pero 3× más rápido)</li>
+    </ul>
+  </li>
+  <li><strong>Características</strong>:
+    <ul>
+      <li>Mejor equilibrio entre precisión y velocidad</li>
+      <li>Ampliamente adoptado en aplicaciones industriales</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="yolov4-2020">YOLOv4 (2020)</h4>
+
+<p>Optimizó tanto la precisión como la velocidad para GPUs accesibles:</p>
+
+<ol>
+  <li><strong>Mejoras Arquitectónicas</strong>:
+    <ul>
+      <li>Backbone CSPDarknet53</li>
+      <li>Neck PANet</li>
+      <li>Head YOLOv3</li>
+    </ul>
+  </li>
+  <li><strong>Innovaciones</strong>:
+    <ul>
+      <li>Bag of Freebies (BoF): mejoras que no aumentan el costo de inferencia
+        <ul>
+          <li>Data augmentation avanzado (Mosaic, CutMix, etc.)</li>
+          <li>Regularización (Dropblock, etc.)</li>
+        </ul>
+      </li>
+      <li>Bag of Specials (BoS): módulos que incrementan ligeramente la latencia pero mejoran significativamente la precisión
+        <ul>
+          <li>Activación Mish</li>
+          <li>SPP (Spatial Pyramid Pooling)</li>
+          <li>SAM (Spatial Attention Module)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Rendimiento</strong>:
+    <ul>
+      <li>62 FPS en GPU Tesla V100</li>
+      <li>43.5 AP en COCO (estado del arte en su momento)</li>
+    </ul>
+  </li>
+  <li><strong>Enfoque</strong>:
+    <ul>
+      <li>Optimizado para entrenamiento en una sola GPU</li>
+      <li>Énfasis en técnicas prácticas y eficientes</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="yolov5-2020">YOLOv5 (2020)</h4>
+
+<p>No es un paper académico sino una implementación de Ultralytics:</p>
+
+<ol>
+  <li><strong>Mejoras</strong>:
+    <ul>
+      <li>Implementación en PyTorch (versiones anteriores en Darknet)</li>
+      <li>Arquitectura similar a YOLOv4 pero con optimizaciones adicionales</li>
+      <li>Familia de modelos de diferentes tamaños (nano, small, medium, large, xlarge)</li>
+    </ul>
+  </li>
+  <li><strong>Características</strong>:
+    <ul>
+      <li>Pipeline de entrenamiento altamente optimizado</li>
+      <li>Exportación a múltiples formatos (ONNX, TensorRT, etc.)</li>
+      <li>Amplia documentación y facilidad de uso</li>
+    </ul>
+  </li>
+  <li><strong>Rendimiento</strong>:
+    <ul>
+      <li>Modelos escalables desde dispositivos móviles hasta servidores</li>
+      <li>Comparable o superior a YOLOv4 en precisión</li>
+    </ul>
+  </li>
+  <li><strong>Impacto</strong>:
+    <ul>
+      <li>Ampliamente adoptado en la industria debido a su facilidad de uso</li>
+      <li>Comunidad activa y desarrollo continuo</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="yolov6-v7-y-v8-2022-2023">YOLOv6, v7 y v8 (2022-2023)</h4>
+
+<p>Versiones más recientes con diversas mejoras:</p>
+
+<ol>
+  <li><strong>YOLOv6</strong> (por Meituan):
+    <ul>
+      <li>Arquitectura rediseñada para mejor equilibrio precisión-velocidad</li>
+      <li>Optimizado para despliegue en producción</li>
+      <li>Variantes para diferentes requisitos de latencia</li>
+    </ul>
+  </li>
+  <li><strong>YOLOv7</strong> (por los autores de YOLOv4):
+    <ul>
+      <li>Nuevas técnicas de entrenamiento y arquitectura</li>
+      <li>Estado del arte en precisión-velocidad</li>
+      <li>Extensiones para pose estimation y segmentación de instancias</li>
+    </ul>
+  </li>
+  <li><strong>YOLOv8</strong> (por Ultralytics):
+    <ul>
+      <li>Arquitectura modular para múltiples tareas (detección, segmentación, pose)</li>
+      <li>Nueva cabeza de detección sin anchor</li>
+      <li>API unificada y facilidad de uso mejorada</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Estas versiones recientes reflejan la continua evolución y refinamiento del paradigma YOLO, cada una con enfoques ligeramente diferentes pero manteniendo el principio fundamental de detección en una sola etapa.</p>
+
+<h3 id="arquitectura-detallada-de-yolov3">Arquitectura Detallada de YOLOv3</h3>
+
+<p>YOLOv3 representa un punto de equilibrio en la evolución de YOLO, con una arquitectura que ha sido ampliamente adoptada y que sentó las bases para versiones posteriores.</p>
+
+<h4 id="backbone-darknet-53">Backbone: Darknet-53</h4>
+
+<p>El extractor de características de YOLOv3 es Darknet-53:</p>
+
+<ol>
+  <li><strong>Estructura</strong>:
+    <ul>
+      <li>53 capas convolucionales (de ahí el nombre)</li>
+      <li>Inspirado en ResNet, con conexiones residuales</li>
+      <li>Sin capas de pooling, usando convoluciones con stride=2 para reducir resolución</li>
+    </ul>
+  </li>
+  <li><strong>Bloques Residuales</strong>:
+    <ul>
+      <li>Similar a ResNet, pero más eficiente</li>
+      <li>Típicamente: convolución 1×1 seguida de convolución 3×3, con conexión residual</li>
+    </ul>
+  </li>
+  <li><strong>Rendimiento</strong>:
+    <ul>
+      <li>Más potente que ResNet-101 pero 1.5× más rápido</li>
+      <li>Más eficiente que ResNet-152 con precisión comparable</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="detección-multi-escala">Detección Multi-escala</h4>
+
+<p>YOLOv3 predice objetos a tres escalas diferentes:</p>
+
+<ol>
+  <li><strong>Escalas de Predicción</strong>:
+    <ul>
+      <li>Grande: para objetos grandes (stride 32)</li>
+      <li>Media: para objetos medianos (stride 16)</li>
+      <li>Pequeña: para objetos pequeños (stride 8)</li>
+    </ul>
+  </li>
+  <li><strong>Arquitectura Piramidal</strong>:
+    <ul>
+      <li>Similar a Feature Pyramid Network (FPN)</li>
+      <li>Características de resolución más alta se combinan con características upsampled de capas más profundas</li>
+      <li>Permite detectar objetos de diferentes tamaños efectivamente</li>
+    </ul>
+  </li>
+  <li><strong>Implementación</strong>:
+    <ul>
+      <li>Predicciones iniciales en la capa más profunda</li>
+      <li>Upsampling y concatenación con mapas de características de resolución más alta</li>
+      <li>Convoluciones adicionales y nueva predicción</li>
+      <li>Repetición del proceso para la escala más fina</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="predicción-de-cuadros-delimitadores">Predicción de Cuadros Delimitadores</h4>
+
+<p>El mecanismo de predicción en YOLOv3:</p>
+
+<ol>
+  <li><strong>Anchor Boxes</strong>:
+    <ul>
+      <li>9 anchor boxes predefinidos (3 por escala)</li>
+      <li>Dimensiones determinadas por k-means clustering en el conjunto de entrenamiento</li>
+      <li>Diferentes proporciones y tamaños para capturar diversas formas de objetos</li>
+    </ul>
+  </li>
+  <li><strong>Formato de Predicción</strong>:
+    <ul>
+      <li>Para cada anchor box, la red predice:
+        <ul>
+          <li>Desplazamientos tx, ty (relativos a la celda de la cuadrícula)</li>
+          <li>Escalas tw, th (relativas al anchor)</li>
+          <li>Confianza de objetividad (probabilidad de contener un objeto)</li>
+          <li>Probabilidades de clase (usando sigmoid independiente)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Transformación Final</strong>:
+    <ul>
+      <li>Las predicciones se transforman en coordenadas absolutas:
+        <ul>
+          <li>bx = σ(tx) + cx (donde cx es la coordenada x de la celda)</li>
+          <li>by = σ(ty) + cy</li>
+          <li>bw = pw * e^tw (donde pw es el ancho del anchor)</li>
+          <li>bh = ph * e^th</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Non-Maximum Suppression (NMS)</strong>:
+    <ul>
+      <li>Post-procesamiento para eliminar predicciones redundantes</li>
+      <li>Basado en IoU (Intersection over Union) y confianza</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="función-de-pérdida">Función de Pérdida</h4>
+
+<p>YOLOv3 utiliza una función de pérdida compuesta:</p>
+
+<ol>
+  <li><strong>Pérdida de Localización</strong>:
+    <ul>
+      <li>Error cuadrático medio para las coordenadas del centro (x, y)</li>
+      <li>Error cuadrático medio para las dimensiones (ancho, alto)</li>
+      <li>Solo se aplica a los anchors “responsables” (los que mejor coinciden con la verdad)</li>
+    </ul>
+  </li>
+  <li><strong>Pérdida de Objetividad</strong>:
+    <ul>
+      <li>Entropía cruzada binaria para la predicción de confianza</li>
+      <li>Penalización diferente para cajas con y sin objetos (para manejar el desbalance)</li>
+    </ul>
+  </li>
+  <li><strong>Pérdida de Clasificación</strong>:
+    <ul>
+      <li>Entropía cruzada binaria para cada clase</li>
+      <li>Permite clasificación multi-etiqueta (un objeto puede pertenecer a múltiples clases)</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="comparativa-de-velocidad-y-precisión">Comparativa de Velocidad y Precisión</h3>
+
+<p>Una de las contribuciones más significativas de YOLO ha sido establecer nuevos estándares en el equilibrio entre velocidad y precisión.</p>
+
+<h4 id="métricas-de-evaluación">Métricas de Evaluación</h4>
+
+<p>Para entender las comparativas, es importante comprender las métricas utilizadas:</p>
+
+<ol>
+  <li><strong>mAP (mean Average Precision)</strong>:
+    <ul>
+      <li>Promedio de la precisión media para cada clase</li>
+      <li>Típicamente evaluado a diferentes umbrales de IoU</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>AP50</strong>: AP con umbral IoU de 0.5 (menos estricto)</p>
+  </li>
+  <li>
+    <p><strong>AP (o AP75)</strong>: AP con umbral IoU de 0.75 (más estricto)</p>
+  </li>
+  <li><strong>FPS (Frames Per Second)</strong>:
+    <ul>
+      <li>Medida de velocidad de inferencia</li>
+      <li>Varía según hardware, implementación y tamaño de entrada</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="evolución-del-rendimiento">Evolución del Rendimiento</h4>
+
+<p>La evolución de YOLO muestra mejoras consistentes en precisión manteniendo alta velocidad:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>AP50 (COCO)</th>
+      <th>AP (COCO)</th>
+      <th>FPS (Titan X)</th>
+      <th>Parámetros</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>YOLOv1</td>
+      <td>52.7%</td>
+      <td>-</td>
+      <td>45</td>
+      <td>60M</td>
+    </tr>
+    <tr>
+      <td>YOLOv2</td>
+      <td>65.7%</td>
+      <td>31.0%</td>
+      <td>67</td>
+      <td>50M</td>
+    </tr>
+    <tr>
+      <td>YOLOv3</td>
+      <td>57.9%</td>
+      <td>33.0%</td>
+      <td>30</td>
+      <td>62M</td>
+    </tr>
+    <tr>
+      <td>YOLOv4</td>
+      <td>64.9%</td>
+      <td>43.5%</td>
+      <td>62*</td>
+      <td>64M</td>
+    </tr>
+    <tr>
+      <td>YOLOv5-L</td>
+      <td>67.3%</td>
+      <td>50.1%</td>
+      <td>45*</td>
+      <td>47M</td>
+    </tr>
+    <tr>
+      <td>YOLOv8-L</td>
+      <td>69.2%</td>
+      <td>53.9%</td>
+      <td>60*</td>
+      <td>44M</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*FPS en hardware comparable pero no idéntico</p>
+
+<h4 id="comparativa-con-otros-detectores">Comparativa con Otros Detectores</h4>
+
+<p>YOLO estableció un nuevo paradigma en el espacio precisión-velocidad:</p>
+
+<ol>
+  <li><strong>vs. Detectores de Dos Etapas</strong>:
+    <ul>
+      <li>Faster R-CNN: Mayor precisión pero 5-10× más lento</li>
+      <li>Mask R-CNN: Capacidades adicionales (segmentación) pero menor velocidad</li>
+    </ul>
+  </li>
+  <li><strong>vs. Otros Detectores de Una Etapa</strong>:
+    <ul>
+      <li>SSD: Comparable en velocidad pero menor precisión</li>
+      <li>RetinaNet: Mayor precisión pero menor velocidad</li>
+      <li>EfficientDet: Buen equilibrio pero generalmente más lento que YOLO</li>
+    </ul>
+  </li>
+  <li><strong>Tendencia General</strong>:
+    <ul>
+      <li>YOLO consistentemente ofrece el mejor equilibrio velocidad-precisión</li>
+      <li>Versiones recientes de YOLO han cerrado significativamente la brecha de precisión con detectores de dos etapas</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="implementación-simplificada-de-yolov3">Implementación Simplificada de YOLOv3</h3>
+
+<p>A continuación, se presenta una implementación conceptual simplificada de YOLOv3 utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">darknet53_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">):</span>
+    <span class="s">"""
+    Bloque residual de Darknet-53
+    
+    Args:
+        x: Tensor de entrada
+        filters: Número de filtros
+    
+    Returns:
+        Tensor de salida del bloque
+    """</span>
+    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>
+    
+    <span class="c1"># 1x1 conv para reducir canales
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># 3x3 conv
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Conexión residual
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Add</span><span class="p">()([</span><span class="n">shortcut</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">darknet53</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">416</span><span class="p">,</span> <span class="mi">416</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
+    <span class="s">"""
+    Backbone Darknet-53 para YOLOv3
+    
+    Args:
+        input_shape: Forma del tensor de entrada
+    
+    Returns:
+        Modelo Darknet-53 con salidas de múltiples escalas
+    """</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    
+    <span class="c1"># Primera capa convolucional
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Downsample 1: 416x416 -&gt; 208x208
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Bloque residual
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">darknet53_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+    
+    <span class="c1"># Downsample 2: 208x208 -&gt; 104x104
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Bloques residuales
+</span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">darknet53_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+    
+    <span class="c1"># Downsample 3: 104x104 -&gt; 52x52
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Bloques residuales
+</span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">darknet53_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+    
+    <span class="c1"># Guardar salida para escala pequeña (52x52)
+</span>    <span class="n">small_scale</span> <span class="o">=</span> <span class="n">x</span>
+    
+    <span class="c1"># Downsample 4: 52x52 -&gt; 26x26
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Bloques residuales
+</span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">darknet53_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+    
+    <span class="c1"># Guardar salida para escala media (26x26)
+</span>    <span class="n">medium_scale</span> <span class="o">=</span> <span class="n">x</span>
+    
+    <span class="c1"># Downsample 5: 26x26 -&gt; 13x13
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Bloques residuales
+</span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">darknet53_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+    
+    <span class="c1"># Salida para escala grande (13x13)
+</span>    <span class="n">large_scale</span> <span class="o">=</span> <span class="n">x</span>
+    
+    <span class="k">return</span> <span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="p">[</span><span class="n">small_scale</span><span class="p">,</span> <span class="n">medium_scale</span><span class="p">,</span> <span class="n">large_scale</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">yolo_head</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_anchors</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">):</span>
+    <span class="s">"""
+    Cabeza de detección YOLO
+    
+    Args:
+        x: Tensor de entrada
+        num_anchors: Número de anchors por celda
+        num_classes: Número de clases
+    
+    Returns:
+        Tensor de salida con predicciones
+    """</span>
+    <span class="c1"># Cada predicción incluye: tx, ty, tw, th, objectness, class_probs
+</span>    <span class="n">num_outputs</span> <span class="o">=</span> <span class="n">num_anchors</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="n">num_classes</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Capa final de predicción
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">num_outputs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">create_yolov3</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">416</span><span class="p">,</span> <span class="mi">416</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
+    <span class="s">"""
+    Crea un modelo YOLOv3
+    
+    Args:
+        input_shape: Forma del tensor de entrada
+        num_classes: Número de clases
+    
+    Returns:
+        Modelo YOLOv3
+    """</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    
+    <span class="c1"># Backbone Darknet-53
+</span>    <span class="n">small</span><span class="p">,</span> <span class="n">medium</span><span class="p">,</span> <span class="n">large</span> <span class="o">=</span> <span class="n">darknet53</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    
+    <span class="c1"># Predicciones para escala grande (13x13)
+</span>    <span class="n">x_large</span> <span class="o">=</span> <span class="n">yolo_head</span><span class="p">(</span><span class="n">large</span><span class="p">,</span> <span class="n">num_anchors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
+    
+    <span class="c1"># Procesamiento para escala media
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">large</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">UpSampling2D</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Concatenate</span><span class="p">()([</span><span class="n">x</span><span class="p">,</span> <span class="n">medium</span><span class="p">])</span>
+    
+    <span class="c1"># Predicciones para escala media (26x26)
+</span>    <span class="n">x_medium</span> <span class="o">=</span> <span class="n">yolo_head</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_anchors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
+    
+    <span class="c1"># Procesamiento para escala pequeña
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">UpSampling2D</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Concatenate</span><span class="p">()([</span><span class="n">x</span><span class="p">,</span> <span class="n">small</span><span class="p">])</span>
+    
+    <span class="c1"># Predicciones para escala pequeña (52x52)
+</span>    <span class="n">x_small</span> <span class="o">=</span> <span class="n">yolo_head</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_anchors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="p">[</span><span class="n">x_large</span><span class="p">,</span> <span class="n">x_medium</span><span class="p">,</span> <span class="n">x_small</span><span class="p">])</span>
+
+<span class="c1"># Crear YOLOv3
+</span><span class="n">yolov3</span> <span class="o">=</span> <span class="n">create_yolov3</span><span class="p">()</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="k">print</span><span class="p">(</span><span class="s">"YOLOv3 Summary:"</span><span class="p">)</span>
+<span class="n">yolov3</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Esta implementación simplificada captura los elementos esenciales de YOLOv3, incluyendo el backbone Darknet-53, la detección multi-escala y la estructura de la cabeza de detección.</p>
+
+<h3 id="aplicaciones-prácticas-de-yolo">Aplicaciones Prácticas de YOLO</h3>
+
+<p>YOLO ha encontrado aplicación en una amplia gama de dominios debido a su equilibrio entre velocidad y precisión.</p>
+
+<h4 id="vigilancia-y-seguridad">Vigilancia y Seguridad</h4>
+
+<ol>
+  <li><strong>Monitoreo en Tiempo Real</strong>:
+    <ul>
+      <li>Detección de intrusos</li>
+      <li>Seguimiento de personas</li>
+      <li>Análisis de comportamiento</li>
+    </ul>
+  </li>
+  <li><strong>Control de Acceso</strong>:
+    <ul>
+      <li>Reconocimiento facial combinado con detección</li>
+      <li>Detección de objetos prohibidos</li>
+      <li>Conteo de personas</li>
+    </ul>
+  </li>
+  <li><strong>Seguridad Vial</strong>:
+    <ul>
+      <li>Detección de infracciones de tráfico</li>
+      <li>Monitoreo de intersecciones</li>
+      <li>Análisis de flujo de tráfico</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="vehículos-autónomos-y-adas">Vehículos Autónomos y ADAS</h4>
+
+<ol>
+  <li><strong>Percepción del Entorno</strong>:
+    <ul>
+      <li>Detección de vehículos, peatones, ciclistas</li>
+      <li>Reconocimiento de señales de tráfico</li>
+      <li>Detección de obstáculos</li>
+    </ul>
+  </li>
+  <li><strong>Sistemas de Asistencia</strong>:
+    <ul>
+      <li>Frenado de emergencia</li>
+      <li>Advertencia de colisión</li>
+      <li>Asistencia de mantenimiento de carril</li>
+    </ul>
+  </li>
+  <li><strong>Estacionamiento Autónomo</strong>:
+    <ul>
+      <li>Detección de espacios de estacionamiento</li>
+      <li>Identificación de obstáculos</li>
+      <li>Guía de maniobras</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="retail-y-análisis-de-consumidor">Retail y Análisis de Consumidor</h4>
+
+<ol>
+  <li><strong>Análisis de Tienda</strong>:
+    <ul>
+      <li>Seguimiento de patrones de compra</li>
+      <li>Análisis de flujo de clientes</li>
+      <li>Detección de productos agotados</li>
+    </ul>
+  </li>
+  <li><strong>Experiencia de Cliente</strong>:
+    <ul>
+      <li>Sistemas de checkout automático</li>
+      <li>Recomendaciones basadas en interacciones</li>
+      <li>Probadores virtuales</li>
+    </ul>
+  </li>
+  <li><strong>Prevención de Pérdidas</strong>:
+    <ul>
+      <li>Detección de comportamientos sospechosos</li>
+      <li>Monitoreo de inventario</li>
+      <li>Identificación de robos</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="aplicaciones-médicas">Aplicaciones Médicas</h4>
+
+<ol>
+  <li><strong>Análisis de Imágenes Médicas</strong>:
+    <ul>
+      <li>Detección de anomalías en radiografías</li>
+      <li>Localización de tumores</li>
+      <li>Cuantificación de estructuras anatómicas</li>
+    </ul>
+  </li>
+  <li><strong>Asistencia Quirúrgica</strong>:
+    <ul>
+      <li>Identificación de instrumentos</li>
+      <li>Guía de procedimientos</li>
+      <li>Monitoreo de campo quirúrgico</li>
+    </ul>
+  </li>
+  <li><strong>Monitoreo de Pacientes</strong>:
+    <ul>
+      <li>Detección de caídas</li>
+      <li>Análisis de movilidad</li>
+      <li>Monitoreo de comportamiento</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="agricultura-y-medio-ambiente">Agricultura y Medio Ambiente</h4>
+
+<ol>
+  <li><strong>Agricultura de Precisión</strong>:
+    <ul>
+      <li>Detección de cultivos y malezas</li>
+      <li>Monitoreo de ganado</li>
+      <li>Identificación de plagas</li>
+    </ul>
+  </li>
+  <li><strong>Conservación</strong>:
+    <ul>
+      <li>Conteo de especies animales</li>
+      <li>Monitoreo de deforestación</li>
+      <li>Detección de caza furtiva</li>
+    </ul>
+  </li>
+  <li><strong>Gestión de Desastres</strong>:
+    <ul>
+      <li>Evaluación de daños</li>
+      <li>Búsqueda y rescate</li>
+      <li>Monitoreo de incendios forestales</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="dispositivos-móviles-y-edge-computing">Dispositivos Móviles y Edge Computing</h4>
+
+<ol>
+  <li><strong>Aplicaciones Móviles</strong>:
+    <ul>
+      <li>Realidad aumentada</li>
+      <li>Fotografía computacional</li>
+      <li>Asistentes visuales</li>
+    </ul>
+  </li>
+  <li><strong>Dispositivos IoT</strong>:
+    <ul>
+      <li>Cámaras inteligentes</li>
+      <li>Sistemas de seguridad doméstica</li>
+      <li>Electrodomésticos inteligentes</li>
+    </ul>
+  </li>
+  <li><strong>Wearables</strong>:
+    <ul>
+      <li>Asistencia para personas con discapacidad visual</li>
+      <li>Monitoreo de actividad física</li>
+      <li>Interacción con el entorno</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="ventajas-y-limitaciones">Ventajas y Limitaciones</h3>
+
+<h4 id="ventajas-de-yolo">Ventajas de YOLO</h4>
+
+<ol>
+  <li>
+    <p><strong>Velocidad</strong>: Significativamente más rápido que detectores de dos etapas, permitiendo aplicaciones en tiempo real incluso en hardware limitado.</p>
+  </li>
+  <li>
+    <p><strong>Visión Global</strong>: Considera la imagen completa al hacer predicciones, lo que reduce falsos positivos en el fondo y mejora la comprensión contextual.</p>
+  </li>
+  <li>
+    <p><strong>Arquitectura Unificada</strong>: Entrenamiento de extremo a extremo con una única red, simplificando implementación y despliegue.</p>
+  </li>
+  <li>
+    <p><strong>Escalabilidad</strong>: Familia de modelos con diferentes equilibrios precisión-velocidad, desde versiones ligeras para móviles hasta modelos grandes para máxima precisión.</p>
+  </li>
+  <li>
+    <p><strong>Comunidad y Ecosistema</strong>: Amplia adopción, documentación extensa y numerosas implementaciones optimizadas disponibles.</p>
+  </li>
+  <li>
+    <p><strong>Versatilidad</strong>: Adaptable a diversas tareas más allá de la detección, como segmentación, pose estimation y tracking.</p>
+  </li>
+</ol>
+
+<h4 id="limitaciones-de-yolo">Limitaciones de YOLO</h4>
+
+<ol>
+  <li>
+    <p><strong>Objetos Pequeños</strong>: A pesar de mejoras en versiones recientes, sigue teniendo dificultades con objetos muy pequeños o densamente agrupados.</p>
+  </li>
+  <li>
+    <p><strong>Precisión vs. Detectores de Dos Etapas</strong>: Aunque la brecha se ha reducido, los detectores de dos etapas como Mask R-CNN siguen ofreciendo mayor precisión en ciertos escenarios.</p>
+  </li>
+  <li>
+    <p><strong>Objetos con Formas Inusuales</strong>: Puede tener dificultades con objetos de proporciones extremas o formas muy diferentes a las vistas durante el entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Transferencia entre Dominios</strong>: Requiere reentrenamiento o fine-tuning significativo para transferir a dominios visuales muy diferentes.</p>
+  </li>
+  <li>
+    <p><strong>Complejidad de Entrenamiento</strong>: Sensible a hiperparámetros y requiere estrategias específicas de entrenamiento para rendimiento óptimo.</p>
+  </li>
+  <li>
+    <p><strong>Variabilidad entre Implementaciones</strong>: Diferentes versiones e implementaciones pueden tener características y rendimiento significativamente diferentes.</p>
+  </li>
+</ol>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de YOLO en el campo de la detección de objetos y la visión por computadora ha sido profundo y duradero:</p>
+
+<ol>
+  <li>
+    <p><strong>Paradigma de Una Etapa</strong>: Estableció la viabilidad y efectividad de los detectores de una etapa, cambiando fundamentalmente el enfoque de la investigación en detección.</p>
+  </li>
+  <li>
+    <p><strong>Democratización de la Detección</strong>: Hizo posible la detección de objetos en tiempo real en hardware accesible, ampliando enormemente el rango de aplicaciones prácticas.</p>
+  </li>
+  <li>
+    <p><strong>Benchmark de Eficiencia</strong>: Estableció nuevos estándares para el equilibrio velocidad-precisión, contra los que se comparan nuevas arquitecturas.</p>
+  </li>
+  <li>
+    <p><strong>Evolución Continua</strong>: La familia YOLO ha demostrado notable longevidad, evolucionando continuamente para incorporar nuevas técnicas y mejorar rendimiento.</p>
+  </li>
+  <li>
+    <p><strong>Impacto Industrial</strong>: Ha sido ampliamente adoptado en aplicaciones comerciales, desde sistemas de seguridad hasta vehículos autónomos.</p>
+  </li>
+  <li>
+    <p><strong>Inspiración Arquitectónica</strong>: Ha influido en numerosas arquitecturas posteriores, tanto para detección como para otras tareas de visión.</p>
+  </li>
+</ol>
+
+<p>El paper original de YOLO ha acumulado más de 30,000 citas, y las versiones posteriores también han tenido impacto significativo, reflejando su influencia fundamental en el campo.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>YOLO representa una revolución en el campo de la detección de objetos, introduciendo un paradigma de una sola etapa que transformó fundamentalmente el equilibrio entre velocidad y precisión. Su enfoque unificado, que procesa la imagen completa en una sola pasada para predecir simultáneamente todos los cuadros delimitadores y sus clases, estableció nuevos estándares para aplicaciones en tiempo real.</p>
+
+<p>Desde su introducción en 2015, la familia YOLO ha evolucionado significativamente a través de múltiples versiones, cada una abordando limitaciones específicas y mejorando el rendimiento general. Esta evolución refleja tanto avances arquitectónicos como mejoras en estrategias de entrenamiento, resultando en modelos cada vez más precisos sin sacrificar la velocidad característica de YOLO.</p>
+
+<p>El impacto de YOLO trasciende su rendimiento técnico. Al hacer posible la detección de objetos en tiempo real en hardware accesible, ha democratizado esta tecnología y habilitado innumerables aplicaciones prácticas en dominios tan diversos como vigilancia, vehículos autónomos, retail, medicina y agricultura.</p>
+
+<p>El legado de YOLO perdura no solo en sus aplicaciones directas, sino en la influencia fundamental que ha ejercido en el diseño de arquitecturas posteriores. Su enfoque de una sola etapa, inicialmente controversial por sacrificar precisión por velocidad, ha demostrado ser un paradigma viable y efectivo que continúa evolucionando y definiendo el estado del arte en detección de objetos.</p>
+
+<p>En el próximo módulo, exploraremos el estado actual del arte y las tendencias emergentes en arquitecturas CNN, analizando cómo los principios y técnicas que hemos estudiado están evolucionando y combinándose con nuevos paradigmas como los transformers para crear la próxima generación de modelos de visión por computadora.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

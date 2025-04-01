@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo4_resnet.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo4_resnet.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo4_resnet.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-4-arquitecturas-residuales">Módulo 4: Arquitecturas Residuales</h1>
+
+<h2 id="lección-1-resnet-2015">Lección 1: ResNet (2015)</h2>
+
+<h3 id="introducción-a-resnet">Introducción a ResNet</h3>
+
+<p>ResNet (Residual Network) representa uno de los avances más significativos en la historia de las redes neuronales convolucionales. Desarrollada por Kaiming He, Xiangyu Zhang, Shaoqing Ren y Jian Sun de Microsoft Research, esta arquitectura revolucionaria ganó la competición ILSVRC-2015 con un error top-5 de solo 3.57%, superando por primera vez el rendimiento humano en la tarea de clasificación de imágenes.</p>
+
+<p>El problema fundamental que ResNet abordó fue el “desvanecimiento del gradiente” (vanishing gradient), que había limitado durante años la profundidad efectiva de las redes neuronales. Mientras que arquitecturas anteriores como VGG habían demostrado que aumentar la profundidad mejoraba el rendimiento hasta cierto punto, los investigadores observaron que añadir más capas eventualmente degradaba el rendimiento, incluso en el conjunto de entrenamiento. Esto contradecía la intuición de que una red más profunda debería, como mínimo, poder aprender la identidad para las capas adicionales.</p>
+
+<p>La innovación clave de ResNet fue la introducción de “conexiones residuales” o “skip connections”, que permiten que la información fluya directamente a través de varias capas. Esta simple pero poderosa idea permitió entrenar redes con profundidades sin precedentes (hasta 152 capas en la implementación original), estableciendo nuevos estándares de rendimiento en múltiples tareas de visión por computadora.</p>
+
+<h3 id="el-problema-del-desvanecimiento-del-gradiente">El Problema del Desvanecimiento del Gradiente</h3>
+
+<p>Para comprender la importancia de ResNet, es crucial entender el problema que resolvió: el desvanecimiento del gradiente en redes profundas.</p>
+
+<h4 id="manifestación-del-problema">Manifestación del Problema</h4>
+
+<p>Cuando una red neuronal se vuelve muy profunda (con muchas capas), surgen varios problemas durante el entrenamiento:</p>
+
+<ol>
+  <li>
+    <p><strong>Desvanecimiento del Gradiente</strong>: Durante la retropropagación, los gradientes se multiplican a través de las capas. Si estos valores son menores que 1, el gradiente se vuelve exponencialmente pequeño a medida que retrocede por la red, haciendo que las primeras capas aprendan extremadamente lento o no aprendan en absoluto.</p>
+  </li>
+  <li>
+    <p><strong>Explosión del Gradiente</strong>: El problema opuesto ocurre cuando los gradientes se amplifican, causando actualizaciones de peso inestables.</p>
+  </li>
+  <li>
+    <p><strong>Degradación del Rendimiento</strong>: Sorprendentemente, los investigadores observaron que añadir más capas a una red ya profunda resultaba en mayor error de entrenamiento, no solo de prueba. Esto no podía explicarse simplemente por el sobreajuste.</p>
+  </li>
+</ol>
+
+<h4 id="evidencia-experimental">Evidencia Experimental</h4>
+
+<p>Los autores de ResNet demostraron este fenómeno con un experimento revelador:</p>
+
+<ul>
+  <li>Una red de 20 capas alcanzaba mejor precisión que una red similar de 56 capas, tanto en entrenamiento como en prueba.</li>
+  <li>Esto contradecía la intuición de que una red más profunda debería poder, como mínimo, aprender la identidad para las capas adicionales y mantener el mismo rendimiento.</li>
+</ul>
+
+<p>La conclusión fue que las redes muy profundas son intrínsecamente más difíciles de optimizar, no debido a sobreajuste, sino a la dificultad fundamental de propagar señales relevantes a través de muchas capas.</p>
+
+<h3 id="concepto-de-conexiones-residuales">Concepto de Conexiones Residuales</h3>
+
+<p>La solución propuesta por ResNet fue sorprendentemente elegante: las conexiones residuales o skip connections.</p>
+
+<h4 id="principio-fundamental">Principio Fundamental</h4>
+
+<p>En lugar de esperar que cada secuencia de capas aprenda directamente una transformación deseada H(x), ResNet propone que aprendan la diferencia (residuo) entre la entrada y la salida deseada: F(x) = H(x) - x. Entonces, la función objetivo se reformula como H(x) = F(x) + x.</p>
+
+<p>Esta simple modificación tiene profundas implicaciones:</p>
+
+<ol>
+  <li>
+    <p><strong>Facilidad de Optimización</strong>: Si la transformación óptima está cerca de la identidad, es más fácil para la red aprender pequeños residuos (cercanos a cero) que aprender explícitamente la función identidad a través de múltiples capas no lineales.</p>
+  </li>
+  <li>
+    <p><strong>Flujo de Gradiente Mejorado</strong>: Las conexiones de atajo permiten que los gradientes fluyan directamente hacia atrás, mitigando el problema del desvanecimiento.</p>
+  </li>
+  <li>
+    <p><strong>Aprendizaje de Representaciones</strong>: La red puede elegir si utilizar o ignorar ciertas capas, dependiendo de la complejidad de la tarea, creando efectivamente una “profundidad adaptativa”.</p>
+  </li>
+</ol>
+
+<h4 id="implementación-práctica">Implementación Práctica</h4>
+
+<p>En la implementación original de ResNet, un bloque residual típico tiene la siguiente estructura:</p>
+
+<ol>
+  <li><strong>Camino Principal</strong>:
+    <ul>
+      <li>Capa Convolucional (3×3)</li>
+      <li>Normalización por Lotes (Batch Normalization)</li>
+      <li>Activación ReLU</li>
+      <li>Capa Convolucional (3×3)</li>
+      <li>Normalización por Lotes</li>
+    </ul>
+  </li>
+  <li><strong>Conexión de Atajo (Skip Connection)</strong>:
+    <ul>
+      <li>Conexión directa de la entrada a la salida (identidad)</li>
+      <li>En caso de cambio de dimensiones, se utiliza una convolución 1×1 con stride apropiado</li>
+    </ul>
+  </li>
+  <li><strong>Suma Elemento a Elemento</strong>:
+    <ul>
+      <li>Se suman las salidas del camino principal y la conexión de atajo</li>
+      <li>Se aplica ReLU después de la suma</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Esta estructura se repite múltiples veces para formar la red completa.</p>
+
+<h3 id="variantes-resnet-50-resnet-101-resnet-152">Variantes: ResNet-50, ResNet-101, ResNet-152</h3>
+
+<p>La familia original de ResNet incluía varias arquitecturas con diferentes profundidades, siendo las más conocidas ResNet-50, ResNet-101 y ResNet-152, donde el número indica la cantidad de capas con pesos entrenables.</p>
+
+<h4 id="bloque-residual-bottleneck">Bloque Residual “Bottleneck”</h4>
+
+<p>Para las variantes más profundas (ResNet-50 y superiores), se utilizó un diseño de bloque residual más eficiente llamado “bottleneck” (cuello de botella):</p>
+
+<ol>
+  <li><strong>Convolución 1×1</strong>: Reduce la dimensionalidad de los canales (por ejemplo, de 256 a 64)</li>
+  <li><strong>Convolución 3×3</strong>: Procesa la información espacial con dimensionalidad reducida</li>
+  <li><strong>Convolución 1×1</strong>: Restaura la dimensionalidad original (o la aumenta)</li>
+</ol>
+
+<p>Este diseño reduce significativamente el número de parámetros y operaciones, permitiendo construir redes mucho más profundas con un costo computacional manejable.</p>
+
+<h4 id="arquitectura-resnet-50">Arquitectura ResNet-50</h4>
+
+<p>ResNet-50 consta de:</p>
+<ul>
+  <li>Una capa convolucional inicial 7×7 con stride 2</li>
+  <li>Una capa de max pooling 3×3 con stride 2</li>
+  <li>4 etapas de bloques residuales bottleneck (3, 4, 6 y 3 bloques respectivamente)</li>
+  <li>Average pooling global</li>
+  <li>Capa completamente conectada para clasificación</li>
+</ul>
+
+<p>Con aproximadamente 25.6 millones de parámetros, ResNet-50 ofrece un excelente equilibrio entre precisión y eficiencia, siendo una de las arquitecturas más utilizadas en la práctica.</p>
+
+<h4 id="arquitecturas-más-profundas">Arquitecturas Más Profundas</h4>
+
+<ul>
+  <li><strong>ResNet-101</strong>: Similar a ResNet-50 pero con más bloques en la tercera etapa (23 en lugar de 6)</li>
+  <li><strong>ResNet-152</strong>: Extiende aún más la profundidad, principalmente en la tercera etapa</li>
+</ul>
+
+<p>Estas variantes más profundas ofrecen mejoras incrementales en precisión a costa de mayor complejidad computacional.</p>
+
+<h3 id="impacto-en-el-entrenamiento-de-redes-profundas">Impacto en el Entrenamiento de Redes Profundas</h3>
+
+<p>El impacto de ResNet en el entrenamiento de redes neuronales profundas fue revolucionario, permitiendo superar limitaciones fundamentales que habían restringido el campo durante años.</p>
+
+<h4 id="beneficios-clave">Beneficios Clave</h4>
+
+<ol>
+  <li>
+    <p><strong>Entrenamiento Estable</strong>: Las conexiones residuales estabilizan el entrenamiento incluso en redes extremadamente profundas, permitiendo convergencia consistente.</p>
+  </li>
+  <li>
+    <p><strong>Gradientes Saludables</strong>: El flujo de gradiente mejorado asegura que todas las capas de la red reciban señales de entrenamiento significativas.</p>
+  </li>
+  <li>
+    <p><strong>Profundidad sin Precedentes</strong>: ResNet demostró que es posible entrenar redes con cientos de capas, algo considerado imposible anteriormente.</p>
+  </li>
+  <li>
+    <p><strong>Mejor Generalización</strong>: Las redes residuales tienden a generalizar mejor a datos no vistos, posiblemente debido a su capacidad para crear representaciones más robustas.</p>
+  </li>
+  <li>
+    <p><strong>Eficiencia en el Aprendizaje</strong>: Las conexiones residuales permiten que la red aprenda representaciones jerárquicas más eficientemente, requiriendo menos datos para alcanzar buen rendimiento.</p>
+  </li>
+</ol>
+
+<h4 id="evidencia-experimental-1">Evidencia Experimental</h4>
+
+<p>Los experimentos originales mostraron resultados sorprendentes:</p>
+
+<ul>
+  <li>ResNet-152 alcanzó un error top-5 de 4.49% en el conjunto de validación de ImageNet con un solo modelo</li>
+  <li>Un ensemble de ResNets logró un error top-5 de 3.57%, superando el rendimiento humano estimado (5.1%)</li>
+  <li>Las variantes más profundas (ResNet-101, ResNet-152) consistentemente superaban a las menos profundas, confirmando que las conexiones residuales permitían aprovechar efectivamente la profundidad adicional</li>
+</ul>
+
+<h3 id="evolución-de-resnet">Evolución de ResNet</h3>
+
+<p>Desde su introducción en 2015, la arquitectura ResNet ha evolucionado en varias direcciones, dando lugar a variantes mejoradas:</p>
+
+<h4 id="resnext">ResNeXt</h4>
+
+<p>Desarrollada también por Kaiming He y colaboradores, ResNeXt introduce el concepto de “cardinalidad” como una nueva dimensión junto a profundidad y anchura. En lugar de un único camino de transformación, cada bloque residual contiene múltiples caminos paralelos con la misma topología.</p>
+
+<p>Ventajas:</p>
+<ul>
+  <li>Mayor capacidad representacional sin aumentar significativamente los parámetros</li>
+  <li>Mejor relación precisión/complejidad</li>
+  <li>Estructura más regular que facilita la optimización de hardware</li>
+</ul>
+
+<h4 id="wide-resnet">Wide ResNet</h4>
+
+<p>Propuesta por Zagoruyko y Komodakis, Wide ResNet cuestiona la necesidad de redes extremadamente profundas, argumentando que aumentar la anchura (número de filtros) puede ser más eficiente que aumentar la profundidad.</p>
+
+<p>Características:</p>
+<ul>
+  <li>Bloques residuales más anchos (más filtros por capa)</li>
+  <li>Menor profundidad total (típicamente 16-40 capas)</li>
+  <li>Entrenamiento más rápido con precisión similar o superior a ResNet profundas</li>
+  <li>Mejor paralelización en GPUs</li>
+</ul>
+
+<h4 id="resnet-v2">ResNet-v2</h4>
+
+<p>Una revisión de la arquitectura original por los mismos autores que reorganiza el orden de las operaciones dentro de los bloques residuales:</p>
+
+<ul>
+  <li>Normalización por lotes y ReLU antes de cada convolución (pre-activación)</li>
+  <li>Mejor flujo de gradiente a través de la red</li>
+  <li>Mejora en precisión y facilidad de entrenamiento</li>
+</ul>
+
+<h4 id="densenet">DenseNet</h4>
+
+<p>Aunque técnicamente no es una variante de ResNet, DenseNet (que veremos en detalle en una lección posterior) lleva el concepto de conexiones de atajo al extremo, conectando cada capa con todas las capas subsiguientes.</p>
+
+<h3 id="implementación-simplificada-de-resnet">Implementación Simplificada de ResNet</h3>
+
+<p>A continuación, se presenta una implementación conceptual simplificada de un bloque residual y una versión mini de ResNet utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">residual_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_bottleneck</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">downsample</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="s">"""
+    Implementación de un bloque residual básico o bottleneck
+    
+    Args:
+        x: Tensor de entrada
+        filters: Número de filtros para las convoluciones
+        kernel_size: Tamaño del kernel para las convoluciones principales
+        stride: Stride para la primera convolución
+        use_bottleneck: Si es True, usa el diseño bottleneck (1x1, 3x3, 1x1)
+        downsample: Si es True, aplica downsampling en la conexión de atajo
+    
+    Returns:
+        Tensor de salida del bloque residual
+    """</span>
+    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>
+    
+    <span class="k">if</span> <span class="n">use_bottleneck</span><span class="p">:</span>
+        <span class="c1"># Diseño bottleneck (usado en ResNet-50+)
+</span>        <span class="c1"># Reducción de dimensionalidad
+</span>        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">residual</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">residual</span><span class="p">)</span>
+        
+        <span class="c1"># Convolución 3x3
+</span>        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="n">kernel_size</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">residual</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">residual</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">residual</span><span class="p">)</span>
+        
+        <span class="c1"># Restauración de dimensionalidad
+</span>        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">residual</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">residual</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Diseño básico (usado en ResNet-18/34)
+</span>        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="p">(</span><span class="n">kernel_size</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">residual</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">residual</span><span class="p">)</span>
+        
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="p">(</span><span class="n">kernel_size</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">residual</span><span class="p">)</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">residual</span><span class="p">)</span>
+    
+    <span class="c1"># Si es necesario, ajustar la conexión de atajo para que coincida con las dimensiones
+</span>    <span class="k">if</span> <span class="n">downsample</span> <span class="ow">or</span> <span class="n">stride</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">shortcut</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">shortcut</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">shortcut</span><span class="p">)</span>
+    
+    <span class="c1"># Suma de la conexión residual y la conexión de atajo
+</span>    <span class="n">output</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">add</span><span class="p">([</span><span class="n">residual</span><span class="p">,</span> <span class="n">shortcut</span><span class="p">])</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">output</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="k">def</span> <span class="nf">create_resnet</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">use_bottleneck</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="s">"""
+    Crea una versión simplificada de ResNet
+    
+    Args:
+        input_shape: Forma del tensor de entrada
+        num_classes: Número de clases para la clasificación
+        blocks: Lista con el número de bloques residuales en cada etapa
+        use_bottleneck: Si es True, usa bloques bottleneck
+    
+    Returns:
+        Modelo ResNet
+    """</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    
+    <span class="c1"># Capa inicial
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Etapas de bloques residuales
+</span>    <span class="n">filters</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">block_count</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">blocks</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">block_count</span><span class="p">):</span>
+            <span class="n">stride</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">downsample</span> <span class="o">=</span> <span class="bp">False</span>
+            
+            <span class="c1"># Downsample al inicio de cada etapa (excepto la primera)
+</span>            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">stride</span> <span class="o">=</span> <span class="mi">2</span>
+                <span class="n">downsample</span> <span class="o">=</span> <span class="bp">True</span>
+            
+            <span class="n">x</span> <span class="o">=</span> <span class="n">residual_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> 
+                              <span class="n">use_bottleneck</span><span class="o">=</span><span class="n">use_bottleneck</span><span class="p">,</span> <span class="n">downsample</span><span class="o">=</span><span class="n">downsample</span><span class="p">)</span>
+    
+    <span class="c1"># Clasificador
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Crear ResNet-18
+</span><span class="n">resnet18</span> <span class="o">=</span> <span class="n">create_resnet</span><span class="p">(</span><span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">use_bottleneck</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># Crear ResNet-50
+</span><span class="n">resnet50</span> <span class="o">=</span> <span class="n">create_resnet</span><span class="p">(</span><span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">use_bottleneck</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Compilar el modelo
+</span><span class="n">resnet50</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+                <span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="k">print</span><span class="p">(</span><span class="s">"ResNet-50 Summary:"</span><span class="p">)</span>
+<span class="n">resnet50</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Esta implementación simplificada captura los elementos esenciales de la arquitectura ResNet, incluyendo los bloques residuales básicos y bottleneck, aunque omite algunos detalles de la implementación original para mayor claridad.</p>
+
+<h3 id="aplicaciones-prácticas-de-resnet">Aplicaciones Prácticas de ResNet</h3>
+
+<p>ResNet ha encontrado aplicación en una amplia gama de tareas de visión por computadora y más allá:</p>
+
+<h4 id="1-clasificación-de-imágenes">1. Clasificación de Imágenes</h4>
+
+<p>Su aplicación original, donde estableció nuevos estándares de precisión en ImageNet y otras bases de datos de clasificación.</p>
+
+<h4 id="2-detección-de-objetos">2. Detección de Objetos</h4>
+
+<p>ResNet es ampliamente utilizada como backbone (extractor de características) en frameworks de detección como:</p>
+<ul>
+  <li>Faster R-CNN</li>
+  <li>RetinaNet</li>
+  <li>Mask R-CNN (para segmentación de instancias)</li>
+</ul>
+
+<h4 id="3-segmentación-semántica">3. Segmentación Semántica</h4>
+
+<p>Arquitecturas como DeepLab y PSPNet utilizan ResNet como backbone para tareas de segmentación pixel a pixel.</p>
+
+<h4 id="4-estimación-de-pose">4. Estimación de Pose</h4>
+
+<p>Frameworks como OpenPose utilizan ResNet para extraer características que ayudan a localizar articulaciones y estimar poses humanas.</p>
+
+<h4 id="5-reconocimiento-facial">5. Reconocimiento Facial</h4>
+
+<p>ResNet ha mejorado significativamente la precisión en sistemas de verificación e identificación facial.</p>
+
+<h4 id="6-aplicaciones-médicas">6. Aplicaciones Médicas</h4>
+
+<p>Análisis de imágenes médicas, incluyendo:</p>
+<ul>
+  <li>Detección de tumores en radiografías</li>
+  <li>Segmentación de órganos en tomografías</li>
+  <li>Clasificación de patologías en histopatología</li>
+</ul>
+
+<h4 id="7-más-allá-de-la-visión">7. Más Allá de la Visión</h4>
+
+<p>El concepto de conexiones residuales se ha extendido a otros dominios:</p>
+<ul>
+  <li>Procesamiento de lenguaje natural</li>
+  <li>Reconocimiento de voz</li>
+  <li>Series temporales y datos financieros</li>
+</ul>
+
+<h3 id="ventajas-y-limitaciones">Ventajas y Limitaciones</h3>
+
+<h4 id="ventajas-de-resnet">Ventajas de ResNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Entrenamiento Estable</strong>: Las conexiones residuales permiten entrenar redes extremadamente profundas sin problemas de desvanecimiento del gradiente.</p>
+  </li>
+  <li>
+    <p><strong>Escalabilidad</strong>: La arquitectura puede escalarse a cientos de capas, permitiendo modelar relaciones muy complejas.</p>
+  </li>
+  <li>
+    <p><strong>Transferencia de Aprendizaje</strong>: Los modelos pre-entrenados de ResNet son excelentes puntos de partida para transferencia a nuevas tareas.</p>
+  </li>
+  <li>
+    <p><strong>Rendimiento</strong>: Ofrece precisión estado del arte en numerosas tareas de visión por computadora.</p>
+  </li>
+  <li>
+    <p><strong>Disponibilidad</strong>: Implementaciones pre-entrenadas están disponibles en prácticamente todos los frameworks de aprendizaje profundo.</p>
+  </li>
+</ol>
+
+<h4 id="limitaciones-de-resnet">Limitaciones de ResNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Complejidad Computacional</strong>: Las variantes más profundas requieren recursos computacionales significativos para entrenamiento e inferencia.</p>
+  </li>
+  <li>
+    <p><strong>Memoria</strong>: El almacenamiento de activaciones intermedias para las conexiones residuales aumenta el consumo de memoria durante el entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Diseño Manual</strong>: A pesar de su éxito, la arquitectura fue diseñada manualmente, sin garantía de optimalidad.</p>
+  </li>
+  <li>
+    <p><strong>Plateau de Rendimiento</strong>: Aumentar la profundidad más allá de cierto punto (e.g., ResNet-1000) ofrece retornos marginales decrecientes.</p>
+  </li>
+  <li>
+    <p><strong>Adaptabilidad</strong>: Aunque versátil, puede no ser óptima para todas las tareas y dominios sin modificaciones específicas.</p>
+  </li>
+</ol>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de ResNet en el campo del aprendizaje profundo ha sido profundo y duradero:</p>
+
+<ol>
+  <li>
+    <p><strong>Revolución Arquitectónica</strong>: Las conexiones residuales transformaron fundamentalmente el diseño de redes neuronales profundas.</p>
+  </li>
+  <li>
+    <p><strong>Superación de Limitaciones Fundamentales</strong>: ResNet demostró que el problema del desvanecimiento del gradiente podía ser mitigado efectivamente, permitiendo profundidades sin precedentes.</p>
+  </li>
+  <li>
+    <p><strong>Rendimiento Humano</strong>: Fue la primera arquitectura en superar el rendimiento humano en clasificación de imágenes a gran escala.</p>
+  </li>
+  <li>
+    <p><strong>Inspiración para Nuevas Arquitecturas</strong>: El concepto de conexiones de atajo inspiró numerosas arquitecturas posteriores, incluyendo DenseNet, ResNeXt, y elementos de EfficientNet.</p>
+  </li>
+  <li>
+    <p><strong>Adopción Industrial</strong>: ResNet se convirtió rápidamente en un estándar industrial, siendo adoptada ampliamente tanto en investigación como en aplicaciones comerciales.</p>
+  </li>
+  <li>
+    <p><strong>Transferencia a Otros Dominios</strong>: El principio de las conexiones residuales se ha transferido con éxito a otros dominios más allá de la visión por computadora.</p>
+  </li>
+</ol>
+
+<p>El paper original de ResNet, “Deep Residual Learning for Image Recognition”, se ha convertido en uno de los trabajos más citados en la historia de la ciencia de la computación, con más de 100,000 citas, reflejando su impacto transformador en el campo.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>ResNet representa un hito fundamental en la historia de las redes neuronales convolucionales y el aprendizaje profundo en general. Su innovación clave —las conexiones residuales— resolvió el problema del desvanecimiento del gradiente que había limitado la profundidad efectiva de las redes neuronales durante años.</p>
+
+<p>Esta simple pero poderosa idea permitió entrenar redes con profundidades sin precedentes, demostrando que “más profundo es mejor” cuando se dispone de los mecanismos arquitectónicos adecuados. El éxito de ResNet en la competición ILSVRC-2015, superando el rendimiento humano, marcó un punto de inflexión en la visión por computadora.</p>
+
+<p>El legado de ResNet perdura en innumerables arquitecturas modernas que han adoptado y extendido el concepto de conexiones residuales. Su impacto trasciende la visión por computadora, influyendo en el diseño de redes neuronales para diversos dominios y aplicaciones.</p>
+
+<p>En la próxima lección, exploraremos DenseNet, una arquitectura que lleva el concepto de conexiones de atajo al extremo, conectando cada capa con todas las capas subsiguientes para maximizar el flujo de información a través de la red.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

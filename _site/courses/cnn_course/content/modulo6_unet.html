@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo6_unet.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo6_unet.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo6_unet.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-6-arquitecturas-para-segmentación">Módulo 6: Arquitecturas para Segmentación</h1>
+
+<h2 id="lección-1-u-net">Lección 1: U-Net</h2>
+
+<h3 id="introducción-a-u-net">Introducción a U-Net</h3>
+
+<p>U-Net representa un hito fundamental en el campo de la segmentación semántica de imágenes, especialmente en el dominio médico. Desarrollada por Olaf Ronneberger, Philipp Fischer y Thomas Brox de la Universidad de Friburgo en 2015, esta arquitectura fue presentada en el paper “U-Net: Convolutional Networks for Biomedical Image Segmentation” y rápidamente se convirtió en un referente para tareas de segmentación con conjuntos de datos limitados.</p>
+
+<p>A diferencia de las arquitecturas CNN tradicionales enfocadas en clasificación, U-Net fue diseñada específicamente para resolver el problema de segmentación semántica, donde el objetivo es clasificar cada píxel de una imagen en una categoría determinada. Su nombre deriva de su característica forma de “U” en el diagrama de la arquitectura, con un camino de contracción (encoder) seguido de un camino de expansión (decoder) y conexiones de salto (skip connections) entre ambos.</p>
+
+<p>La innovación clave de U-Net radica en estas conexiones de salto, que permiten combinar información contextual de alta resolución del camino de contracción con información semántica del camino de expansión. Esta estructura permite preservar detalles espaciales importantes mientras se captura contexto de alto nivel, resultando en segmentaciones precisas incluso con bordes finos y estructuras complejas.</p>
+
+<p>Aunque originalmente fue desarrollada para segmentación de imágenes biomédicas, específicamente para la delineación de estructuras celulares en microscopía, U-Net ha demostrado ser extraordinariamente versátil, extendiéndose a numerosas aplicaciones médicas y no médicas. Su capacidad para producir segmentaciones precisas con conjuntos de datos relativamente pequeños la ha convertido en una arquitectura de referencia, inspirando numerosas variantes y mejoras en los años posteriores a su introducción.</p>
+
+<h3 id="arquitectura-en-forma-de-u">Arquitectura en forma de U</h3>
+
+<p>La característica definitoria de U-Net es su arquitectura simétrica en forma de U, compuesta por un camino de contracción, un camino de expansión y conexiones de salto entre ambos.</p>
+
+<h4 id="camino-de-contracción-encoder">Camino de Contracción (Encoder)</h4>
+
+<p>El camino de contracción sigue la arquitectura típica de una red convolucional:</p>
+
+<ol>
+  <li><strong>Bloques Repetitivos</strong>: Cada bloque consiste en:
+    <ul>
+      <li>Dos convoluciones 3×3 (con padding ‘valid’ en la implementación original)</li>
+      <li>Activación ReLU después de cada convolución</li>
+      <li>Batch Normalization (en implementaciones modernas)</li>
+      <li>Max pooling 2×2 con stride 2 para reducir la resolución espacial</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Progresión de Canales</strong>: El número de canales (filtros) típicamente se duplica después de cada operación de max pooling, siguiendo la secuencia 64, 128, 256, 512, 1024 en la implementación original.</p>
+  </li>
+  <li><strong>Reducción Espacial</strong>: Cada nivel reduce la resolución espacial a la mitad, capturando características cada vez más abstractas y contextuales.</li>
+</ol>
+
+<p>El camino de contracción actúa como un codificador que extrae características de la imagen, transformando progresivamente información espacial detallada en representaciones semánticas más abstractas pero espacialmente comprimidas.</p>
+
+<h4 id="camino-de-expansión-decoder">Camino de Expansión (Decoder)</h4>
+
+<p>El camino de expansión reconstruye la resolución espacial para producir un mapa de segmentación de la misma resolución que la imagen de entrada:</p>
+
+<ol>
+  <li><strong>Bloques Repetitivos</strong>: Cada bloque consiste en:
+    <ul>
+      <li>Convolución transpuesta 2×2 (up-convolution) que duplica la resolución espacial</li>
+      <li>Concatenación con el mapa de características correspondiente del camino de contracción</li>
+      <li>Dos convoluciones 3×3</li>
+      <li>Activación ReLU después de cada convolución</li>
+      <li>Batch Normalization (en implementaciones modernas)</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Progresión de Canales</strong>: El número de canales típicamente se reduce a la mitad después de cada up-convolution, siguiendo la secuencia inversa: 1024, 512, 256, 128, 64.</p>
+  </li>
+  <li><strong>Aumento Espacial</strong>: Cada nivel aumenta la resolución espacial al doble, reconstruyendo gradualmente los detalles espaciales.</li>
+</ol>
+
+<p>El camino de expansión actúa como un decodificador que transforma las representaciones semánticas abstractas en un mapa de segmentación detallado.</p>
+
+<h4 id="conexiones-de-salto-skip-connections">Conexiones de Salto (Skip Connections)</h4>
+
+<p>Las conexiones de salto son el componente clave que distingue a U-Net:</p>
+
+<ol>
+  <li>
+    <p><strong>Concatenación Directa</strong>: Los mapas de características del camino de contracción se concatenan directamente con los mapas correspondientes del camino de expansión.</p>
+  </li>
+  <li>
+    <p><strong>Preservación de Información Espacial</strong>: Estas conexiones permiten que la información de alta resolución del camino de contracción fluya directamente al camino de expansión, ayudando a localizar con precisión las características en el mapa de segmentación final.</p>
+  </li>
+  <li>
+    <p><strong>Mitigación de la Pérdida de Información</strong>: Ayudan a mitigar la pérdida de información espacial que ocurre durante las operaciones de max pooling en el camino de contracción.</p>
+  </li>
+</ol>
+
+<h4 id="capa-final">Capa Final</h4>
+
+<p>La capa final consiste en una convolución 1×1 que mapea el vector de características de cada píxel a la probabilidad deseada de clases:</p>
+
+<ul>
+  <li>Para segmentación binaria: 1 filtro con activación sigmoid</li>
+  <li>Para segmentación multiclase: N filtros (donde N es el número de clases) con activación softmax</li>
+</ul>
+
+<h3 id="codificador-decodificador-con-skip-connections">Codificador-Decodificador con Skip Connections</h3>
+
+<p>La arquitectura codificador-decodificador con conexiones de salto de U-Net aborda elegantemente el desafío fundamental de la segmentación semántica: equilibrar la necesidad de información contextual global con la preservación de detalles espaciales locales.</p>
+
+<h4 id="problema-fundamental-en-segmentación">Problema Fundamental en Segmentación</h4>
+
+<p>En segmentación semántica, enfrentamos dos requisitos aparentemente contradictorios:</p>
+
+<ol>
+  <li>
+    <p><strong>Contexto Global</strong>: Necesitamos información de contexto amplio para identificar correctamente las estructuras (¿qué estamos viendo?).</p>
+  </li>
+  <li>
+    <p><strong>Precisión Espacial</strong>: Necesitamos localización precisa para delinear correctamente los bordes de las estructuras (¿dónde exactamente está?).</p>
+  </li>
+</ol>
+
+<p>Las arquitecturas CNN tradicionales, al reducir progresivamente la resolución espacial, capturan bien el contexto pero pierden precisión espacial.</p>
+
+<h4 id="solución-de-u-net">Solución de U-Net</h4>
+
+<p>U-Net resuelve este dilema mediante:</p>
+
+<ol>
+  <li>
+    <p><strong>Codificador para Contexto</strong>: El camino de contracción captura contexto global mediante campos receptivos cada vez más grandes.</p>
+  </li>
+  <li>
+    <p><strong>Decodificador para Reconstrucción</strong>: El camino de expansión reconstruye gradualmente la resolución espacial.</p>
+  </li>
+  <li>
+    <p><strong>Skip Connections para Precisión</strong>: Las conexiones de salto proporcionan información espacial de alta resolución directamente al decodificador.</p>
+  </li>
+</ol>
+
+<p>Esta combinación permite que la red “entienda” qué está viendo (gracias al contexto capturado por el codificador) y localice con precisión dónde están los bordes (gracias a la información espacial preservada por las skip connections).</p>
+
+<h4 id="ventajas-de-las-skip-connections">Ventajas de las Skip Connections</h4>
+
+<p>Las conexiones de salto en U-Net ofrecen varias ventajas críticas:</p>
+
+<ol>
+  <li>
+    <p><strong>Gradientes Saludables</strong>: Facilitan el flujo de gradientes durante el entrenamiento, mitigando el problema del desvanecimiento del gradiente.</p>
+  </li>
+  <li>
+    <p><strong>Fusión Multi-escala</strong>: Permiten la fusión de características a múltiples escalas, combinando información semántica y espacial.</p>
+  </li>
+  <li>
+    <p><strong>Recuperación de Detalles</strong>: Ayudan a recuperar detalles finos que se pierden en las operaciones de pooling.</p>
+  </li>
+  <li>
+    <p><strong>Entrenamiento Eficiente</strong>: Mejoran la convergencia y estabilidad durante el entrenamiento.</p>
+  </li>
+</ol>
+
+<h4 id="diferencias-con-otras-arquitecturas">Diferencias con Otras Arquitecturas</h4>
+
+<p>Es importante distinguir las skip connections de U-Net de otros tipos de conexiones:</p>
+
+<ul>
+  <li>
+    <p><strong>vs. Conexiones Residuales (ResNet)</strong>: Las conexiones residuales suman la entrada a la salida (x + F(x)), mientras que U-Net concatena mapas de características de diferentes niveles ([encoder_features, decoder_features]).</p>
+  </li>
+  <li>
+    <p><strong>vs. Conexiones Densas (DenseNet)</strong>: Las conexiones densas concatenan secuencialmente dentro de un mismo nivel, mientras que U-Net conecta niveles correspondientes entre el codificador y el decodificador.</p>
+  </li>
+</ul>
+
+<h3 id="aplicaciones-en-imágenes-médicas">Aplicaciones en Imágenes Médicas</h3>
+
+<p>U-Net fue desarrollada originalmente para aplicaciones biomédicas y ha tenido un impacto particularmente profundo en este campo.</p>
+
+<h4 id="segmentación-celular">Segmentación Celular</h4>
+
+<p>La aplicación original de U-Net fue la segmentación de células en imágenes de microscopía:</p>
+
+<ol>
+  <li><strong>Desafíos Específicos</strong>:
+    <ul>
+      <li>Bordes celulares finos y complejos</li>
+      <li>Células superpuestas</li>
+      <li>Variabilidad en forma, tamaño y apariencia</li>
+      <li>Conjuntos de datos limitados</li>
+    </ul>
+  </li>
+  <li><strong>Resultados Pioneros</strong>:
+    <ul>
+      <li>U-Net ganó el concurso ISBI 2015 para segmentación de células con un margen significativo</li>
+      <li>Logró resultados precisos con solo 30 imágenes de entrenamiento</li>
+      <li>Demostró capacidad para distinguir bordes celulares incluso en casos de células adyacentes</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="segmentación-de-órganos">Segmentación de Órganos</h4>
+
+<p>U-Net se ha aplicado extensivamente para segmentar órganos en diversas modalidades de imágenes médicas:</p>
+
+<ol>
+  <li><strong>Tomografía Computarizada (CT)</strong>:
+    <ul>
+      <li>Segmentación de hígado, riñones, pulmones, corazón</li>
+      <li>Planificación quirúrgica y radioterapia</li>
+      <li>Análisis volumétrico de órganos</li>
+    </ul>
+  </li>
+  <li><strong>Resonancia Magnética (MRI)</strong>:
+    <ul>
+      <li>Segmentación cerebral (materia gris, materia blanca, líquido cefalorraquídeo)</li>
+      <li>Segmentación cardíaca (ventrículos, miocardio)</li>
+      <li>Segmentación de tumores cerebrales</li>
+    </ul>
+  </li>
+  <li><strong>Ultrasonido</strong>:
+    <ul>
+      <li>Segmentación fetal</li>
+      <li>Evaluación cardíaca</li>
+      <li>Guía para intervenciones mínimamente invasivas</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="detección-y-segmentación-de-patologías">Detección y Segmentación de Patologías</h4>
+
+<p>U-Net ha demostrado excelente rendimiento en la identificación y delineación de estructuras patológicas:</p>
+
+<ol>
+  <li><strong>Oncología</strong>:
+    <ul>
+      <li>Segmentación de tumores cerebrales en MRI</li>
+      <li>Detección y medición de nódulos pulmonares en CT</li>
+      <li>Caracterización de lesiones mamarias en mamografías</li>
+    </ul>
+  </li>
+  <li><strong>Cardiología</strong>:
+    <ul>
+      <li>Cuantificación de infartos de miocardio</li>
+      <li>Evaluación de función ventricular</li>
+      <li>Análisis de perfusión miocárdica</li>
+    </ul>
+  </li>
+  <li><strong>Neurología</strong>:
+    <ul>
+      <li>Segmentación de lesiones de esclerosis múltiple</li>
+      <li>Cuantificación de cambios neurodegenerativos</li>
+      <li>Análisis de accidentes cerebrovasculares</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="histopatología-digital">Histopatología Digital</h4>
+
+<p>La aplicación de U-Net en histopatología digital ha revolucionado el análisis de tejidos:</p>
+
+<ol>
+  <li><strong>Segmentación Celular y Nuclear</strong>:
+    <ul>
+      <li>Identificación y conteo de células</li>
+      <li>Análisis morfológico nuclear</li>
+      <li>Caracterización de tipos celulares</li>
+    </ul>
+  </li>
+  <li><strong>Detección de Regiones Cancerosas</strong>:
+    <ul>
+      <li>Identificación de áreas tumorales</li>
+      <li>Gradación automática de cáncer</li>
+      <li>Análisis de microambiente tumoral</li>
+    </ul>
+  </li>
+  <li><strong>Cuantificación de Biomarcadores</strong>:
+    <ul>
+      <li>Análisis de expresión de proteínas</li>
+      <li>Cuantificación de tinción inmunohistoquímica</li>
+      <li>Evaluación de heterogeneidad tumoral</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="variantes-y-mejoras">Variantes y Mejoras</h3>
+
+<p>Desde su introducción, U-Net ha inspirado numerosas variantes y mejoras que abordan limitaciones específicas o extienden su aplicabilidad.</p>
+
+<h4 id="3d-u-net">3D U-Net</h4>
+
+<p>Extensión tridimensional de U-Net para segmentación volumétrica:</p>
+
+<ol>
+  <li><strong>Modificaciones Clave</strong>:
+    <ul>
+      <li>Convoluciones 3D en lugar de 2D</li>
+      <li>Pooling y upsampling 3D</li>
+      <li>Manejo eficiente de memoria para volúmenes grandes</li>
+    </ul>
+  </li>
+  <li><strong>Aplicaciones</strong>:
+    <ul>
+      <li>Segmentación de órganos en volúmenes CT/MRI</li>
+      <li>Análisis de imágenes microscópicas 3D</li>
+      <li>Segmentación de estructuras vasculares</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="v-net">V-Net</h4>
+
+<p>Variante de U-Net para segmentación volumétrica con conexiones residuales:</p>
+
+<ol>
+  <li><strong>Innovaciones</strong>:
+    <ul>
+      <li>Incorpora bloques residuales similares a ResNet</li>
+      <li>Utiliza convoluciones volumétricas (3D)</li>
+      <li>Función de pérdida basada en coeficiente Dice</li>
+    </ul>
+  </li>
+  <li><strong>Ventajas</strong>:
+    <ul>
+      <li>Entrenamiento más estable</li>
+      <li>Mejor manejo de desbalance de clases</li>
+      <li>Convergencia más rápida</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="attention-u-net">Attention U-Net</h4>
+
+<p>Incorpora mecanismos de atención para mejorar la precisión:</p>
+
+<ol>
+  <li><strong>Mecanismo de Atención</strong>:
+    <ul>
+      <li>Puertas de atención que resaltan regiones relevantes</li>
+      <li>Supresión adaptativa de regiones irrelevantes</li>
+      <li>Mejor focalización en estructuras objetivo</li>
+    </ul>
+  </li>
+  <li><strong>Beneficios</strong>:
+    <ul>
+      <li>Mayor precisión en estructuras pequeñas</li>
+      <li>Robustez ante variabilidad anatómica</li>
+      <li>Mejor manejo de casos difíciles</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="u-net">U-Net++</h4>
+
+<p>Arquitectura anidada que reduce la brecha semántica entre el codificador y el decodificador:</p>
+
+<ol>
+  <li><strong>Arquitectura Rediseñada</strong>:
+    <ul>
+      <li>Conexiones de salto densas y anidadas</li>
+      <li>Bloques convolucionales intermedios entre niveles</li>
+      <li>Supervisión profunda en múltiples escalas</li>
+    </ul>
+  </li>
+  <li><strong>Ventajas</strong>:
+    <ul>
+      <li>Reducción de la brecha semántica</li>
+      <li>Mejor flujo de información</li>
+      <li>Posibilidad de poda para inferencia eficiente</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="multiresunet">MultiResUNet</h4>
+
+<p>Incorpora bloques de múltiples resoluciones para capturar características a diferentes escalas:</p>
+
+<ol>
+  <li><strong>Bloque MultiRes</strong>:
+    <ul>
+      <li>Procesamiento paralelo a múltiples escalas</li>
+      <li>Fusión adaptativa de características</li>
+      <li>Inspirado en Inception pero optimizado para segmentación</li>
+    </ul>
+  </li>
+  <li><strong>Resultados</strong>:
+    <ul>
+      <li>Mejor rendimiento con menos parámetros</li>
+      <li>Captura eficiente de estructuras multi-escala</li>
+      <li>Mayor robustez ante variaciones de escala</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="transunet">TransUNet</h4>
+
+<p>Combina transformers con la arquitectura U-Net:</p>
+
+<ol>
+  <li><strong>Arquitectura Híbrida</strong>:
+    <ul>
+      <li>Codificador basado en Vision Transformer (ViT)</li>
+      <li>Decodificador convolucional tipo U-Net</li>
+      <li>Conexiones de salto entre ambos</li>
+    </ul>
+  </li>
+  <li><strong>Ventajas</strong>:
+    <ul>
+      <li>Captura de dependencias de largo alcance</li>
+      <li>Modelado de relaciones globales</li>
+      <li>Combinación de fortalezas de CNN y transformers</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="implementación-simplificada-de-u-net">Implementación Simplificada de U-Net</h3>
+
+<p>A continuación, se presenta una implementación conceptual simplificada de U-Net utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">conv_block</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="s">"""
+    Bloque convolucional básico de U-Net
+    
+    Args:
+        inputs: Tensor de entrada
+        filters: Número de filtros
+        kernel_size: Tamaño del kernel
+        padding: Tipo de padding ('same' o 'valid')
+        use_batch_norm: Si es True, incluye normalización por lotes
+    
+    Returns:
+        Tensor de salida del bloque convolucional
+    """</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">use_batch_norm</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">use_batch_norm</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">create_unet</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="s">"""
+    Crea un modelo U-Net
+    
+    Args:
+        input_shape: Forma del tensor de entrada
+        num_classes: Número de clases para la segmentación
+        use_batch_norm: Si es True, incluye normalización por lotes
+    
+    Returns:
+        Modelo U-Net
+    """</span>
+    <span class="c1"># Entrada
+</span>    <span class="n">inputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    
+    <span class="c1"># Camino de contracción (Encoder)
+</span>    <span class="c1"># Nivel 1
+</span>    <span class="n">conv1</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    <span class="n">pool1</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))(</span><span class="n">conv1</span><span class="p">)</span>
+    
+    <span class="c1"># Nivel 2
+</span>    <span class="n">conv2</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">pool1</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    <span class="n">pool2</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))(</span><span class="n">conv2</span><span class="p">)</span>
+    
+    <span class="c1"># Nivel 3
+</span>    <span class="n">conv3</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">pool2</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    <span class="n">pool3</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))(</span><span class="n">conv3</span><span class="p">)</span>
+    
+    <span class="c1"># Nivel 4
+</span>    <span class="n">conv4</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">pool3</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    <span class="n">pool4</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))(</span><span class="n">conv4</span><span class="p">)</span>
+    
+    <span class="c1"># Puente
+</span>    <span class="n">bridge</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">pool4</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    
+    <span class="c1"># Camino de expansión (Decoder)
+</span>    <span class="c1"># Nivel 4
+</span>    <span class="n">up4</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">bridge</span><span class="p">)</span>
+    <span class="n">concat4</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Concatenate</span><span class="p">()([</span><span class="n">up4</span><span class="p">,</span> <span class="n">conv4</span><span class="p">])</span>
+    <span class="n">up_conv4</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">concat4</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    
+    <span class="c1"># Nivel 3
+</span>    <span class="n">up3</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">up_conv4</span><span class="p">)</span>
+    <span class="n">concat3</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Concatenate</span><span class="p">()([</span><span class="n">up3</span><span class="p">,</span> <span class="n">conv3</span><span class="p">])</span>
+    <span class="n">up_conv3</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">concat3</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    
+    <span class="c1"># Nivel 2
+</span>    <span class="n">up2</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">up_conv3</span><span class="p">)</span>
+    <span class="n">concat2</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Concatenate</span><span class="p">()([</span><span class="n">up2</span><span class="p">,</span> <span class="n">conv2</span><span class="p">])</span>
+    <span class="n">up_conv2</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">concat2</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    
+    <span class="c1"># Nivel 1
+</span>    <span class="n">up1</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">up_conv2</span><span class="p">)</span>
+    <span class="n">concat1</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Concatenate</span><span class="p">()([</span><span class="n">up1</span><span class="p">,</span> <span class="n">conv1</span><span class="p">])</span>
+    <span class="n">up_conv1</span> <span class="o">=</span> <span class="n">conv_block</span><span class="p">(</span><span class="n">concat1</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">use_batch_norm</span><span class="o">=</span><span class="n">use_batch_norm</span><span class="p">)</span>
+    
+    <span class="c1"># Capa de salida
+</span>    <span class="k">if</span> <span class="n">num_classes</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Segmentación binaria
+</span>        <span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">)(</span><span class="n">up_conv1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Segmentación multiclase
+</span>        <span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)(</span><span class="n">up_conv1</span><span class="p">)</span>
+    
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Crear U-Net para segmentación binaria
+</span><span class="n">unet</span> <span class="o">=</span> <span class="n">create_unet</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Compilar el modelo
+</span><span class="n">unet</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+            <span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span>
+            <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="k">print</span><span class="p">(</span><span class="s">"U-Net Summary:"</span><span class="p">)</span>
+<span class="n">unet</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Esta implementación simplificada captura los elementos esenciales de la arquitectura U-Net, incluyendo el camino de contracción, el camino de expansión y las conexiones de salto.</p>
+
+<h3 id="estrategias-de-entrenamiento-para-u-net">Estrategias de Entrenamiento para U-Net</h3>
+
+<p>El entrenamiento efectivo de U-Net requiere consideraciones específicas debido a la naturaleza de las tareas de segmentación y las características de la arquitectura.</p>
+
+<h4 id="aumento-de-datos-elástico">Aumento de Datos Elástico</h4>
+
+<p>Una innovación clave en el paper original de U-Net fue el uso extensivo de aumento de datos elástico:</p>
+
+<ol>
+  <li><strong>Transformaciones Elásticas</strong>:
+    <ul>
+      <li>Deformaciones aleatorias que simulan variabilidad biológica</li>
+      <li>Particularmente efectivas para imágenes médicas</li>
+      <li>Generan nuevos ejemplos realistas a partir de datos limitados</li>
+    </ul>
+  </li>
+  <li><strong>Transformaciones Adicionales</strong>:
+    <ul>
+      <li>Rotaciones</li>
+      <li>Traslaciones</li>
+      <li>Reflejos</li>
+      <li>Escalado</li>
+      <li>Cambios de contraste y brillo</li>
+    </ul>
+  </li>
+  <li><strong>Beneficios</strong>:
+    <ul>
+      <li>Previene sobreajuste con conjuntos de datos pequeños</li>
+      <li>Mejora la robustez ante variaciones anatómicas</li>
+      <li>Permite generalización a diferentes adquisiciones</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="funciones-de-pérdida-especializadas">Funciones de Pérdida Especializadas</h4>
+
+<p>Las funciones de pérdida estándar como la entropía cruzada binaria pueden ser subóptimas para segmentación, especialmente con clases desbalanceadas:</p>
+
+<ol>
+  <li><strong>Pérdida de Dice</strong>:
+    <ul>
+      <li>Basada en el coeficiente de Dice (F1-score)</li>
+      <li>Menos sensible al desbalance de clases</li>
+      <li>Optimiza directamente la superposición entre predicción y verdad</li>
+    </ul>
+  </li>
+  <li><strong>Pérdida de Jaccard (IoU)</strong>:
+    <ul>
+      <li>Basada en la Intersección sobre Unión</li>
+      <li>Similar a Dice pero con diferentes propiedades de gradiente</li>
+      <li>Efectiva para objetos pequeños</li>
+    </ul>
+  </li>
+  <li><strong>Pérdidas Combinadas</strong>:
+    <ul>
+      <li>Combinación ponderada de entropía cruzada y Dice</li>
+      <li>Aprovecha las ventajas de ambas métricas</li>
+      <li>Mejora la estabilidad del entrenamiento</li>
+    </ul>
+  </li>
+  <li><strong>Pérdidas Focales</strong>:
+    <ul>
+      <li>Ponderan los ejemplos difíciles durante el entrenamiento</li>
+      <li>Particularmente útiles para objetos pequeños o raros</li>
+      <li>Ayudan a manejar el desbalance extremo de clases</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="estrategias-de-muestreo-de-parches">Estrategias de Muestreo de Parches</h4>
+
+<p>U-Net originalmente fue entrenada con una estrategia de muestreo de parches:</p>
+
+<ol>
+  <li><strong>Entrenamiento Basado en Parches</strong>:
+    <ul>
+      <li>Extracción de parches más pequeños que la imagen completa</li>
+      <li>Permite trabajar con imágenes de alta resolución</li>
+      <li>Aumenta efectivamente el tamaño del conjunto de datos</li>
+    </ul>
+  </li>
+  <li><strong>Muestreo Estratégico</strong>:
+    <ul>
+      <li>Sobremuestreo de regiones con bordes de clase</li>
+      <li>Equilibrio entre clases mediante muestreo ponderado</li>
+      <li>Enfoque en regiones difíciles o raras</li>
+    </ul>
+  </li>
+  <li><strong>Inferencia por Parches</strong>:
+    <ul>
+      <li>Predicción por parches con superposición</li>
+      <li>Promediado en regiones superpuestas</li>
+      <li>Manejo de imágenes arbitrariamente grandes</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="optimización-de-hiperparámetros">Optimización de Hiperparámetros</h4>
+
+<p>Algunos hiperparámetros críticos para el entrenamiento efectivo de U-Net:</p>
+
+<ol>
+  <li><strong>Tasa de Aprendizaje</strong>:
+    <ul>
+      <li>Típicamente más baja que para clasificación</li>
+      <li>Programación de tasa de aprendizaje (learning rate scheduling)</li>
+      <li>Calentamiento gradual (warm-up)</li>
+    </ul>
+  </li>
+  <li><strong>Tamaño de Lote</strong>:
+    <ul>
+      <li>Limitado por memoria GPU debido a mapas de activación grandes</li>
+      <li>Acumulación de gradientes para lotes efectivos más grandes</li>
+      <li>Normalización por lotes con estadísticas consistentes</li>
+    </ul>
+  </li>
+  <li><strong>Regularización</strong>:
+    <ul>
+      <li>Dropout espacial en el camino de expansión</li>
+      <li>Regularización L2 para prevenir sobreajuste</li>
+      <li>Parada temprana basada en conjunto de validación</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="ventajas-y-limitaciones">Ventajas y Limitaciones</h3>
+
+<h4 id="ventajas-de-u-net">Ventajas de U-Net</h4>
+
+<ol>
+  <li>
+    <p><strong>Eficiencia en Datos</strong>: Produce resultados precisos incluso con conjuntos de datos pequeños, crucial para aplicaciones médicas donde los datos etiquetados son escasos.</p>
+  </li>
+  <li>
+    <p><strong>Preservación de Detalles</strong>: Las conexiones de salto permiten preservar detalles espaciales finos, resultando en segmentaciones con bordes precisos.</p>
+  </li>
+  <li>
+    <p><strong>Arquitectura Flexible</strong>: Puede adaptarse a diferentes tamaños de entrada y número de clases, y es extensible a 3D y otras variantes.</p>
+  </li>
+  <li>
+    <p><strong>Entrenamiento de Extremo a Extremo</strong>: No requiere características prediseñadas, aprendiendo directamente de los datos crudos a la segmentación final.</p>
+  </li>
+  <li>
+    <p><strong>Velocidad de Inferencia</strong>: Una vez entrenada, la inferencia es relativamente rápida, permitiendo aplicaciones en tiempo real o casi real.</p>
+  </li>
+  <li>
+    <p><strong>Interpretabilidad</strong>: Los mapas de activación intermedios pueden visualizarse para comprender qué características está utilizando la red.</p>
+  </li>
+</ol>
+
+<h4 id="limitaciones-de-u-net">Limitaciones de U-Net</h4>
+
+<ol>
+  <li>
+    <p><strong>Campos Receptivos Limitados</strong>: La arquitectura original puede tener dificultades con objetos muy grandes o que requieren contexto muy amplio.</p>
+  </li>
+  <li>
+    <p><strong>Sensibilidad a Hiperparámetros</strong>: El rendimiento puede variar significativamente con diferentes configuraciones de entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Consumo de Memoria</strong>: Los mapas de características de alta resolución y las conexiones de salto requieren considerable memoria GPU durante el entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Desafíos con Clases Desbalanceadas</strong>: Puede tener dificultades con clases muy minoritarias sin estrategias específicas de entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Dependencia de Calidad de Datos</strong>: Altamente dependiente de la calidad y consistencia de las anotaciones de entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Generalización entre Dominios</strong>: Puede tener dificultades para generalizar entre diferentes dispositivos de adquisición o protocolos sin técnicas específicas.</p>
+  </li>
+</ol>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de U-Net en el campo de la segmentación de imágenes ha sido profundo y duradero:</p>
+
+<ol>
+  <li>
+    <p><strong>Paradigma Arquitectónico</strong>: Estableció el patrón codificador-decodificador con conexiones de salto como estándar para segmentación, influenciando innumerables arquitecturas posteriores.</p>
+  </li>
+  <li>
+    <p><strong>Democratización de la Segmentación</strong>: Hizo posible entrenar modelos de segmentación efectivos con conjuntos de datos limitados, democratizando el acceso a estas técnicas.</p>
+  </li>
+  <li>
+    <p><strong>Impacto Clínico</strong>: Ha facilitado numerosas aplicaciones clínicas, desde planificación quirúrgica hasta diagnóstico asistido por computadora.</p>
+  </li>
+  <li>
+    <p><strong>Inspiración para Investigación</strong>: Ha inspirado una rica línea de investigación en arquitecturas para segmentación, con docenas de variantes y extensiones.</p>
+  </li>
+  <li>
+    <p><strong>Adopción Industrial</strong>: Se ha convertido en un componente estándar en sistemas comerciales de análisis de imágenes médicas.</p>
+  </li>
+</ol>
+
+<p>El paper original de U-Net ha acumulado más de 30,000 citas, convirtiéndose en uno de los trabajos más influyentes en visión por computadora aplicada a imágenes médicas.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>U-Net representa un hito fundamental en la evolución de las redes neuronales convolucionales para segmentación semántica. Su arquitectura elegante en forma de U, con un camino de contracción, un camino de expansión y conexiones de salto entre ambos, aborda de manera efectiva el desafío central de la segmentación: equilibrar la necesidad de contexto global con la preservación de detalles espaciales locales.</p>
+
+<p>Aunque originalmente fue desarrollada para segmentación de imágenes biomédicas, su impacto ha trascendido este dominio, estableciendo un paradigma arquitectónico que ha influido en innumerables diseños posteriores. Su capacidad para producir segmentaciones precisas con conjuntos de datos relativamente pequeños la ha convertido en una herramienta particularmente valiosa en el ámbito médico, donde los datos etiquetados son escasos y costosos.</p>
+
+<p>El legado de U-Net perdura no solo en sus aplicaciones directas, sino en la rica familia de arquitecturas derivadas que han extendido sus principios a nuevos dominios y abordado sus limitaciones originales. Su influencia continúa siendo evidente en los avances más recientes en segmentación semántica, incluso aquellos que incorporan paradigmas completamente nuevos como los transformers.</p>
+
+<p>En la próxima lección, exploraremos arquitecturas especializadas para detección de objetos, comenzando con YOLO (You Only Look Once), una familia de modelos que revolucionó la detección en tiempo real con su enfoque de una sola etapa.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

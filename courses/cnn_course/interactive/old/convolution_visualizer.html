@@ -1,0 +1,1637 @@
+[Translated Content]
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interactive Convolution Visualizer</title>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .panel {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+        }
+        .visualization {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .canvas-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .control-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .filter-cell {
+            width: 100%;
+            text-align: center;
+        }
+        .explanation {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        #feature-map {
+            height: 300px;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: #3498db;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Interactive Convolution Visualizer</h1>
+<div class="error" id="error-message"></div>
+<div class="tabs">
+<button class="tab active" onclick="openTab(event, 'basic')">Basic Convolution</button>
+<button class="tab" onclick="openTab(event, 'advanced')">Advanced Features</button>
+<button class="tab" onclick="openTab(event, 'activation')">Activation Functions</button>
+<button class="tab" onclick="openTab(event, 'pooling')">Pooling</button>
+</div>
+<div class="tab-content active" id="basic">
+<div class="container">
+<div class="panel">
+<h2>Controls</h2>
+<div class="controls">
+<div class="control-group">
+<label for="image-select">Input Image:</label>
+<select id="image-select" onchange="updateImage()">
+<option value="random">Random Pattern</option>
+<option value="gradient">Gradient</option>
+<option value="checkerboard">Checkerboard</option>
+<option value="circle">Circle</option>
+<option value="lines">Lines</option>
+</select>
+</div>
+<div class="control-group">
+<label for="filter-select">Predefined Filter:</label>
+<select id="filter-select" onchange="updateFilter()">
+<option value="edge-detection">Edge Detection</option>
+<option value="sharpen">Sharpen</option>
+<option value="blur">Blur</option>
+<option value="emboss">Emboss</option>
+<option value="custom">Custom</option>
+</select>
+</div>
+<div class="control-group">
+<label>Custom Filter:</label>
+<div class="filter-grid">
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(0, 0, this.value)" step="0.1" type="number" value="0"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(0, 1, this.value)" step="0.1" type="number" value="0"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(0, 2, this.value)" step="0.1" type="number" value="0"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(1, 0, this.value)" step="0.1" type="number" value="0"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(1, 1, this.value)" step="0.1" type="number" value="1"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(1, 2, this.value)" step="0.1" type="number" value="0"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(2, 0, this.value)" step="0.1" type="number" value="0"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(2, 1, this.value)" step="0.1" type="number" value="0"/>
+<input class="filter-cell" max="5" min="-5" onchange="updateCustomFilter(2, 2, this.value)" step="0.1" type="number" value="0"/>
+</div>
+</div>
+<div class="control-group">
+<label for="stride-select">Stride:</label>
+<select id="stride-select" onchange="updateConvolution()">
+<option value="1">1 (Sin salto)</option>
+<option value="2">2 (Salto de 2 píxeles)</option>
+<option value="3">3 (Salto de 3 píxeles)</option>
+</select>
+</div>
+<div class="control-group">
+<label for="padding-select">Padding:</label>
+<select id="padding-select" onchange="updateConvolution()">
+<option value="valid">Valid (Sin padding)</option>
+<option value="same">Same (Preservar dimensiones)</option>
+</select>
+</div>
+<button onclick="applyConvolution()">Apply Convolution</button>
+</div>
+<div class="explanation">
+<h3>What is Convolution?</h3>
+<p>Convolution is a fundamental mathematical operation in CNNs that involves sliding a filter (or kernel) over an input image, performing element-wise multiplications, and summing the results.</p>
+<p>This operation enables the network to detect features like edges, textures, and patterns in the image.</p>
+<p>Experiment with different filters and parameters to see how they affect the convolution result.</p>
+</div>
+</div>
+<div class="panel">
+<h2>Visualization</h2>
+<div class="visualization">
+<div class="canvas-container">
+<h3>Input Image</h3>
+<div id="input-canvas"></div>
+</div>
+<div class="canvas-container">
+<h3>Feature Map</h3>
+<div id="output-canvas"></div>
+</div>
+</div>
+<div id="feature-map"></div>
+<div class="explanation">
+<h3>Interpretation</h3>
+<p>The feature map shows the result of applying the selected filter to the input image.</p>
+<p>Brighter areas indicate high filter activation, meaning it has detected a pattern similar to what the filter is designed to find.</p>
+<p>The 3D visualization shows the intensity of activations as height, giving an additional perspective on how the filter responds to different parts of the image.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="advanced">
+<div class="container">
+<div class="panel">
+<h2>Advanced Features</h2>
+<div class="controls">
+<div class="control-group">
+<label for="channels-select">Input Channels:</label>
+<select id="channels-select" onchange="updateChannels()" onchange="createRGBImage()">
+<option value="1">1 (Grayscale)</option>
+<option value="3">3 (RGB)</option>
+</select>
+</div>
+<div class="control-group">
+<label for="filters-count">Number of filters:</label>
+<select id="filters-count" onchange="updateFiltersCount()">
+<option value="1">1 filter</option>
+<option value="2">2 filters</option>
+<option value="4">4 filters</option>
+</select>
+</div>
+<div class="control-group">
+<label for="filter-size">Filter size:</label>
+<select id="filter-size" onchange="updateFilterSize()">
+<option value="3">3x3</option>
+<option value="5">5x5</option>
+<option value="7">7x7</option>
+</select>
+</div>
+<button onclick="applyMultiChannelConvolution()">Apply Multichannel Convolution</button>
+</div>
+<div class="explanation">
+<h3>Multichannel Convolution</h3>
+<p>In real CNNs, images usually have multiple channels (RGB), and multiple filters are applied to detect different features.</p>
+<p>Each filter generates a different feature map, and these maps are combined in later layers to form more complex representations.</p>
+<p>The filter size affects the receptive field: larger filters can capture broader patterns but require more computation.</p>
+</div>
+</div>
+<div class="panel">
+<h2>Visualization Multicanal</h2>
+<div id="multichannel-visualization" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; justify-content: flex-start;">
+<div class="canvas-container">
+<h3>RGB Image</h3>
+<div id="rgb-input-canvas"></div>
+</div>
+<div id="feature-maps-container"></div>
+</div>
+<div class="explanation">
+<h3>Interpretation</h3>
+<p>Each feature map shows the response of a different filter applied to the input image.</p>
+<p>Observe how different filters detect different aspects of the image, such as horizontal or vertical edges, or specific textures.</p>
+<p>In a real CNN, these feature maps would serve as input for the next convolutional layer.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="activation">
+<div class="container">
+<div class="panel">
+<h2>Activation Functions</h2>
+<div class="controls">
+<div class="control-group">
+<label for="activation-function">Activation function:</label>
+<select id="activation-function" onchange="updateActivation()">
+<option value="none">No activation</option>
+<option value="relu">ReLU</option>
+<option value="sigmoid">Sigmoid</option>
+<option value="tanh">Tanh</option>
+<option value="leaky_relu">Leaky ReLU</option>
+</select>
+</div>
+<div class="control-group" id="leaky-alpha-container" style="display: none;">
+<label for="leaky-alpha">Alpha for Leaky ReLU:</label>
+<input id="leaky-alpha" max="0.5" min="0.01" onchange="updateActivation()" step="0.01" type="range" value="0.1"/>
+<span id="leaky-alpha-value">0.1</span>
+</div>
+<button onclick="applyActivation()">Apply Activation</button>
+</div>
+<div class="explanation">
+<h3>Activation Functions</h3>
+<p>Las funciones de activación introducen no-linealidad en las redes neuronales, permitiéndoles aprender relaciones complejas.</p>
+<p><strong>ReLU</strong> (Rectified Linear Unit): f(x) = max(0, x). Simple y eficiente, pero puede sufrir de "neuronas muertas".</p>
+<p><strong>Sigmoid</strong>: f(x) = 1/(1+e^(-x)). Mapea valores a [0,1], pero sufre de desvanecimiento del gradiente.</p>
+<p><strong>Tanh</strong>: f(x) = tanh(x). Similar a sigmoid pero con rango [-1,1].</p>
+<p><strong>Leaky ReLU</strong>: f(x) = max(αx, x). Soluciona el problema de las neuronas muertas permitiendo pequeños gradientes negativos.</p>
+</div>
+</div>
+<div class="panel">
+<h2>Visualization de Activaciones</h2>
+<div class="visualization">
+<div class="canvas-container">
+<h3>Before Activation</h3>
+<div id="pre-activation-canvas"></div>
+</div>
+<div class="canvas-container">
+<h3>After Activation</h3>
+<div id="post-activation-canvas"></div>
+</div>
+</div>
+<div id="activation-function-plot"></div>
+<div class="explanation">
+<h3>Interpretation</h3>
+<p>See how the activation function transforms the values in the feature map.</p>
+<p>ReLU elimina todos los valores negativos, mientras que Sigmoid comprime todos los valores al rango [0,1].</p>
+<p>The chart shows the applied activation function, where the X-axis represents input values and the Y-axis shows transformed values.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="pooling">
+<div class="container">
+<div class="panel">
+<h2>Pooling Operations</h2>
+<div class="controls">
+<div class="control-group">
+<label for="pooling-type">Pooling type:</label>
+<select id="pooling-type" onchange="updatePooling()">
+<option value="max">Max Pooling</option>
+<option value="avg">Average Pooling</option>
+<option value="global_avg">Global Average Pooling</option>
+</select>
+</div>
+<div class="control-group">
+<label for="pool-size">Window size:</label>
+<select id="pool-size" onchange="updatePooling()">
+<option value="2">2x2</option>
+<option value="3">3x3</option>
+<option value="4">4x4</option>
+</select>
+</div>
+<div class="control-group">
+<label for="pool-stride">Stride:</label>
+<select id="pool-stride" onchange="updatePooling()">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</div>
+<button onclick="applyPooling()">Apply Pooling</button>
+</div>
+<div class="explanation">
+<h3>Pooling Operations</h3>
+<p>El pooling reduce la dimensionalidad espacial de los mapas de características, disminuyendo el costo computacional y proporcionando invariancia a pequeñas traslaciones.</p>
+<p><strong>Max Pooling</strong>: Selecciona el valor máximo en cada ventana, preservando las características más prominentes.</p>
+<p><strong>Average Pooling</strong>: Calcula el promedio de los valores en cada ventana, preservando información de fondo.</p>
+<p><strong>Global Average Pooling</strong>: Calcula el promedio de todo el mapa de características, reduciendo cada mapa a un solo valor.</p>
+</div>
+</div>
+<div class="panel">
+<h2>Pooling Visualization</h2>
+<div class="visualization">
+<div class="canvas-container">
+<h3>Before Pooling</h3>
+<div id="pre-pooling-canvas"></div>
+</div>
+<div class="canvas-container">
+<h3>After Pooling</h3>
+<div id="post-pooling-canvas"></div>
+</div>
+</div>
+<div class="explanation">
+<h3>Interpretation</h3>
+<p>Observe how pooling reduces the spatial resolution while trying to preserve important information.</p>
+<p>Max Pooling tends to preserve edges and prominent features, while Average Pooling smooths the image.</p>
+<p>Stride controls how far the pooling window moves: a higher stride results in a more aggressive dimensionality reduction.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Global variables
+        let inputImage = [];
+        let currentFilter = [];
+        let outputImage = [];
+        let stride = 1;
+        let padding = 'valid';
+        let imageSize = 28;
+        let p5Instance = null;
+        let librariesLoaded = {
+            p5: false,
+            plotly: false
+        };
+        let preActivationImage = [];
+        let postActivationImage = [];
+        let prePoolingImage = [];
+        let postPoolingImage = [];
+        let rgbInputImage = [];
+        let featureMaps = [];
+        
+        // Predefined filters
+        const filters = {
+            'edge-detection': [
+                [-1, -1, -1],
+                [-1,  8, -1],
+                [-1, -1, -1]
+            ],
+            'sharpen': [
+                [ 0, -1,  0],
+                [-1,  5, -1],
+                [ 0, -1,  0]
+            ],
+            'blur': [
+                [1/9, 1/9, 1/9],
+                [1/9, 1/9, 1/9],
+                [1/9, 1/9, 1/9]
+            ],
+            'emboss': [
+                [-2, -1,  0],
+                [-1,  1,  1],
+                [ 0,  1,  2]
+            ],
+            'custom': [
+                [0, 0, 0],
+                [0, 1, 0],
+                [0, 0, 0]
+            ]
+        };
+
+        // Check library loading
+        function checkLibraries() {
+            if (typeof p5 !== 'undefined') {
+                librariesLoaded.p5 = true;
+            }
+            
+            if (typeof Plotly !== 'undefined') {
+                librariesLoaded.plotly = true;
+            }
+            
+            if (librariesLoaded.p5 && librariesLoaded.plotly) {
+                initializeApp();
+            } else {
+                showError("Error: No se pudieron cargar todas las bibliotecas necesarias. Por favor, recarga la página.");
+            }
+        }
+        
+        // Show error message
+        function showError(message) {
+            const errorElement = document.getElementById('error-message');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        // Initialize application
+        function initializeApp() {
+            // Create new p5 instance
+            p5Instance = new p5(function(p) {
+                p.setup = function() {
+                    // Create canvas for input image
+                    let inputCanvas = p.createCanvas(280, 280);
+                    inputCanvas.parent('input-canvas');
+                    
+                    // Create canvas for output image
+                    let outputCanvas = p.createCanvas(280, 280);
+                    outputCanvas.parent('output-canvas');
+                    
+                    // Create canvas for activation
+                    let preActivationCanvas = p.createCanvas(280, 280);
+                    preActivationCanvas.parent('pre-activation-canvas');
+                    
+                    let postActivationCanvas = p.createCanvas(280, 280);
+                    postActivationCanvas.parent('post-activation-canvas');
+                    
+                    // Create canvas for pooling
+                    let prePoolingCanvas = p.createCanvas(280, 280);
+                    prePoolingCanvas.parent('pre-pooling-canvas');
+                    
+                    let postPoolingCanvas = p.createCanvas(280, 280);
+                    postPoolingCanvas.parent('post-pooling-canvas');
+                    
+                    // Create canvas for RGB
+                    let rgbCanvas = p.createCanvas(280, 280);
+                    rgbCanvas.parent('rgb-input-canvas');
+                    
+                    // Initialize input image with random pattern
+                    createRandomImage();
+                    
+                    // Initialize filter with edge detection
+                    currentFilter = JSON.parse(JSON.stringify(filters['edge-detection']));
+                    updateFilterInputs();
+                    
+                    // Apply initial convolution
+                    applyConvolution();
+                };
+                
+                p.draw = function() {
+                    // No necesitamos actualización continua
+                };
+            });
+        }
+        
+        // Create random input image
+        function createRandomImage() {
+            inputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                inputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    inputImage[i][j] = Math.random();
+                }
+            }
+            drawInputImage();
+            
+            // Copy for other tabs
+            preActivationImage = JSON.parse(JSON.stringify(inputImage));
+            prePoolingImage = JSON.parse(JSON.stringify(inputImage));
+            
+            // Create RGB image for advanced tab
+            createRGBImage();
+        }
+        
+        // Crear imagen RGB
+        function createRGBImage() {
+            rgbInputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                rgbInputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    rgbInputImage[i][j] = {
+                        r: Math.random(),
+                        g: Math.random(),
+                        b: Math.random()
+                    };
+                }
+            }
+            drawRGBImage();
+        }
+        
+        // Create gradient image
+        function createGradientImage() {
+            inputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                inputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    inputImage[i][j] = i / imageSize;
+                }
+            }
+            drawInputImage();
+            
+            // Copy for other tabs
+            preActivationImage = JSON.parse(JSON.stringify(inputImage));
+            prePoolingImage = JSON.parse(JSON.stringify(inputImage));
+            
+            // Create RGB image for advanced tab
+            rgbInputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                rgbInputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    rgbInputImage[i][j] = {
+                        r: i / imageSize,
+                        g: j / imageSize,
+                        b: (i + j) / (2 * imageSize)
+                    };
+                }
+            }
+            drawRGBImage();
+        }
+        
+        // Create checkerboard image
+        function createCheckerboardImage() {
+            inputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                inputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    inputImage[i][j] = (i % 4 < 2) ^ (j % 4 < 2) ? 1 : 0;
+                }
+            }
+            drawInputImage();
+            
+            // Copy for other tabs
+            preActivationImage = JSON.parse(JSON.stringify(inputImage));
+            prePoolingImage = JSON.parse(JSON.stringify(inputImage));
+            
+            // Create RGB image for advanced tab
+            rgbInputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                rgbInputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    const val = (i % 4 < 2) ^ (j % 4 < 2) ? 1 : 0;
+                    rgbInputImage[i][j] = {
+                        r: val,
+                        g: 1 - val,
+                        b: (i % 8 < 4) ? val : 1 - val
+                    };
+                }
+            }
+            drawRGBImage();
+        }
+        
+        // Create circle image
+        function createCircleImage() {
+            inputImage = [];
+            let center = imageSize / 2;
+            let radius = imageSize / 3;
+            for (let i = 0; i < imageSize; i++) {
+                inputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    let dist = Math.sqrt((i - center) ** 2 + (j - center) ** 2);
+                    inputImage[i][j] = dist < radius ? 1 : 0;
+                }
+            }
+            drawInputImage();
+            
+            // Copy for other tabs
+            preActivationImage = JSON.parse(JSON.stringify(inputImage));
+            prePoolingImage = JSON.parse(JSON.stringify(inputImage));
+            
+            // Create RGB image for advanced tab
+            rgbInputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                rgbInputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    let dist = Math.sqrt((i - center) ** 2 + (j - center) ** 2);
+                    let val = dist < radius ? 1 : 0;
+                    let angle = Math.atan2(i - center, j - center) / (2 * Math.PI) + 0.5; // 0 to 1
+                    
+                    rgbInputImage[i][j] = {
+                        r: val * (1 - angle),
+                        g: val * angle,
+                        b: val * (dist / radius)
+                    };
+                }
+            }
+            drawRGBImage();
+        }
+        
+        // Create lines image
+        function createLinesImage() {
+            inputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                inputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    inputImage[i][j] = (i % 4 === 0 || j % 4 === 0) ? 1 : 0;
+                }
+            }
+            drawInputImage();
+            
+            // Copy for other tabs
+            preActivationImage = JSON.parse(JSON.stringify(inputImage));
+            prePoolingImage = JSON.parse(JSON.stringify(inputImage));
+            
+            // Create RGB image for advanced tab
+            rgbInputImage = [];
+            for (let i = 0; i < imageSize; i++) {
+                rgbInputImage[i] = [];
+                for (let j = 0; j < imageSize; j++) {
+                    rgbInputImage[i][j] = {
+                        r: (i % 4 === 0) ? 1 : 0,
+                        g: (j % 4 === 0) ? 1 : 0,
+                        b: ((i + j) % 8 === 0) ? 1 : 0
+                    };
+                }
+            }
+            drawRGBImage();
+        }
+        
+        // Draw input image
+        function drawInputImage() {
+            try {
+                const canvas = document.querySelector('#input-canvas canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const cellSize = canvas.width / imageSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        const value = inputImage[i][j];
+                        const color = Math.floor(value * 255);
+                        ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+            } catch (error) {
+                console.error("Error al dibujar imagen de entrada:", error);
+                showError("Error al dibujar imagen de entrada. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Draw RGB image
+        function drawRGBImage() {
+            try {
+                const canvas = document.querySelector('#rgb-input-canvas canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const cellSize = canvas.width / imageSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        const pixel = rgbInputImage[i][j];
+                        const r = Math.floor(pixel.r * 255);
+                        const g = Math.floor(pixel.g * 255);
+                        const b = Math.floor(pixel.b * 255);
+                        ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+            } catch (error) {
+                console.error("Error al dibujar imagen RGB:", error);
+                showError("Error al dibujar imagen RGB. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Draw output image
+        function drawOutputImage() {
+            try {
+                const canvas = document.querySelector('#output-canvas canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const outputSize = outputImage.length;
+                const cellSize = canvas.width / outputSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Encontrar valores mínimo y máximo para normalización
+                let min = Infinity;
+                let max = -Infinity;
+                for (let i = 0; i < outputSize; i++) {
+                    for (let j = 0; j < outputSize; j++) {
+                        min = Math.min(min, outputImage[i][j]);
+                        max = Math.max(max, outputImage[i][j]);
+                    }
+                }
+                
+                // Normalizar y dibujar
+                const range = max - min;
+                for (let i = 0; i < outputSize; i++) {
+                    for (let j = 0; j < outputSize; j++) {
+                        const normalizedValue = range === 0 ? 0.5 : (outputImage[i][j] - min) / range;
+                        const color = Math.floor(normalizedValue * 255);
+                        ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+                
+                // Actualizar visualización 3D
+                updateFeatureMapPlot();
+            } catch (error) {
+                console.error("Error al dibujar imagen de salida:", error);
+                showError("Error al dibujar imagen de salida. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update 3D visualization of feature map
+        function updateFeatureMapPlot() {
+            try {
+                if (!librariesLoaded.plotly) return;
+                
+                const outputSize = outputImage.length;
+                
+                // Preparar datos para Plotly
+                const z = [];
+                for (let i = 0; i < outputSize; i++) {
+                    z.push([...outputImage[i]]);
+                }
+                
+                // Crear gráfico 3D
+                const data = [{
+                    z: z,
+                    type: 'surface',
+                    colorscale: 'Viridis'
+                }];
+                
+                const layout = {
+                    title: 'Visualization 3D del Feature Map',
+                    autosize: true,
+                    margin: {
+                        l: 65,
+                        r: 50,
+                        b: 65,
+                        t: 90,
+                    }
+                };
+                
+                Plotly.newPlot('feature-map', data, layout);
+            } catch (error) {
+                console.error("Error al actualizar gráfico 3D:", error);
+                showError("Error al actualizar gráfico 3D. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Apply convolution
+        function applyConvolution() {
+            try {
+                stride = parseInt(document.getElementById('stride-select').value);
+                padding = document.getElementById('padding-select').value;
+                
+                // Calcular tamaño de salida
+                const filterSize = currentFilter.length;
+                let outputSize;
+                
+                if (padding === 'valid') {
+                    outputSize = Math.floor((imageSize - filterSize) / stride) + 1;
+                } else { // 'same'
+                    outputSize = Math.ceil(imageSize / stride);
+                }
+                
+                // Inicializar imagen de salida
+                outputImage = [];
+                for (let i = 0; i < outputSize; i++) {
+                    outputImage[i] = [];
+                    for (let j = 0; j < outputSize; j++) {
+                        outputImage[i][j] = 0;
+                    }
+                }
+                
+                // Apply convolution
+                for (let i = 0; i < outputSize; i++) {
+                    for (let j = 0; j < outputSize; j++) {
+                        let sum = 0;
+                        
+                        // Calcular posición central en la imagen de entrada
+                        let centerI, centerJ;
+                        
+                        if (padding === 'valid') {
+                            centerI = i * stride;
+                            centerJ = j * stride;
+                        } else { // 'same'
+                            const paddingSize = Math.floor(filterSize / 2);
+                            centerI = i * stride - paddingSize;
+                            centerJ = j * stride - paddingSize;
+                        }
+                        
+                        // Aplicar filtro
+                        for (let fi = 0; fi < filterSize; fi++) {
+                            for (let fj = 0; fj < filterSize; fj++) {
+                                const ii = centerI + fi;
+                                const jj = centerJ + fj;
+                                
+                                // Verificar si está dentro de los límites
+                                if (ii >= 0 && ii < imageSize && jj >= 0 && jj < imageSize) {
+                                    sum += inputImage[ii][jj] * currentFilter[fi][fj];
+                                }
+                            }
+                        }
+                        
+                        outputImage[i][j] = sum;
+                    }
+                }
+                
+                drawOutputImage();
+                
+                // Actualizar imágenes para otras pestañas
+                preActivationImage = JSON.parse(JSON.stringify(outputImage));
+                drawPreActivationImage();
+                
+                prePoolingImage = JSON.parse(JSON.stringify(outputImage));
+                drawPrePoolingImage();
+            } catch (error) {
+                console.error("Error al aplicar convolución:", error);
+                showError("Error al aplicar convolución. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update input image
+        function updateImage() {
+            try {
+                const imageType = document.getElementById('image-select').value;
+                
+                switch (imageType) {
+                    case 'random':
+                        createRandomImage();
+                        break;
+                    case 'gradient':
+                        createGradientImage();
+                        break;
+                    case 'checkerboard':
+                        createCheckerboardImage();
+                        break;
+                    case 'circle':
+                        createCircleImage();
+                        break;
+                    case 'lines':
+                        createLinesImage();
+                        break;
+                }
+                
+                applyConvolution();
+            } catch (error) {
+                console.error("Error al actualizar imagen:", error);
+                showError("Error al actualizar imagen. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update filter
+        function updateFilter() {
+            try {
+                const filterType = document.getElementById('filter-select').value;
+                currentFilter = JSON.parse(JSON.stringify(filters[filterType]));
+                updateFilterInputs();
+                applyConvolution();
+            } catch (error) {
+                console.error("Error al actualizar filtro:", error);
+                showError("Error al actualizar filtro. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update filter personalizado
+        function updateCustomFilter(row, col, value) {
+            try {
+                if (document.getElementById('filter-select').value !== 'custom') {
+                    document.getElementById('filter-select').value = 'custom';
+                }
+                
+                currentFilter[row][col] = parseFloat(value);
+                applyConvolution();
+            } catch (error) {
+                console.error("Error al actualizar filtro personalizado:", error);
+                showError("Error al actualizar filtro personalizado. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update filter inputs
+        function updateFilterInputs() {
+            try {
+                const filterCells = document.querySelectorAll('.filter-cell');
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        filterCells[i * 3 + j].value = currentFilter[i][j];
+                    }
+                }
+            } catch (error) {
+                console.error("Error al actualizar inputs del filtro:", error);
+                showError("Error al actualizar inputs del filtro. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update convolution
+        function updateConvolution() {
+            applyConvolution();
+        }
+        
+        // Switch tab
+        function openTab(evt, tabName) {
+            try {
+                // Ocultar todos los contenidos de pestañas
+                const tabContents = document.getElementsByClassName('tab-content');
+                for (let i = 0; i < tabContents.length; i++) {
+                    tabContents[i].classList.remove('active');
+                }
+                
+                // Desactivar todos los botones de pestañas
+                const tabs = document.getElementsByClassName('tab');
+                for (let i = 0; i < tabs.length; i++) {
+                    tabs[i].classList.remove('active');
+                }
+                
+                // Mostrar el contenido de la pestaña actual y activar el botón
+                document.getElementById(tabName).classList.add('active');
+                evt.currentTarget.classList.add('active');
+                
+                // Inicializar contenido específico de la pestaña si es necesario
+                if (tabName === 'advanced' && !document.querySelector('#feature-maps-container canvas')) {
+                    initializeAdvancedTab();
+                } else if (tabName === 'activation' && !document.querySelector('#activation-function-plot .plotly')) {
+                    initializeActivationTab();
+                } else if (tabName === 'pooling' && !document.querySelector('#post-pooling-canvas canvas')) {
+                    initializePoolingTab();
+                }
+            } catch (error) {
+                console.error("Error al cambiar de pestaña:", error);
+                showError("Error al cambiar de pestaña. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Initialize advanced tab
+        function initializeAdvancedTab() {
+            try {
+                // Create containers for feature maps
+                const container = document.getElementById('feature-maps-container');
+                container.innerHTML = '';
+                
+                const filtersCount = parseInt(document.getElementById('filters-count').value);
+                
+                for (let i = 0; i < filtersCount; i++) {
+                    const mapContainer = document.createElement('div');
+                    mapContainer.className = 'canvas-container';
+                    mapContainer.innerHTML = `<h3>Filtro ${i+1}</h3><div id="feature-map-${i}"></div>`;
+                    container.appendChild(mapContainer);
+                    
+                    // Crear canvas para cada mapa
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 280;
+                    canvas.height = 280;
+                    document.getElementById(`feature-map-${i}`).appendChild(canvas);
+                }
+                
+                // Apply convolution multicanal inicial
+                applyMultiChannelConvolution();
+            } catch (error) {
+                console.error("Error al inicializar pestaña avanzada:", error);
+                showError("Error al inicializar pestaña avanzada. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update channels
+        function updateChannels() {
+            applyMultiChannelConvolution();
+        }
+        
+        // Update number of filters
+        function updateFiltersCount() {
+            initializeAdvancedTab();
+        }
+        
+        // Update filter size
+        function updateFilterSize() {
+            applyMultiChannelConvolution();
+        }
+        
+        // Apply convolution multicanal
+        function applyMultiChannelConvolution() {
+            try {
+                const channels = parseInt(document.getElementById('channels-select').value);
+                const filtersCount = parseInt(document.getElementById('filters-count').value);
+                const filterSize = parseInt(document.getElementById('filter-size').value);
+                
+                // Generar filtros aleatorios
+                const multiFilters = [];
+                for (let f = 0; f < filtersCount; f++) {
+                    const filter = [];
+                    for (let c = 0; c < channels; c++) {
+                        const channelFilter = [];
+                        for (let i = 0; i < filterSize; i++) {
+                            const row = [];
+                            for (let j = 0; j < filterSize; j++) {
+                                row.push((Math.random() * 2 - 1) * 0.5);
+                            }
+                            channelFilter.push(row);
+                        }
+                        filter.push(channelFilter);
+                    }
+                    multiFilters.push(filter);
+                }
+                
+                // Apply convolution para cada filtro
+                featureMaps = [];
+                for (let f = 0; f < filtersCount; f++) {
+                    const outputSize = imageSize - filterSize + 1;
+                    const featureMap = Array(outputSize).fill().map(() => Array(outputSize).fill(0));
+                    
+                    // Apply convolution
+                    for (let i = 0; i < outputSize; i++) {
+                        for (let j = 0; j < outputSize; j++) {
+                            let sum = 0;
+                            
+                            // Para cada canal
+                            for (let c = 0; c < channels; c++) {
+                                // Aplicar filtro
+                                for (let fi = 0; fi < filterSize; fi++) {
+                                    for (let fj = 0; fj < filterSize; fj++) {
+                                        const ii = i + fi;
+                                        const jj = j + fj;
+                                        
+                                        if (channels === 1) {
+                                            sum += inputImage[ii][jj] * multiFilters[f][c][fi][fj];
+                                        } else {
+                                            const pixel = rgbInputImage[ii][jj];
+                                            const channelValue = c === 0 ? pixel.r : (c === 1 ? pixel.g : pixel.b);
+                                            sum += channelValue * multiFilters[f][c][fi][fj];
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            featureMap[i][j] = sum;
+                        }
+                    }
+                    
+                    featureMaps.push(featureMap);
+                }
+                
+                // Dibujar mapas de características
+                for (let f = 0; f < filtersCount; f++) {
+                    drawFeatureMap(f);
+                }
+            } catch (error) {
+                console.error("Error al aplicar convolución multicanal:", error);
+                showError("Error al aplicar convolución multicanal. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Draw feature map
+        function drawFeatureMap(index) {
+            try {
+                const canvas = document.querySelector(`#feature-map-${index} canvas`);
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const featureMap = featureMaps[index];
+                const mapSize = featureMap.length;
+                const cellSize = canvas.width / mapSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Encontrar valores mínimo y máximo para normalización
+                let min = Infinity;
+                let max = -Infinity;
+                for (let i = 0; i < mapSize; i++) {
+                    for (let j = 0; j < mapSize; j++) {
+                        min = Math.min(min, featureMap[i][j]);
+                        max = Math.max(max, featureMap[i][j]);
+                    }
+                }
+                
+                // Normalizar y dibujar
+                const range = max - min;
+                for (let i = 0; i < mapSize; i++) {
+                    for (let j = 0; j < mapSize; j++) {
+                        const normalizedValue = range === 0 ? 0.5 : (featureMap[i][j] - min) / range;
+                        const color = Math.floor(normalizedValue * 255);
+                        ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+            } catch (error) {
+                console.error(`Error al dibujar mapa de características ${index}:`, error);
+                showError(`Error al dibujar mapa de características. Consulta la consola para más detalles.`);
+            }
+        }
+        
+        // Initialize activation tab
+        function initializeActivationTab() {
+            try {
+                // Draw pre-activation image
+                drawPreActivationImage();
+                
+                // Aplicar activación inicial
+                applyActivation();
+                
+                // Dibujar gráfico de función de activación
+                updateActivationFunctionPlot('none');
+            } catch (error) {
+                console.error("Error al inicializar pestaña de activación:", error);
+                showError("Error al inicializar pestaña de activación. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Draw pre-activation image
+        function drawPreActivationImage() {
+            try {
+                const canvas = document.querySelector('#pre-activation-canvas canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const imageSize = preActivationImage.length;
+                const cellSize = canvas.width / imageSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Encontrar valores mínimo y máximo para normalización
+                let min = Infinity;
+                let max = -Infinity;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        min = Math.min(min, preActivationImage[i][j]);
+                        max = Math.max(max, preActivationImage[i][j]);
+                    }
+                }
+                
+                // Normalizar y dibujar
+                const range = max - min;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        const normalizedValue = range === 0 ? 0.5 : (preActivationImage[i][j] - min) / range;
+                        const color = Math.floor(normalizedValue * 255);
+                        ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+            } catch (error) {
+                console.error("Error al dibujar imagen pre-activación:", error);
+                showError("Error al dibujar imagen pre-activación. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Draw post-activation image
+        function drawPostActivationImage() {
+            try {
+                const canvas = document.querySelector('#post-activation-canvas canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const imageSize = postActivationImage.length;
+                const cellSize = canvas.width / imageSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Encontrar valores mínimo y máximo para normalización
+                let min = Infinity;
+                let max = -Infinity;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        min = Math.min(min, postActivationImage[i][j]);
+                        max = Math.max(max, postActivationImage[i][j]);
+                    }
+                }
+                
+                // Normalizar y dibujar
+                const range = max - min;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        const normalizedValue = range === 0 ? 0.5 : (postActivationImage[i][j] - min) / range;
+                        const color = Math.floor(normalizedValue * 255);
+                        ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+            } catch (error) {
+                console.error("Error al dibujar imagen post-activación:", error);
+                showError("Error al dibujar imagen post-activación. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update activation function
+        function updateActivation() {
+            try {
+                const activationType = document.getElementById('activation-function').value;
+                
+                // Mostrar/ocultar control de alpha para Leaky ReLU
+                const leakyAlphaContainer = document.getElementById('leaky-alpha-container');
+                leakyAlphaContainer.style.display = activationType === 'leaky_relu' ? 'block' : 'none';
+                
+                // Actualizar valor mostrado de alpha
+                if (activationType === 'leaky_relu') {
+                    const alpha = document.getElementById('leaky-alpha').value;
+                    document.getElementById('leaky-alpha-value').textContent = alpha;
+                }
+                
+                // Update activation function plot
+                updateActivationFunctionPlot(activationType);
+                
+                // Aplicar activación
+                applyActivation();
+            } catch (error) {
+                console.error("Error al actualizar activación:", error);
+                showError("Error al actualizar activación. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Apply activation function
+        function applyActivation() {
+            try {
+                const activationType = document.getElementById('activation-function').value;
+                const alpha = parseFloat(document.getElementById('leaky-alpha').value);
+                
+                // Copiar imagen pre-activación
+                const imageSize = preActivationImage.length;
+                postActivationImage = [];
+                for (let i = 0; i < imageSize; i++) {
+                    postActivationImage[i] = [];
+                    for (let j = 0; j < imageSize; j++) {
+                        const value = preActivationImage[i][j];
+                        
+                        // Apply activation function
+                        switch (activationType) {
+                            case 'none':
+                                postActivationImage[i][j] = value;
+                                break;
+                            case 'relu':
+                                postActivationImage[i][j] = Math.max(0, value);
+                                break;
+                            case 'sigmoid':
+                                postActivationImage[i][j] = 1 / (1 + Math.exp(-value));
+                                break;
+                            case 'tanh':
+                                postActivationImage[i][j] = Math.tanh(value);
+                                break;
+                            case 'leaky_relu':
+                                postActivationImage[i][j] = value > 0 ? value : alpha * value;
+                                break;
+                            default:
+                                postActivationImage[i][j] = value;
+                        }
+                    }
+                }
+                
+                drawPostActivationImage();
+            } catch (error) {
+                console.error("Error al aplicar activación:", error);
+                showError("Error al aplicar activación. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update activation function plot
+        function updateActivationFunctionPlot(activationType) {
+            try {
+                if (!librariesLoaded.plotly) return;
+                
+                // Generar datos para la gráfica
+                const x = [];
+                const y = [];
+                const alpha = parseFloat(document.getElementById('leaky-alpha').value);
+                
+                for (let i = -5; i <= 5; i += 0.1) {
+                    x.push(i);
+                    
+                    switch (activationType) {
+                        case 'none':
+                            y.push(i);
+                            break;
+                        case 'relu':
+                            y.push(Math.max(0, i));
+                            break;
+                        case 'sigmoid':
+                            y.push(1 / (1 + Math.exp(-i)));
+                            break;
+                        case 'tanh':
+                            y.push(Math.tanh(i));
+                            break;
+                        case 'leaky_relu':
+                            y.push(i > 0 ? i : alpha * i);
+                            break;
+                        default:
+                            y.push(i);
+                    }
+                }
+                
+                // Crear gráfico
+                const data = [{
+                    x: x,
+                    y: y,
+                    type: 'scatter',
+                    mode: 'lines',
+                    line: {
+                        color: '#3498db',
+                        width: 3
+                    }
+                }];
+                
+                const layout = {
+                    title: `Activation Function: ${activationType === 'none' ? 'Lineal' : activationType}`,
+                    xaxis: {
+                        title: 'Entrada',
+                        zeroline: true,
+                        zerolinecolor: '#999',
+                        zerolinewidth: 1
+                    },
+                    yaxis: {
+                        title: 'Salida',
+                        zeroline: true,
+                        zerolinecolor: '#999',
+                        zerolinewidth: 1
+                    },
+                    margin: {
+                        l: 50,
+                        r: 50,
+                        b: 50,
+                        t: 50,
+                        pad: 4
+                    }
+                };
+                
+                Plotly.newPlot('activation-function-plot', data, layout);
+            } catch (error) {
+                console.error("Error al actualizar gráfico de función de activación:", error);
+                showError("Error al actualizar gráfico de función de activación. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Initialize pooling tab
+        function initializePoolingTab() {
+            try {
+                // Draw pre-pooling image
+                drawPrePoolingImage();
+                
+                // Aplicar pooling inicial
+                applyPooling();
+            } catch (error) {
+                console.error("Error al inicializar pestaña de pooling:", error);
+                showError("Error al inicializar pestaña de pooling. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Draw pre-pooling image
+        function drawPrePoolingImage() {
+            try {
+                const canvas = document.querySelector('#pre-pooling-canvas canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const imageSize = prePoolingImage.length;
+                const cellSize = canvas.width / imageSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Encontrar valores mínimo y máximo para normalización
+                let min = Infinity;
+                let max = -Infinity;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        min = Math.min(min, prePoolingImage[i][j]);
+                        max = Math.max(max, prePoolingImage[i][j]);
+                    }
+                }
+                
+                // Normalizar y dibujar
+                const range = max - min;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        const normalizedValue = range === 0 ? 0.5 : (prePoolingImage[i][j] - min) / range;
+                        const color = Math.floor(normalizedValue * 255);
+                        ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+            } catch (error) {
+                console.error("Error al dibujar imagen pre-pooling:", error);
+                showError("Error al dibujar imagen pre-pooling. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Draw post-pooling image
+        function drawPostPoolingImage() {
+            try {
+                const canvas = document.querySelector('#post-pooling-canvas canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const imageSize = postPoolingImage.length;
+                const cellSize = canvas.width / imageSize;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Encontrar valores mínimo y máximo para normalización
+                let min = Infinity;
+                let max = -Infinity;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        min = Math.min(min, postPoolingImage[i][j]);
+                        max = Math.max(max, postPoolingImage[i][j]);
+                    }
+                }
+                
+                // Normalizar y dibujar
+                const range = max - min;
+                for (let i = 0; i < imageSize; i++) {
+                    for (let j = 0; j < imageSize; j++) {
+                        const normalizedValue = range === 0 ? 0.5 : (postPoolingImage[i][j] - min) / range;
+                        const color = Math.floor(normalizedValue * 255);
+                        ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                        ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                    }
+                }
+            } catch (error) {
+                console.error("Error al dibujar imagen post-pooling:", error);
+                showError("Error al dibujar imagen post-pooling. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Update pooling parameters
+        function updatePooling() {
+            applyPooling();
+        }
+        
+        // Apply pooling operation
+        function applyPooling() {
+            try {
+                const poolingType = document.getElementById('pooling-type').value;
+                const poolSize = parseInt(document.getElementById('pool-size').value);
+                const poolStride = parseInt(document.getElementById('pool-stride').value);
+                
+                const inputSize = prePoolingImage.length;
+                const outputSize = Math.floor((inputSize - poolSize) / poolStride) + 1;
+                
+                // Inicializar imagen post-pooling
+                postPoolingImage = [];
+                for (let i = 0; i < outputSize; i++) {
+                    postPoolingImage[i] = [];
+                    for (let j = 0; j < outputSize; j++) {
+                        postPoolingImage[i][j] = 0;
+                    }
+                }
+                
+                // Aplicar pooling
+                if (poolingType === 'global_avg') {
+                    // Global Average Pooling
+                    let sum = 0;
+                    for (let i = 0; i < inputSize; i++) {
+                        for (let j = 0; j < inputSize; j++) {
+                            sum += prePoolingImage[i][j];
+                        }
+                    }
+                    const avg = sum / (inputSize * inputSize);
+                    
+                    // Llenar toda la imagen con el mismo valor
+                    for (let i = 0; i < outputSize; i++) {
+                        for (let j = 0; j < outputSize; j++) {
+                            postPoolingImage[i][j] = avg;
+                        }
+                    }
+                } else {
+                    // Max o Average Pooling
+                    for (let i = 0; i < outputSize; i++) {
+                        for (let j = 0; j < outputSize; j++) {
+                            const startI = i * poolStride;
+                            const startJ = j * poolStride;
+                            
+                            if (poolingType === 'max') {
+                                // Max Pooling
+                                let maxVal = -Infinity;
+                                for (let pi = 0; pi < poolSize; pi++) {
+                                    for (let pj = 0; pj < poolSize; pj++) {
+                                        const ii = startI + pi;
+                                        const jj = startJ + pj;
+                                        
+                                        if (ii < inputSize && jj < inputSize) {
+                                            maxVal = Math.max(maxVal, prePoolingImage[ii][jj]);
+                                        }
+                                    }
+                                }
+                                postPoolingImage[i][j] = maxVal;
+                            } else {
+                                // Average Pooling
+                                let sum = 0;
+                                let count = 0;
+                                for (let pi = 0; pi < poolSize; pi++) {
+                                    for (let pj = 0; pj < poolSize; pj++) {
+                                        const ii = startI + pi;
+                                        const jj = startJ + pj;
+                                        
+                                        if (ii < inputSize && jj < inputSize) {
+                                            sum += prePoolingImage[ii][jj];
+                                            count++;
+                                        }
+                                    }
+                                }
+                                postPoolingImage[i][j] = count > 0 ? sum / count : 0;
+                            }
+                        }
+                    }
+                }
+                
+                drawPostPoolingImage();
+            } catch (error) {
+                console.error("Error al aplicar pooling:", error);
+                showError("Error al aplicar pooling. Consulta la consola para más detalles.");
+            }
+        }
+        
+        // Start the app when the page loads
+        window.onload = function() {
+  updateImage();
+  applyConvolution();
+  drawRGBImage();
+  drawInputImage();
+
+  updateImage();
+  applyConvolution();
+
+            checkLibraries();
+        };
+    </script>
+<script>
+new p5((p) => {
+    p.setup = () => {
+        let canvas = p.createCanvas(280, 280);
+        canvas.parent("input-canvas");
+    };
+}, "input-canvas");
+
+new p5((p) => {
+    p.setup = () => {
+        let canvas = p.createCanvas(280, 280);
+        canvas.parent("output-canvas");
+    };
+}, "output-canvas");
+
+new p5((p) => {
+    p.setup = () => {
+        let canvas = p.createCanvas(280, 280);
+        canvas.parent("pre-activation-canvas");
+    };
+}, "pre-activation-canvas");
+
+new p5((p) => {
+    p.setup = () => {
+        let canvas = p.createCanvas(280, 280);
+        canvas.parent("post-activation-canvas");
+    };
+}, "post-activation-canvas");
+
+new p5((p) => {
+    p.setup = () => {
+        let canvas = p.createCanvas(280, 280);
+        canvas.parent("pre-pooling-canvas");
+    };
+}, "pre-pooling-canvas");
+
+new p5((p) => {
+    p.setup = () => {
+        let canvas = p.createCanvas(280, 280);
+        canvas.parent("post-pooling-canvas");
+    };
+}, "post-pooling-canvas");
+
+new p5((p) => {
+    p.setup = () => {
+        let canvas = p.createCanvas(280, 280);
+        canvas.parent("rgb-input-canvas");
+    };
+}, "rgb-input-canvas");
+</script></body>
+</html>

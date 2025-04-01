@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo2_lenet.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo2_lenet.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo2_lenet.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-2-arquitecturas-cnn-clásicas">Módulo 2: Arquitecturas CNN Clásicas</h1>
+
+<h2 id="lección-1-lenet-5-1998">Lección 1: LeNet-5 (1998)</h2>
+
+<h3 id="introducción-a-lenet-5">Introducción a LeNet-5</h3>
+
+<p>LeNet-5 representa un hito fundamental en la historia de las redes neuronales convolucionales. Desarrollada por Yann LeCun y sus colaboradores en 1998, esta arquitectura pionera sentó las bases para el desarrollo posterior de las CNN modernas. Aunque su aplicación original fue el reconocimiento de dígitos manuscritos, su influencia se extiende a prácticamente todas las arquitecturas CNN que conocemos hoy.</p>
+
+<h3 id="contexto-histórico">Contexto Histórico</h3>
+
+<p>A finales de la década de 1990, el reconocimiento automático de caracteres manuscritos representaba un desafío significativo para los sistemas de visión por computadora. Las técnicas tradicionales de procesamiento de imágenes y los clasificadores estadísticos mostraban limitaciones importantes al enfrentarse a la variabilidad inherente en la escritura humana.</p>
+
+<p>Yann LeCun, entonces investigador en AT&amp;T Bell Labs, había estado trabajando en redes neuronales convolucionales desde finales de los años 80. Su trabajo culminó con LeNet-5, una arquitectura diseñada específicamente para reconocer dígitos manuscritos en imágenes de 32x32 píxeles. Esta red fue implementada comercialmente para leer códigos postales y cantidades en cheques bancarios, procesando millones de documentos diariamente.</p>
+
+<h3 id="estructura-y-componentes-de-lenet-5">Estructura y Componentes de LeNet-5</h3>
+
+<p>LeNet-5 es una red relativamente pequeña comparada con los estándares actuales, pero introdujo los componentes esenciales que definen a las CNN modernas. Su arquitectura consta de 7 capas (sin contar la capa de entrada):</p>
+
+<ol>
+  <li>
+    <p><strong>Capa de Entrada</strong>: Recibe una imagen en escala de grises de 32x32 píxeles.</p>
+  </li>
+  <li><strong>C1 - Primera Capa Convolucional</strong>:
+    <ul>
+      <li>6 mapas de características (filtros)</li>
+      <li>Tamaño de kernel: 5x5</li>
+      <li>Stride: 1</li>
+      <li>Sin padding</li>
+      <li>Dimensiones de salida: 28x28x6</li>
+    </ul>
+  </li>
+  <li><strong>S2 - Primera Capa de Submuestreo (Pooling)</strong>:
+    <ul>
+      <li>Pooling de promedio con factor 2x2</li>
+      <li>Dimensiones de salida: 14x14x6</li>
+    </ul>
+  </li>
+  <li><strong>C3 - Segunda Capa Convolucional</strong>:
+    <ul>
+      <li>16 mapas de características</li>
+      <li>Tamaño de kernel: 5x5</li>
+      <li>Conexiones parciales a los mapas de S2 (para romper la simetría)</li>
+      <li>Dimensiones de salida: 10x10x16</li>
+    </ul>
+  </li>
+  <li><strong>S4 - Segunda Capa de Submuestreo</strong>:
+    <ul>
+      <li>Pooling de promedio con factor 2x2</li>
+      <li>Dimensiones de salida: 5x5x16</li>
+    </ul>
+  </li>
+  <li><strong>C5 - Tercera Capa Convolucional</strong>:
+    <ul>
+      <li>120 mapas de características</li>
+      <li>Tamaño de kernel: 5x5 (cubre toda la región espacial)</li>
+      <li>Dimensiones de salida: 1x1x120</li>
+    </ul>
+  </li>
+  <li><strong>F6 - Capa Completamente Conectada</strong>:
+    <ul>
+      <li>84 neuronas</li>
+      <li>Conectada completamente a C5</li>
+    </ul>
+  </li>
+  <li><strong>Capa de Salida</strong>:
+    <ul>
+      <li>10 neuronas (una por dígito)</li>
+      <li>Función de activación: RBF (Radial Basis Function)</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="características-distintivas">Características Distintivas</h4>
+
+<p>LeNet-5 incorporó varias características innovadoras:</p>
+
+<ol>
+  <li>
+    <p><strong>Arquitectura Jerárquica</strong>: La red está diseñada para extraer características de manera jerárquica, desde patrones simples en las primeras capas hasta representaciones más complejas en las capas superiores.</p>
+  </li>
+  <li>
+    <p><strong>Compartición de Pesos</strong>: Los mismos pesos se aplican a diferentes partes de la imagen, lo que reduce drásticamente el número de parámetros y permite detectar características independientemente de su posición.</p>
+  </li>
+  <li>
+    <p><strong>Submuestreo</strong>: Las capas de pooling (llamadas “subsampling” en el paper original) reducen la resolución espacial, proporcionando invariancia a pequeñas transformaciones y reduciendo la carga computacional.</p>
+  </li>
+  <li>
+    <p><strong>Conexiones Locales</strong>: Cada neurona está conectada solo a una pequeña región de la capa anterior, reflejando la naturaleza local de la información visual.</p>
+  </li>
+  <li>
+    <p><strong>Conexiones Parciales en C3</strong>: Para reducir la complejidad computacional y romper la simetría, no todos los mapas de características en S2 están conectados a cada mapa en C3.</p>
+  </li>
+</ol>
+
+<h3 id="innovaciones-introducidas-por-lenet-5">Innovaciones Introducidas por LeNet-5</h3>
+
+<p>LeNet-5 introdujo varios conceptos que siguen siendo fundamentales en las CNN actuales:</p>
+
+<ol>
+  <li>
+    <p><strong>Convolución para Procesamiento de Imágenes</strong>: Demostró la efectividad de la operación de convolución para extraer características visuales relevantes.</p>
+  </li>
+  <li>
+    <p><strong>Arquitectura en Capas</strong>: Estableció el patrón de alternar capas convolucionales y de submuestreo que sigue siendo común en muchas arquitecturas modernas.</p>
+  </li>
+  <li>
+    <p><strong>Aprendizaje de Extremo a Extremo</strong>: Mostró que una red neuronal podía aprender directamente de los píxeles crudos hasta la clasificación final, sin necesidad de extracción manual de características.</p>
+  </li>
+  <li>
+    <p><strong>Backpropagation Eficiente</strong>: Implementó técnicas para entrenar eficientemente redes convolucionales mediante retropropagación.</p>
+  </li>
+  <li>
+    <p><strong>Invariancia a Transformaciones</strong>: Las capas de submuestreo proporcionaban cierta invariancia a traslaciones, rotaciones y distorsiones, crucial para el reconocimiento de caracteres manuscritos.</p>
+  </li>
+</ol>
+
+<h3 id="aplicaciones-en-reconocimiento-de-dígitos">Aplicaciones en Reconocimiento de Dígitos</h3>
+
+<p>El principal campo de aplicación de LeNet-5 fue el reconocimiento de dígitos manuscritos, específicamente en el conjunto de datos MNIST (Modified National Institute of Standards and Technology), que contiene 60,000 imágenes de entrenamiento y 10,000 imágenes de prueba de dígitos escritos a mano.</p>
+
+<p>LeNet-5 alcanzó una tasa de error de solo 0.8% en MNIST, un resultado extraordinario para su época. Esta precisión permitió su implementación en sistemas comerciales para:</p>
+
+<ol>
+  <li>
+    <p><strong>Lectura de Códigos Postales</strong>: Automatizando la clasificación de correo en el servicio postal de Estados Unidos.</p>
+  </li>
+  <li>
+    <p><strong>Procesamiento de Cheques Bancarios</strong>: Leyendo automáticamente las cantidades escritas en cheques, procesando millones de transacciones diarias.</p>
+  </li>
+  <li>
+    <p><strong>Reconocimiento de Caracteres en Documentos</strong>: Facilitando la digitalización de documentos impresos y manuscritos.</p>
+  </li>
+</ol>
+
+<p>El éxito de LeNet-5 en estas aplicaciones demostró el potencial práctico de las CNN en problemas del mundo real, sentando las bases para su adopción más amplia en la industria.</p>
+
+<h3 id="limitaciones-de-lenet-5">Limitaciones de LeNet-5</h3>
+
+<p>A pesar de su éxito, LeNet-5 presentaba varias limitaciones:</p>
+
+<ol>
+  <li>
+    <p><strong>Capacidad Limitada</strong>: Con solo 7 capas y relativamente pocos parámetros, su capacidad para modelar relaciones complejas era limitada comparada con arquitecturas modernas.</p>
+  </li>
+  <li>
+    <p><strong>Aplicabilidad Restringida</strong>: Estaba optimizada para imágenes pequeñas en escala de grises, dificultando su aplicación a imágenes más grandes y complejas.</p>
+  </li>
+  <li>
+    <p><strong>Recursos Computacionales</strong>: En su época, el entrenamiento de LeNet-5 requería hardware especializado, limitando su accesibilidad.</p>
+  </li>
+  <li>
+    <p><strong>Función de Activación</strong>: Utilizaba funciones de activación tanh, que son susceptibles al problema del desvanecimiento del gradiente en redes profundas.</p>
+  </li>
+  <li>
+    <p><strong>Ausencia de Técnicas Modernas</strong>: Carecía de avances posteriores como normalización por lotes, conexiones residuales, y técnicas avanzadas de regularización.</p>
+  </li>
+</ol>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de LeNet-5 en el campo de la visión por computadora y el aprendizaje profundo ha sido profundo y duradero:</p>
+
+<ol>
+  <li>
+    <p><strong>Base para Arquitecturas Modernas</strong>: Prácticamente todas las CNN modernas siguen principios introducidos por LeNet-5, como la alternancia de capas convolucionales y de pooling.</p>
+  </li>
+  <li>
+    <p><strong>Validación del Enfoque Convolucional</strong>: Demostró la efectividad de las operaciones de convolución para el procesamiento de imágenes, validando el enfoque inspirado biológicamente.</p>
+  </li>
+  <li>
+    <p><strong>Aplicaciones Comerciales Pioneras</strong>: Fue una de las primeras redes neuronales implementadas exitosamente en aplicaciones comerciales a gran escala.</p>
+  </li>
+  <li>
+    <p><strong>Inspiración para Investigación Futura</strong>: El éxito de LeNet-5 inspiró investigaciones posteriores que eventualmente llevaron a avances como AlexNet, que desencadenó la revolución del aprendizaje profundo en 2012.</p>
+  </li>
+  <li>
+    <p><strong>Establecimiento de Benchmarks</strong>: El conjunto de datos MNIST, utilizado para evaluar LeNet-5, se convirtió en un benchmark estándar para algoritmos de clasificación de imágenes.</p>
+  </li>
+</ol>
+
+<h3 id="implementación-simplificada-de-lenet-5">Implementación Simplificada de LeNet-5</h3>
+
+<p>A continuación, se presenta una implementación conceptual simplificada de LeNet-5 utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">create_lenet5</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">Sequential</span><span class="p">()</span>
+    
+    <span class="c1"># Capa de entrada: espera imágenes de 32x32x1
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    
+    <span class="c1"># C1: Primera capa convolucional
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'tanh'</span><span class="p">))</span>
+    
+    <span class="c1"># S2: Primera capa de submuestreo (pooling)
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">AveragePooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    
+    <span class="c1"># C3: Segunda capa convolucional
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'tanh'</span><span class="p">))</span>
+    
+    <span class="c1"># S4: Segunda capa de submuestreo
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">AveragePooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    
+    <span class="c1"># C5: Tercera capa convolucional
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'tanh'</span><span class="p">))</span>
+    
+    <span class="c1"># Aplanar la salida para las capas completamente conectadas
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Flatten</span><span class="p">())</span>
+    
+    <span class="c1"># F6: Capa completamente conectada
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'tanh'</span><span class="p">))</span>
+    
+    <span class="c1"># Capa de salida
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">))</span>  <span class="c1"># Usamos softmax en lugar de RBF
+</span>    
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Crear el modelo
+</span><span class="n">lenet5</span> <span class="o">=</span> <span class="n">create_lenet5</span><span class="p">()</span>
+
+<span class="c1"># Compilar el modelo
+</span><span class="n">lenet5</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span>
+               <span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="n">lenet5</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Nota: Esta implementación moderna utiliza softmax como función de activación en la capa de salida en lugar de la función RBF original, y podría incluir otras pequeñas diferencias con respecto a la arquitectura original.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>LeNet-5 representa un hito fundamental en la historia de las redes neuronales convolucionales y el aprendizaje profundo. A pesar de su relativa simplicidad comparada con las arquitecturas actuales, introdujo conceptos y principios que siguen siendo centrales en el diseño de CNN modernas.</p>
+
+<p>Su éxito en aplicaciones prácticas de reconocimiento de dígitos demostró el potencial de las CNN para resolver problemas reales de visión por computadora, pavimentando el camino para la revolución del aprendizaje profundo que experimentamos hoy.</p>
+
+<p>En la próxima lección, exploraremos AlexNet, la arquitectura que revitalizó el interés en las CNN en 2012 y desencadenó la era moderna del aprendizaje profundo en visión por computadora.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

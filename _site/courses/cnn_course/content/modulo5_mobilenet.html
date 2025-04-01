@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo5_mobilenet.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo5_mobilenet.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo5_mobilenet.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-5-arquitecturas-eficientes">Módulo 5: Arquitecturas Eficientes</h1>
+
+<h2 id="lección-1-mobilenet">Lección 1: MobileNet</h2>
+
+<h3 id="introducción-a-mobilenet">Introducción a MobileNet</h3>
+
+<p>MobileNet representa un punto de inflexión en el diseño de redes neuronales convolucionales, marcando el inicio de una nueva era de arquitecturas específicamente optimizadas para dispositivos con recursos limitados. Desarrollada por investigadores de Google, esta familia de arquitecturas aborda directamente uno de los mayores desafíos en la implementación práctica de CNN: cómo desplegar modelos de alta precisión en dispositivos móviles y embebidos con severas restricciones de memoria, potencia de cálculo y energía.</p>
+
+<p>A diferencia de arquitecturas anteriores como ResNet o DenseNet, que priorizaban la precisión sobre la eficiencia, MobileNet introduce un nuevo paradigma donde la eficiencia computacional es un objetivo de diseño primario, no una consideración secundaria. Este cambio de enfoque refleja la creciente necesidad de ejecutar modelos de aprendizaje profundo directamente en dispositivos de usuario final, sin depender de servidores en la nube, para aplicaciones que requieren baja latencia, funcionamiento sin conexión o privacidad de datos.</p>
+
+<p>La innovación central de MobileNet es la sustitución de las convoluciones estándar por convoluciones separables en profundidad (depthwise separable convolutions), una factorización que reduce drásticamente el número de operaciones y parámetros mientras preserva gran parte de la capacidad representacional. Además, MobileNet introduce hiperparámetros específicos para ajustar el equilibrio entre latencia y precisión, permitiendo adaptar la arquitectura a diferentes escenarios de despliegue.</p>
+
+<p>Desde su introducción en 2017, MobileNet ha evolucionado a través de múltiples versiones (MobileNetV1, V2, V3), cada una incorporando nuevas técnicas para mejorar la eficiencia y precisión. Su impacto trasciende su aplicación directa, habiendo influido significativamente en el diseño de arquitecturas eficientes posteriores y establecido nuevos estándares para la evaluación de modelos en términos de precisión por operación.</p>
+
+<h3 id="convoluciones-separables-en-profundidad">Convoluciones Separables en Profundidad</h3>
+
+<p>La innovación fundamental que define a MobileNet es el uso sistemático de convoluciones separables en profundidad en lugar de convoluciones estándar.</p>
+
+<h4 id="convolución-estándar-vs-separable-en-profundidad">Convolución Estándar vs. Separable en Profundidad</h4>
+
+<p>Una convolución estándar realiza simultáneamente el filtrado espacial y la combinación de canales. Para una capa con M canales de entrada, N canales de salida, y filtros de tamaño K×K, el costo computacional es proporcional a:</p>
+
+<p>M × N × K × K × H × W</p>
+
+<p>Donde H×W es la resolución espacial del mapa de características.</p>
+
+<p>La convolución separable en profundidad factoriza esta operación en dos pasos:</p>
+
+<ol>
+  <li><strong>Convolución en Profundidad (Depthwise Convolution)</strong>: Aplica un filtro espacial K×K a cada canal de entrada por separado, sin combinar canales.
+    <ul>
+      <li>Costo: M × K × K × H × W</li>
+    </ul>
+  </li>
+  <li><strong>Convolución Puntual (Pointwise Convolution)</strong>: Aplica filtros 1×1 para combinar los canales filtrados y crear nuevos mapas de características.
+    <ul>
+      <li>Costo: M × N × H × W</li>
+    </ul>
+  </li>
+</ol>
+
+<p>El costo total es proporcional a:
+M × K × K × H × W + M × N × H × W = M × H × W × (K² + N)</p>
+
+<h4 id="reducción-de-costo-computacional">Reducción de Costo Computacional</h4>
+
+<p>Comparando con la convolución estándar, la reducción en costo computacional es:</p>
+
+<p>(M × K × K × H × W + M × N × H × W) / (M × N × K × K × H × W) = (K² + N) / (N × K²)</p>
+
+<p>Para valores típicos (K=3, N=256), esto representa una reducción de aproximadamente 8-9 veces en el número de operaciones.</p>
+
+<p>Esta factorización separa explícitamente dos responsabilidades:</p>
+<ul>
+  <li>La convolución en profundidad se encarga del filtrado espacial</li>
+  <li>La convolución puntual se encarga de la combinación de canales</li>
+</ul>
+
+<h4 id="implementación-práctica">Implementación Práctica</h4>
+
+<p>En la implementación de MobileNet, cada bloque separable en profundidad sigue esta secuencia:</p>
+<ol>
+  <li>Convolución en profundidad con un filtro por canal</li>
+  <li>Normalización por lotes (Batch Normalization)</li>
+  <li>Activación ReLU</li>
+  <li>Convolución puntual (1×1) para combinar canales</li>
+  <li>Normalización por lotes</li>
+  <li>Activación ReLU</li>
+</ol>
+
+<p>Esta estructura se repite a lo largo de la red, con reducciones ocasionales de resolución espacial mediante stride=2 en las convoluciones en profundidad.</p>
+
+<h3 id="hiperparámetros-multiplicador-de-anchura-y-resolución">Hiperparámetros: Multiplicador de Anchura y Resolución</h3>
+
+<p>Una característica distintiva de MobileNet es la introducción de dos hiperparámetros específicos para ajustar el equilibrio entre precisión y eficiencia:</p>
+
+<h4 id="multiplicador-de-anchura-α">Multiplicador de Anchura (α)</h4>
+
+<p>El multiplicador de anchura (α) controla uniformemente el número de canales en cada capa:</p>
+<ul>
+  <li>Si α = 1, se utiliza el número completo de canales (modelo base)</li>
+  <li>Si α &lt; 1, se reduce proporcionalmente el número de canales en todas las capas</li>
+</ul>
+
+<p>Por ejemplo, con α = 0.5, cada capa tendrá la mitad de canales, reduciendo el costo computacional aproximadamente por un factor de 4 (ya que tanto las convoluciones en profundidad como las puntuales escalan con el número de canales).</p>
+
+<p>Valores típicos: α ∈ {1, 0.75, 0.5, 0.25}</p>
+
+<h4 id="multiplicador-de-resolución-ρ">Multiplicador de Resolución (ρ)</h4>
+
+<p>El multiplicador de resolución (ρ) controla la resolución de entrada y, consecuentemente, la resolución de todos los mapas de características internos:</p>
+<ul>
+  <li>Si ρ = 1, se utiliza la resolución completa (típicamente 224×224)</li>
+  <li>Si ρ &lt; 1, se reduce proporcionalmente la resolución</li>
+</ul>
+
+<p>Por ejemplo, con ρ = 0.5, la entrada sería 112×112, reduciendo el costo computacional aproximadamente por un factor de 4 (ya que el costo escala cuadráticamente con la resolución).</p>
+
+<p>Valores típicos: ρ ∈ {1, 0.857, 0.714, 0.571}</p>
+
+<h4 id="impacto-en-precisión-y-eficiencia">Impacto en Precisión y Eficiencia</h4>
+
+<p>Estos hiperparámetros permiten generar una familia de modelos con diferentes equilibrios entre precisión y eficiencia:</p>
+
+<ul>
+  <li>Reducir α disminuye el número de parámetros y operaciones, pero también la capacidad representacional</li>
+  <li>Reducir ρ disminuye el costo computacional cuadráticamente, pero puede perder información espacial fina</li>
+</ul>
+
+<p>Los autores de MobileNet demostraron empíricamente que reducir la anchura (α) generalmente tiene un impacto menor en la precisión que reducir la resolución (ρ) para un mismo nivel de reducción computacional.</p>
+
+<h3 id="mobilenetv1-vs-mobilenetv2">MobileNetV1 vs MobileNetV2</h3>
+
+<p>La arquitectura MobileNet ha evolucionado significativamente desde su introducción, con MobileNetV2 incorporando importantes mejoras sobre el diseño original.</p>
+
+<h4 id="arquitectura-mobilenetv1">Arquitectura MobileNetV1</h4>
+
+<p>MobileNetV1, introducida en 2017, estableció el paradigma básico:</p>
+
+<ol>
+  <li><strong>Estructura General</strong>:
+    <ul>
+      <li>Convolución estándar inicial 3×3 con stride=2</li>
+      <li>13 bloques de convolución separable en profundidad</li>
+      <li>Average Pooling global</li>
+      <li>Capa completamente conectada para clasificación</li>
+    </ul>
+  </li>
+  <li><strong>Bloque Básico</strong>:
+    <ul>
+      <li>Convolución en profundidad 3×3</li>
+      <li>Batch Normalization + ReLU</li>
+      <li>Convolución puntual 1×1</li>
+      <li>Batch Normalization + ReLU</li>
+    </ul>
+  </li>
+  <li><strong>Características</strong>:
+    <ul>
+      <li>4.2 millones de parámetros (α=1)</li>
+      <li>569 millones de operaciones de multiplicación-acumulación</li>
+      <li>70.6% de precisión top-1 en ImageNet</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="innovaciones-en-mobilenetv2">Innovaciones en MobileNetV2</h4>
+
+<p>MobileNetV2, presentada en 2018, introdujo dos innovaciones clave:</p>
+
+<ol>
+  <li><strong>Conexiones Residuales Lineales</strong>:
+    <ul>
+      <li>Similar a ResNet, pero con una diferencia crucial: la última activación ReLU se elimina</li>
+      <li>Esto preserva información en el espacio de características de baja dimensionalidad</li>
+    </ul>
+  </li>
+  <li><strong>Bloque de Cuello de Botella Invertido (Inverted Bottleneck)</strong>:
+    <ul>
+      <li>A diferencia del diseño bottleneck tradicional que reduce y luego expande dimensiones, MobileNetV2 primero expande y luego reduce</li>
+      <li>Secuencia: expansión mediante convolución 1×1, filtrado mediante convolución en profundidad, proyección mediante convolución 1×1 sin activación</li>
+    </ul>
+  </li>
+  <li><strong>Estructura del Bloque</strong>:
+    <ul>
+      <li>Convolución puntual 1×1 para expansión (típicamente 6x)</li>
+      <li>Batch Normalization + ReLU6</li>
+      <li>Convolución en profundidad 3×3</li>
+      <li>Batch Normalization + ReLU6</li>
+      <li>Convolución puntual 1×1 para reducción (sin activación)</li>
+      <li>Conexión residual (si las dimensiones coinciden)</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="comparativa-de-rendimiento">Comparativa de Rendimiento</h4>
+
+<p>MobileNetV2 logró mejoras significativas sobre V1:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Parámetros</th>
+      <th>Operaciones</th>
+      <th>Precisión Top-1 (ImageNet)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MobileNetV1 (α=1)</td>
+      <td>4.2M</td>
+      <td>569M</td>
+      <td>70.6%</td>
+    </tr>
+    <tr>
+      <td>MobileNetV2 (α=1)</td>
+      <td>3.4M</td>
+      <td>300M</td>
+      <td>72.0%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Las mejoras clave incluyen:</p>
+<ul>
+  <li>Menor número de parámetros (-19%)</li>
+  <li>Menor costo computacional (-47%)</li>
+  <li>Mayor precisión (+1.4%)</li>
+</ul>
+
+<p>Estas mejoras demuestran la efectividad del diseño de cuello de botella invertido y las conexiones residuales lineales.</p>
+
+<h3 id="mobilenetv3-búsqueda-de-arquitectura-neural">MobileNetV3: Búsqueda de Arquitectura Neural</h3>
+
+<p>MobileNetV3, introducida en 2019, representa un salto cualitativo en el diseño de arquitecturas eficientes al incorporar técnicas de búsqueda de arquitectura neural (NAS) y optimizaciones específicas para hardware.</p>
+
+<h4 id="innovaciones-principales">Innovaciones Principales</h4>
+
+<ol>
+  <li><strong>Búsqueda de Arquitectura Neural (NAS)</strong>:
+    <ul>
+      <li>Utiliza algoritmos automatizados para optimizar la estructura de la red</li>
+      <li>Combina MnasNet (búsqueda de bloques) con NetAdapt (optimización por capa)</li>
+      <li>Optimiza directamente para objetivos específicos de latencia en hardware real</li>
+    </ul>
+  </li>
+  <li><strong>Nuevo Bloque de Construcción</strong>:
+    <ul>
+      <li>Incorpora el “Squeeze-and-Excitation” (SE) module para atención de canal</li>
+      <li>Utiliza la función de activación “hard-swish” (h-swish) más eficiente</li>
+      <li>Rediseña la primera y última capa para reducir latencia</li>
+    </ul>
+  </li>
+  <li><strong>Variantes Optimizadas</strong>:
+    <ul>
+      <li><strong>MobileNetV3-Large</strong>: Optimizada para máxima precisión dentro de restricciones de latencia</li>
+      <li><strong>MobileNetV3-Small</strong>: Optimizada para casos de uso con recursos extremadamente limitados</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="mejoras-de-rendimiento">Mejoras de Rendimiento</h4>
+
+<p>MobileNetV3 logró mejoras significativas sobre sus predecesores:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Parámetros</th>
+      <th>Operaciones</th>
+      <th>Precisión Top-1 (ImageNet)</th>
+      <th>Latencia Relativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MobileNetV2</td>
+      <td>3.4M</td>
+      <td>300M</td>
+      <td>72.0%</td>
+      <td>1.0x</td>
+    </tr>
+    <tr>
+      <td>MobileNetV3-Large</td>
+      <td>5.4M</td>
+      <td>219M</td>
+      <td>75.2%</td>
+      <td>0.98x</td>
+    </tr>
+    <tr>
+      <td>MobileNetV3-Small</td>
+      <td>2.5M</td>
+      <td>66M</td>
+      <td>67.4%</td>
+      <td>0.45x</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>MobileNetV3-Large logra:</p>
+<ul>
+  <li>+3.2% mayor precisión que MobileNetV2</li>
+  <li>27% menos operaciones</li>
+  <li>Latencia ligeramente menor en dispositivos móviles</li>
+</ul>
+
+<p>MobileNetV3-Small ofrece:</p>
+<ul>
+  <li>Rendimiento competitivo con 78% menos operaciones que MobileNetV2</li>
+  <li>Menos de la mitad de latencia</li>
+</ul>
+
+<h3 id="aplicaciones-en-dispositivos-móviles">Aplicaciones en Dispositivos Móviles</h3>
+
+<p>MobileNet ha encontrado amplia aplicación en dispositivos móviles y embebidos, donde las restricciones de recursos son significativas.</p>
+
+<h4 id="casos-de-uso-principales">Casos de Uso Principales</h4>
+
+<ol>
+  <li><strong>Visión en Dispositivo</strong>:
+    <ul>
+      <li>Clasificación de imágenes en tiempo real</li>
+      <li>Detección de objetos (mediante SSDLite, una versión eficiente de SSD)</li>
+      <li>Segmentación semántica (mediante adaptaciones eficientes de DeepLabv3)</li>
+      <li>Reconocimiento facial y de gestos</li>
+    </ul>
+  </li>
+  <li><strong>Realidad Aumentada</strong>:
+    <ul>
+      <li>Detección y seguimiento de objetos</li>
+      <li>Estimación de pose</li>
+      <li>Segmentación para efectos visuales</li>
+    </ul>
+  </li>
+  <li><strong>Asistentes Inteligentes</strong>:
+    <ul>
+      <li>Reconocimiento visual para asistentes de voz</li>
+      <li>Análisis de contexto visual</li>
+    </ul>
+  </li>
+  <li><strong>Fotografía Computacional</strong>:
+    <ul>
+      <li>Mejora de imágenes</li>
+      <li>Bokeh artificial (desenfoque de fondo)</li>
+      <li>Clasificación de escenas para optimización de parámetros</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="ventajas-en-entornos-móviles">Ventajas en Entornos Móviles</h4>
+
+<p>MobileNet ofrece varias ventajas críticas para aplicaciones móviles:</p>
+
+<ol>
+  <li>
+    <p><strong>Baja Latencia</strong>: Procesamiento en tiempo real con tiempos de respuesta típicos de 10-30ms en dispositivos de gama media-alta.</p>
+  </li>
+  <li>
+    <p><strong>Funcionamiento Sin Conexión</strong>: No requiere conectividad a servidores, permitiendo uso en áreas sin cobertura o con conectividad limitada.</p>
+  </li>
+  <li>
+    <p><strong>Privacidad</strong>: Los datos se procesan localmente sin necesidad de enviarlos a servidores externos.</p>
+  </li>
+  <li>
+    <p><strong>Ahorro de Batería</strong>: Menor consumo energético comparado con el envío constante de datos a servidores.</p>
+  </li>
+  <li>
+    <p><strong>Adaptabilidad</strong>: Los hiperparámetros permiten ajustar el modelo según las capacidades específicas del dispositivo.</p>
+  </li>
+</ol>
+
+<h3 id="implementación-simplificada-de-mobilenetv2">Implementación Simplificada de MobileNetV2</h3>
+
+<p>A continuación, se presenta una implementación conceptual simplificada de un bloque de MobileNetV2 utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="k">def</span> <span class="nf">inverted_residual_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">expansion_factor</span><span class="p">,</span> <span class="n">use_residual</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="s">"""
+    Implementación de un bloque de cuello de botella invertido de MobileNetV2
+    
+    Args:
+        x: Tensor de entrada
+        filters: Número de filtros de salida
+        stride: Stride para la convolución en profundidad
+        expansion_factor: Factor de expansión para la primera convolución 1x1
+        use_residual: Si es True, añade una conexión residual
+    
+    Returns:
+        Tensor de salida del bloque
+    """</span>
+    <span class="c1"># Guardar entrada para la conexión residual
+</span>    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">input_filters</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># Fase de expansión
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">input_filters</span> <span class="o">*</span> <span class="n">expansion_factor</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">ReLU</span><span class="p">(</span><span class="mf">6.</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># ReLU6: min(max(0, x), 6)
+</span>    
+    <span class="c1"># Fase de filtrado espacial (convolución en profundidad)
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">DepthwiseConv2D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">ReLU</span><span class="p">(</span><span class="mf">6.</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Fase de proyección
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># No hay activación después de la proyección
+</span>    
+    <span class="c1"># Añadir conexión residual si es posible
+</span>    <span class="k">if</span> <span class="n">use_residual</span> <span class="ow">and</span> <span class="n">stride</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">input_filters</span> <span class="o">==</span> <span class="n">filters</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Add</span><span class="p">()([</span><span class="n">shortcut</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">create_mobilenetv2</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="s">"""
+    Crea un modelo MobileNetV2
+    
+    Args:
+        input_shape: Forma del tensor de entrada
+        num_classes: Número de clases para la clasificación
+        alpha: Multiplicador de anchura
+    
+    Returns:
+        Modelo MobileNetV2
+    """</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    
+    <span class="c1"># Primera capa convolucional
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">32</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">ReLU</span><span class="p">(</span><span class="mf">6.</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Configuración de bloques: (expansion_factor, filters, num_blocks, stride)
+</span>    <span class="n">block_settings</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span>
+    
+    <span class="c1"># Bloques de cuello de botella invertido
+</span>    <span class="k">for</span> <span class="n">expansion</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">num_blocks</span><span class="p">,</span> <span class="n">stride</span> <span class="ow">in</span> <span class="n">block_settings</span><span class="p">:</span>
+        <span class="c1"># Ajustar número de filtros según alpha
+</span>        <span class="n">filters</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">filters</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">)</span>
+        
+        <span class="c1"># Primer bloque con stride especificado
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">inverted_residual_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">expansion</span><span class="p">)</span>
+        
+        <span class="c1"># Bloques restantes con stride=1
+</span>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_blocks</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">inverted_residual_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">expansion</span><span class="p">)</span>
+    
+    <span class="c1"># Última capa convolucional
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">1280</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">ReLU</span><span class="p">(</span><span class="mf">6.</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Clasificador
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Crear MobileNetV2 con alpha=1.0
+</span><span class="n">mobilenetv2</span> <span class="o">=</span> <span class="n">create_mobilenetv2</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Compilar el modelo
+</span><span class="n">mobilenetv2</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+                   <span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+                   <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="k">print</span><span class="p">(</span><span class="s">"MobileNetV2 Summary:"</span><span class="p">)</span>
+<span class="n">mobilenetv2</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Esta implementación simplificada captura los elementos esenciales de MobileNetV2, incluyendo los bloques de cuello de botella invertido y las conexiones residuales lineales.</p>
+
+<h3 id="ventajas-y-limitaciones">Ventajas y Limitaciones</h3>
+
+<h4 id="ventajas-de-mobilenet">Ventajas de MobileNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Eficiencia Computacional</strong>: Drástica reducción en número de operaciones y parámetros comparado con arquitecturas tradicionales.</p>
+  </li>
+  <li>
+    <p><strong>Latencia Reducida</strong>: Tiempos de inferencia significativamente menores, cruciales para aplicaciones en tiempo real.</p>
+  </li>
+  <li>
+    <p><strong>Tamaño Compacto</strong>: Modelos más pequeños que requieren menos memoria y almacenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Consumo Energético</strong>: Menor consumo de batería, crítico para dispositivos móviles.</p>
+  </li>
+  <li>
+    <p><strong>Flexibilidad</strong>: Hiperparámetros ajustables permiten adaptar el modelo a diferentes restricciones de recursos.</p>
+  </li>
+  <li>
+    <p><strong>Precisión Competitiva</strong>: Mantiene precisión razonable a pesar de las optimizaciones para eficiencia.</p>
+  </li>
+</ol>
+
+<h4 id="limitaciones-de-mobilenet">Limitaciones de MobileNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Brecha de Precisión</strong>: Aún existe una brecha de precisión comparado con arquitecturas más grandes como ResNet o EfficientNet.</p>
+  </li>
+  <li>
+    <p><strong>Tareas Complejas</strong>: Puede tener dificultades con tareas que requieren contexto espacial amplio o detalles muy finos.</p>
+  </li>
+  <li>
+    <p><strong>Transferencia a Nuevos Dominios</strong>: Puede requerir más ajustes para transferir efectivamente a dominios muy diferentes de ImageNet.</p>
+  </li>
+  <li>
+    <p><strong>Sensibilidad a Hiperparámetros</strong>: El rendimiento puede variar significativamente con diferentes configuraciones de hiperparámetros.</p>
+  </li>
+  <li>
+    <p><strong>Optimización Específica para Hardware</strong>: El rendimiento óptimo puede requerir implementaciones específicas para diferentes plataformas de hardware.</p>
+  </li>
+</ol>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de MobileNet en el campo del aprendizaje profundo ha sido profundo y duradero:</p>
+
+<ol>
+  <li>
+    <p><strong>Paradigma de Eficiencia</strong>: Estableció la eficiencia computacional como objetivo primario de diseño, no solo una consideración secundaria.</p>
+  </li>
+  <li>
+    <p><strong>Métricas de Evaluación</strong>: Popularizó nuevas métricas como precisión por operación o precisión por parámetro para evaluar modelos.</p>
+  </li>
+  <li>
+    <p><strong>Convoluciones Separables</strong>: Demostró la efectividad de las convoluciones separables en profundidad, ahora ampliamente adoptadas.</p>
+  </li>
+  <li>
+    <p><strong>Diseño para Dispositivos</strong>: Inspiró una nueva generación de arquitecturas específicamente diseñadas para dispositivos con recursos limitados.</p>
+  </li>
+  <li>
+    <p><strong>Democratización del Aprendizaje Profundo</strong>: Facilitó el despliegue de modelos CNN en dispositivos accesibles, ampliando el alcance de aplicaciones prácticas.</p>
+  </li>
+  <li>
+    <p><strong>Búsqueda de Arquitectura</strong>: Pionero en la integración de NAS con objetivos específicos de latencia en hardware real.</p>
+  </li>
+</ol>
+
+<p>Los papers de MobileNet han acumulado decenas de miles de citas, y la arquitectura ha sido implementada en numerosos frameworks y plataformas, convirtiéndose en un estándar de facto para aplicaciones móviles de visión por computadora.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>MobileNet representa un punto de inflexión en el diseño de redes neuronales convolucionales, marcando la transición de arquitecturas centradas exclusivamente en la precisión hacia un paradigma que valora igualmente la eficiencia computacional. Su innovación central —las convoluciones separables en profundidad— junto con sus hiperparámetros ajustables, estableció un nuevo estándar para el despliegue de modelos CNN en dispositivos con recursos limitados.</p>
+
+<p>La evolución de MobileNet a través de sus versiones V1, V2 y V3 demuestra el rápido avance en este campo, incorporando progresivamente técnicas como bloques de cuello de botella invertido, conexiones residuales lineales, búsqueda de arquitectura neural y optimizaciones específicas para hardware.</p>
+
+<p>El impacto de MobileNet trasciende su aplicación directa, habiendo influido significativamente en el diseño de arquitecturas eficientes posteriores y establecido nuevos estándares para la evaluación de modelos en términos de precisión por operación. Su legado perdura en la democratización del aprendizaje profundo, permitiendo que aplicaciones sofisticadas de visión por computadora funcionen directamente en dispositivos de usuario final.</p>
+
+<p>En la próxima lección, exploraremos EfficientNet, una arquitectura que lleva la optimización de recursos a un nuevo nivel mediante un enfoque sistemático de escalado compuesto, logrando un equilibrio aún mejor entre precisión y eficiencia.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

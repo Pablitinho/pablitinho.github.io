@@ -1,0 +1,305 @@
+[Translated Content]
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Fundamentos de las CNN - Curso Interactivo de Arquitecturas CNN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modulos.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>CNN<span>Master</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../index.html#modulos" class="active">Módulos</a></li>
+                    <li><a href="../index.html#interactivos">Interactivos</a></li>
+                    <li><a href="../index.html#recursos">Recursos</a></li>
+                    <li><a href="../index.html#acerca">Acerca de</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="module-header">
+            <div class="module-header-content">
+                <h1>Módulo 1: Fundamentos de las CNN</h1>
+                <p>Introducción a las redes neuronales convolucionales, operaciones básicas y componentes esenciales.</p>
+            </div>
+        </div>
+
+        <div class="module-navigation">
+            <div class="module-navigation-container">
+                <div class="module-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span>Progreso: 0%</span>
+                </div>
+                <div class="module-controls">
+                    <a href="#" class="nav-btn disabled"><i class="fas fa-chevron-left"></i> Anterior</a>
+                    <a href="modulo2.html" class="nav-btn">Siguiente <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-content">
+            <div class="module-sidebar">
+                <div class="module-outline">
+                    <h3>Contenido del Módulo</h3>
+                    <ul>
+                        <li><a href="#introduccion" class="active">1.1 Introducción a las CNN</a></li>
+                        <li><a href="#historia">1.2 Historia y Evolución</a></li>
+                        <li><a href="#convolucion">1.3 Operación de Convolución</a></li>
+                        <li><a href="#componentes">1.4 Componentes Básicos</a></li>
+                        <li><a href="#activacion">1.5 Funciones de Activación</a></li>
+                        <li><a href="#pooling">1.6 Pooling y Submuestreo</a></li>
+                        <li><a href="#arquitectura">1.7 Arquitectura Básica</a></li>
+                        <li><a href="#entrenamiento">1.8 Entrenamiento de CNN</a></li>
+                    </ul>
+                </div>
+                <div class="module-resources">
+                    <h3>Recursos Adicionales</h3>
+                    <ul>
+                        <li><a href="../../interactivos/visualizador_convolucion.html" target="_blank"><i class="fas fa-external-link-alt"></i> Visualizador de Convolución</a></li>
+                        <li><a href="../../interactivos/ejercicios_interactivos.html" target="_blank"><i class="fas fa-external-link-alt"></i> Ejercicios del Módulo 1</a></li>
+                        <li><a href="#" target="_blank"><i class="fas fa-file-pdf"></i> Resumen del Módulo (PDF)</a></li>
+                        <li><a href="#" target="_blank"><i class="fas fa-code"></i> Código de Ejemplo</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="module-lessons">
+                <section id="introduccion" class="lesson">
+                    <h2>1.1 Introducción a las CNN</h2>
+                    <div class="lesson-content">
+                        <p>Las Redes Neuronales Convolucionales (CNN) son un tipo especializado de redes neuronales diseñadas específicamente para procesar datos con estructura de cuadrícula, como las imágenes. A diferencia de las redes neuronales tradicionales, las CNN aprovechan la estructura espacial de los datos mediante el uso de operaciones de convolución.</p>
+                        
+                        <div class="info-box">
+                            <h3>¿Por qué son importantes las CNN?</h3>
+                            <p>Las CNN han revolucionado el campo de la visión por computadora, permitiendo avances significativos en tareas como:</p>
+                            <ul>
+                                <li>Clasificación de imágenes</li>
+                                <li>Detección de objetos</li>
+                                <li>Segmentación semántica</li>
+                                <li>Reconocimiento facial</li>
+                                <li>Generación de imágenes</li>
+                            </ul>
+                        </div>
+                        
+                        <p>La principal ventaja de las CNN sobre las redes neuronales tradicionales es su capacidad para aprender automáticamente las características relevantes de los datos, sin necesidad de extracción manual de características. Esto se logra mediante la aplicación de filtros convolucionales que pueden detectar patrones como bordes, texturas y formas en diferentes niveles de abstracción.</p>
+                        
+                        <div class="image-container">
+                            <img src="../img/cnn-overview.png" alt="Visión general de una CNN">
+                            <p class="caption">Figura 1.1: Estructura general de una Red Neuronal Convolucional</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="historia" class="lesson">
+                    <h2>1.2 Historia y Evolución</h2>
+                    <div class="lesson-content">
+                        <p>Las CNN tienen sus raíces en investigaciones neurobiológicas sobre el sistema visual de los mamíferos. Su desarrollo ha sido gradual, con varios hitos importantes a lo largo de las décadas:</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">1959</div>
+                                <div class="timeline-content">
+                                    <h3>Hubel y Wiesel</h3>
+                                    <p>Descubrieron que las neuronas en la corteza visual responden a regiones específicas del campo visual (campo receptivo) y que diferentes neuronas se especializan en detectar diferentes tipos de estímulos visuales.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">1980</div>
+                                <div class="timeline-content">
+                                    <h3>Neocognitrón</h3>
+                                    <p>Kunihiko Fukushima propuso el Neocognitrón, un modelo jerárquico para el reconocimiento de patrones visuales inspirado en la estructura del sistema visual.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">1989</div>
+                                <div class="timeline-content">
+                                    <h3>Backpropagation aplicada a CNN</h3>
+                                    <p>Yann LeCun y colaboradores aplicaron el algoritmo de retropropagación a redes convolucionales para el reconocimiento de dígitos manuscritos.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">1998</div>
+                                <div class="timeline-content">
+                                    <h3>LeNet-5</h3>
+                                    <p>Yann LeCun presentó LeNet-5, considerada la primera CNN moderna, utilizada para reconocimiento de dígitos en cheques bancarios.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">2012</div>
+                                <div class="timeline-content">
+                                    <h3>AlexNet</h3>
+                                    <p>Krizhevsky, Sutskever e Hinton presentaron AlexNet, que ganó la competencia ImageNet por un margen significativo, marcando el inicio de la revolución del deep learning en visión por computadora.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">2014-2015</div>
+                                <div class="timeline-content">
+                                    <h3>VGG, GoogLeNet, ResNet</h3>
+                                    <p>Surgimiento de arquitecturas más profundas y sofisticadas que mejoraron significativamente el estado del arte en tareas de visión por computadora.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">2016-Presente</div>
+                                <div class="timeline-content">
+                                    <h3>Arquitecturas Especializadas</h3>
+                                    <p>Desarrollo de arquitecturas optimizadas para tareas específicas (segmentación, detección) y para dispositivos con recursos limitados (MobileNet, EfficientNet).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p>Esta evolución ha llevado a las CNN desde modelos relativamente simples hasta arquitecturas profundas y complejas capaces de superar el rendimiento humano en diversas tareas de visión por computadora.</p>
+                    </div>
+                </section>
+                
+                <section id="convolucion" class="lesson">
+                    <h2>1.3 Operación de Convolución</h2>
+                    <div class="lesson-content">
+                        <p>La operación de convolución es el componente fundamental de las CNN. En el contexto de procesamiento de imágenes, la convolución consiste en deslizar un filtro (o kernel) sobre la imagen de entrada y calcular el producto punto en cada posición.</p>
+                        
+                        <div class="formula-box">
+                            <h3>Fórmula Matemática</h3>
+                            <p>La operación de convolución 2D se define como:</p>
+                            <div class="formula">
+                                (I * K)(i, j) = ∑<sub>m</sub> ∑<sub>n</sub> I(i+m, j+n) · K(m, n)
+                            </div>
+                            <p>Donde:</p>
+                            <ul>
+                                <li>I es la imagen de entrada</li>
+                                <li>K es el kernel o filtro</li>
+                                <li>* denota la operación de convolución</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="interactive-link">
+                            <p>Para entender mejor cómo funciona la convolución, prueba nuestro visualizador interactivo:</p>
+                            <a href="../../interactivos/visualizador_convolucion.html" class="btn interactive-btn" target="_blank">Abrir Visualizador de Convolución</a>
+                        </div>
+                        
+                        <h3>Parámetros Clave de la Convolución</h3>
+                        
+                        <div class="parameters-grid">
+                            <div class="parameter-card">
+                                <h4>Tamaño del Filtro</h4>
+                                <p>Dimensiones del kernel (ej. 3x3, 5x5). Filtros más grandes capturan contextos más amplios pero requieren más cómputo.</p>
+                            </div>
+                            
+                            <div class="parameter-card">
+                                <h4>Stride</h4>
+                                <p>Número de píxeles que se desplaza el filtro en cada paso. Un stride mayor reduce la dimensionalidad espacial de la salida.</p>
+                            </div>
+                            
+                            <div class="parameter-card">
+                                <h4>Padding</h4>
+                                <p>Adición de píxeles alrededor de la imagen de entrada. El padding 'same' mantiene las dimensiones espaciales, mientras que 'valid' las reduce.</p>
+                            </div>
+                            
+                            <div class="parameter-card">
+                                <h4>Número de Filtros</h4>
+                                <p>Cantidad de filtros diferentes aplicados a la entrada. Cada filtro aprende a detectar un patrón específico.</p>
+                            </div>
+                        </div>
+                        
+                        <h3>Cálculo de la Dimensión de Salida</h3>
+                        <p>La dimensión espacial de la salida de una capa convolucional se puede calcular con la siguiente fórmula:</p>
+                        
+                        <div class="formula-box">
+                            <div class="formula">
+                                O = ⌊(I - K + 2P) / S⌋ + 1
+                            </div>
+                            <p>Donde:</p>
+                            <ul>
+                                <li>O: Dimensión de salida</li>
+                                <li>I: Dimensión de entrada</li>
+                                <li>K: Tamaño del kernel</li>
+                                <li>P: Padding</li>
+                                <li>S: Stride</li>
+                                <li>⌊ ⌋: Función suelo (redondeo hacia abajo)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Más secciones del módulo se añadirían aquí -->
+                
+                <div class="module-navigation bottom">
+                    <div class="module-controls">
+                        <a href="#" class="nav-btn disabled"><i class="fas fa-chevron-left"></i> Anterior</a>
+                        <a href="modulo2.html" class="nav-btn">Siguiente <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="lesson-complete">
+                    <button id="mark-complete" class="btn complete-btn">Marcar módulo como completado</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>CNN<span>Master</span></h2>
+                <p>Curso Interactivo de Arquitecturas CNN</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="../index.html#interactivos">Interactivos</a></li>
+                        <li><a href="../index.html#recursos">Recursos</a></li>
+                        <li><a href="../index.html#acerca">Acerca de</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="../recursos/bibliografia.html">Bibliografía</a></li>
+                        <li><a href="../recursos/codigo.html">Repositorios</a></li>
+                        <li><a href="../recursos/datasets.html">Datasets</a></li>
+                        <li><a href="../recursos/videos.html">Videotutoriales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="mailto:info@cnnmaster.com">info@cnnmaster.com</a></li>
+                        <li><a href="https://github.com/cnnmaster">GitHub</a></li>
+                        <li><a href="https://twitter.com/cnnmaster">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CNNMaster - Curso Interactivo de Arquitecturas CNN. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/modulos.js"></script>
+</body>
+</html>

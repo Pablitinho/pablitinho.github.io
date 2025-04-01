@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo2_vgg.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo2_vgg.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo2_vgg.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-2-arquitecturas-cnn-clásicas">Módulo 2: Arquitecturas CNN Clásicas</h1>
+
+<h2 id="lección-3-vgg-2014">Lección 3: VGG (2014)</h2>
+
+<h3 id="introducción-a-vgg">Introducción a VGG</h3>
+
+<p>La arquitectura VGG, desarrollada por el Visual Geometry Group de la Universidad de Oxford, representa uno de los hitos más importantes en la evolución de las redes neuronales convolucionales. Presentada por Karen Simonyan y Andrew Zisserman en 2014, VGG destacó por su elegante simplicidad y profundidad, estableciendo principios de diseño que siguen influyendo en las arquitecturas CNN actuales.</p>
+
+<p>A diferencia de sus predecesoras que utilizaban filtros de diversos tamaños, VGG apostó por una filosofía minimalista: utilizar exclusivamente filtros convolucionales pequeños (3×3) y apilarlos en secuencias cada vez más profundas. Esta aproximación sistemática al diseño de CNN demostró que la profundidad era un factor crucial para el rendimiento, alcanzando resultados excepcionales en la competición ILSVRC-2014 donde quedó en segundo lugar, solo por detrás de GoogLeNet.</p>
+
+<p>La influencia de VGG trasciende su rendimiento en competiciones. Su arquitectura clara y uniforme, junto con la disponibilidad pública de sus pesos pre-entrenados, la convirtieron en una de las redes más utilizadas para transferencia de aprendizaje y extracción de características en numerosas aplicaciones de visión por computadora.</p>
+
+<h3 id="filosofía-de-diseño-profundidad-y-simplicidad">Filosofía de Diseño: Profundidad y Simplicidad</h3>
+
+<p>La filosofía de diseño de VGG se basa en dos principios fundamentales: profundidad y simplicidad. Esta aproximación contrasta con arquitecturas anteriores como AlexNet, que utilizaban filtros de diversos tamaños (11×11, 5×5, 3×3) sin un patrón sistemático claro.</p>
+
+<h4 id="el-poder-de-los-filtros-33">El Poder de los Filtros 3×3</h4>
+
+<p>La innovación clave de VGG fue el uso exclusivo de filtros convolucionales de tamaño 3×3 con stride 1 y padding 1, complementados con capas de max pooling de tamaño 2×2 con stride 2. Esta elección de filtros pequeños ofrece varias ventajas:</p>
+
+<ol>
+  <li>
+    <p><strong>Campo Receptivo Equivalente con Menos Parámetros</strong>: Una secuencia de dos capas convolucionales 3×3 tiene un campo receptivo efectivo de 5×5, pero con menos parámetros. Tres capas 3×3 consecutivas equivalen a un campo receptivo de 7×7, con aproximadamente un 81% menos de parámetros.</p>
+  </li>
+  <li>
+    <p><strong>Mayor No-Linealidad</strong>: Cada capa convolucional va seguida de una función de activación ReLU. Apilar múltiples capas 3×3 permite incorporar más transformaciones no lineales, aumentando la capacidad expresiva de la red.</p>
+  </li>
+  <li>
+    <p><strong>Regularización Implícita</strong>: La descomposición de filtros grandes en secuencias de filtros pequeños actúa como una forma de regularización, forzando a la red a aprender representaciones más estructuradas.</p>
+  </li>
+  <li>
+    <p><strong>Optimización más Sencilla</strong>: Los filtros pequeños contienen menos parámetros, lo que facilita la convergencia durante el entrenamiento.</p>
+  </li>
+</ol>
+
+<h4 id="incremento-sistemático-de-profundidad">Incremento Sistemático de Profundidad</h4>
+
+<p>VGG exploró sistemáticamente el impacto de la profundidad en el rendimiento, creando una familia de arquitecturas con un número creciente de capas:</p>
+
+<ul>
+  <li><strong>VGG-11</strong>: 11 capas con pesos (8 convolucionales + 3 completamente conectadas)</li>
+  <li><strong>VGG-13</strong>: 13 capas con pesos (10 convolucionales + 3 completamente conectadas)</li>
+  <li><strong>VGG-16</strong>: 16 capas con pesos (13 convolucionales + 3 completamente conectadas)</li>
+  <li><strong>VGG-19</strong>: 19 capas con pesos (16 convolucionales + 3 completamente conectadas)</li>
+</ul>
+
+<p>Este enfoque metódico permitió a los investigadores demostrar empíricamente que aumentar la profundidad mejoraba el rendimiento hasta cierto punto, sentando las bases para arquitecturas aún más profundas en el futuro.</p>
+
+<h3 id="variantes-vgg16-y-vgg19">Variantes: VGG16 y VGG19</h3>
+
+<p>Las dos variantes más conocidas y utilizadas de la arquitectura VGG son VGG16 y VGG19, que contienen 16 y 19 capas con pesos entrenables respectivamente.</p>
+
+<h4 id="arquitectura-vgg16">Arquitectura VGG16</h4>
+
+<p>VGG16 consta de 13 capas convolucionales y 3 capas completamente conectadas, organizadas en bloques:</p>
+
+<ol>
+  <li>
+    <p><strong>Capa de Entrada</strong>: Recibe imágenes RGB de 224×224×3 píxeles</p>
+  </li>
+  <li><strong>Bloque 1</strong>:
+    <ul>
+      <li>Conv3-64: 64 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-64: 64 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>MaxPool: tamaño 2×2, stride 2</li>
+      <li>Dimensiones de salida: 112×112×64</li>
+    </ul>
+  </li>
+  <li><strong>Bloque 2</strong>:
+    <ul>
+      <li>Conv3-128: 128 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-128: 128 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>MaxPool: tamaño 2×2, stride 2</li>
+      <li>Dimensiones de salida: 56×56×128</li>
+    </ul>
+  </li>
+  <li><strong>Bloque 3</strong>:
+    <ul>
+      <li>Conv3-256: 256 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-256: 256 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-256: 256 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>MaxPool: tamaño 2×2, stride 2</li>
+      <li>Dimensiones de salida: 28×28×256</li>
+    </ul>
+  </li>
+  <li><strong>Bloque 4</strong>:
+    <ul>
+      <li>Conv3-512: 512 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-512: 512 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-512: 512 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>MaxPool: tamaño 2×2, stride 2</li>
+      <li>Dimensiones de salida: 14×14×512</li>
+    </ul>
+  </li>
+  <li><strong>Bloque 5</strong>:
+    <ul>
+      <li>Conv3-512: 512 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-512: 512 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>Conv3-512: 512 filtros de tamaño 3×3, padding 1, stride 1, ReLU</li>
+      <li>MaxPool: tamaño 2×2, stride 2</li>
+      <li>Dimensiones de salida: 7×7×512</li>
+    </ul>
+  </li>
+  <li><strong>Cabeza de Clasificación</strong>:
+    <ul>
+      <li>Flatten: convierte los mapas de características en un vector</li>
+      <li>FC-4096: capa completamente conectada con 4096 neuronas, ReLU</li>
+      <li>Dropout: tasa 0.5</li>
+      <li>FC-4096: capa completamente conectada con 4096 neuronas, ReLU</li>
+      <li>Dropout: tasa 0.5</li>
+      <li>FC-1000: capa completamente conectada con 1000 neuronas (clases ImageNet)</li>
+      <li>Softmax: normalización de probabilidades</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="arquitectura-vgg19">Arquitectura VGG19</h4>
+
+<p>VGG19 sigue el mismo patrón que VGG16, pero añade una capa convolucional adicional en los bloques 3, 4 y 5:</p>
+
+<ul>
+  <li><strong>Bloque 3</strong>: 4 capas convolucionales (en lugar de 3)</li>
+  <li><strong>Bloque 4</strong>: 4 capas convolucionales (en lugar de 3)</li>
+  <li><strong>Bloque 5</strong>: 4 capas convolucionales (en lugar de 3)</li>
+</ul>
+
+<p>El resto de la arquitectura, incluyendo la cabeza de clasificación, es idéntico a VGG16.</p>
+
+<h4 id="comparación-de-rendimiento">Comparación de Rendimiento</h4>
+
+<p>En la competición ILSVRC-2014, VGG16 y VGG19 obtuvieron resultados muy similares:</p>
+
+<ul>
+  <li><strong>VGG16</strong>: Error top-5 de 7.5% en validación</li>
+  <li><strong>VGG19</strong>: Error top-5 de 7.3% en validación</li>
+</ul>
+
+<p>Esta pequeña diferencia sugiere que el beneficio de añadir más capas comenzaba a disminuir, anticipando los desafíos que enfrentarían arquitecturas aún más profundas y que posteriormente serían abordados por ResNet con sus conexiones residuales.</p>
+
+<h3 id="transferencia-de-aprendizaje-con-vgg">Transferencia de Aprendizaje con VGG</h3>
+
+<p>Uno de los legados más importantes de VGG ha sido su amplio uso en transferencia de aprendizaje. La claridad de su arquitectura y la disponibilidad pública de sus pesos pre-entrenados en ImageNet la convirtieron en una opción popular para extraer características o como punto de partida para tareas específicas.</p>
+
+<h4 id="por-qué-vgg-es-ideal-para-transferencia-de-aprendizaje">¿Por qué VGG es Ideal para Transferencia de Aprendizaje?</h4>
+
+<ol>
+  <li>
+    <p><strong>Representaciones Jerárquicas Claras</strong>: La estructura uniforme de VGG produce una jerarquía clara de características, desde patrones simples en las primeras capas hasta conceptos más abstractos en las capas profundas.</p>
+  </li>
+  <li>
+    <p><strong>Generalización a Diversos Dominios</strong>: Las características aprendidas por VGG en ImageNet han demostrado transferirse bien a una amplia gama de tareas y dominios visuales.</p>
+  </li>
+  <li>
+    <p><strong>Flexibilidad Arquitectónica</strong>: La estructura modular de VGG facilita la extracción de características de diferentes niveles de abstracción según las necesidades de la tarea.</p>
+  </li>
+</ol>
+
+<h4 id="estrategias-comunes-de-transferencia">Estrategias Comunes de Transferencia</h4>
+
+<ol>
+  <li>
+    <p><strong>Extracción de Características</strong>: Utilizar VGG pre-entrenada como extractor fijo de características, eliminando la cabeza de clasificación y conectando las salidas de capas intermedias a un clasificador específico para la tarea.</p>
+  </li>
+  <li>
+    <p><strong>Fine-tuning</strong>: Inicializar la red con los pesos pre-entrenados de VGG y luego ajustar algunos o todos los parámetros con un conjunto de datos específico de la tarea, típicamente con tasas de aprendizaje reducidas.</p>
+  </li>
+  <li>
+    <p><strong>Fine-tuning Parcial</strong>: Congelar las primeras capas (que capturan características genéricas) y ajustar solo las capas más profundas para adaptarlas a la tarea específica.</p>
+  </li>
+</ol>
+
+<h4 id="aplicaciones-exitosas">Aplicaciones Exitosas</h4>
+
+<p>VGG ha sido utilizada con éxito en numerosas aplicaciones mediante transferencia de aprendizaje:</p>
+
+<ul>
+  <li><strong>Detección de Objetos</strong>: Como backbone en frameworks como Faster R-CNN</li>
+  <li><strong>Segmentación Semántica</strong>: En arquitecturas como FCN (Fully Convolutional Networks)</li>
+  <li><strong>Clasificación de Imágenes Médicas</strong>: Adaptada para detectar patologías en radiografías, resonancias magnéticas, etc.</li>
+  <li><strong>Reconocimiento Facial</strong>: Como extractor de características faciales</li>
+  <li><strong>Transferencia de Estilo</strong>: En algoritmos de transferencia de estilo artístico</li>
+</ul>
+
+<h3 id="ventajas-y-limitaciones">Ventajas y Limitaciones</h3>
+
+<h4 id="ventajas-de-vgg">Ventajas de VGG</h4>
+
+<ol>
+  <li>
+    <p><strong>Simplicidad Arquitectónica</strong>: Diseño uniforme y sistemático que facilita la comprensión e implementación.</p>
+  </li>
+  <li>
+    <p><strong>Buena Generalización</strong>: Las representaciones aprendidas por VGG generalizan bien a diversas tareas y dominios.</p>
+  </li>
+  <li>
+    <p><strong>Escalabilidad</strong>: La arquitectura puede escalarse de manera sistemática añadiendo más capas.</p>
+  </li>
+  <li>
+    <p><strong>Interpretabilidad</strong>: La estructura uniforme facilita la visualización e interpretación de las características aprendidas en diferentes niveles.</p>
+  </li>
+  <li>
+    <p><strong>Disponibilidad</strong>: Los pesos pre-entrenados están ampliamente disponibles en la mayoría de frameworks de aprendizaje profundo.</p>
+  </li>
+</ol>
+
+<h4 id="limitaciones-de-vgg">Limitaciones de VGG</h4>
+
+<ol>
+  <li><strong>Tamaño y Memoria</strong>: VGG es notablemente grande en términos de parámetros (138 millones para VGG16), lo que implica:
+    <ul>
+      <li>Alto consumo de memoria durante la inferencia</li>
+      <li>Requisitos de almacenamiento significativos</li>
+      <li>Dificultades para despliegue en dispositivos con recursos limitados</li>
+    </ul>
+  </li>
+  <li><strong>Eficiencia Computacional</strong>: Requiere un número elevado de operaciones de punto flotante (FLOPS), resultando en:
+    <ul>
+      <li>Inferencia más lenta comparada con arquitecturas posteriores</li>
+      <li>Mayor consumo energético</li>
+      <li>Limitaciones para aplicaciones en tiempo real</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Capacidad de Profundidad</strong>: A pesar de explorar la profundidad, VGG no incorpora mecanismos para facilitar el entrenamiento de redes extremadamente profundas, como las conexiones residuales introducidas posteriormente por ResNet.</p>
+  </li>
+  <li><strong>Arquitectura Monolítica</strong>: No incorpora componentes modulares como los módulos inception de GoogLeNet, limitando su flexibilidad para capturar patrones a múltiples escalas simultáneamente.</li>
+</ol>
+
+<h3 id="implementación-simplificada-de-vgg16">Implementación Simplificada de VGG16</h3>
+
+<p>A continuación, se presenta una implementación conceptual de VGG16 utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">create_vgg16</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">Sequential</span><span class="p">()</span>
+    
+    <span class="c1"># Bloque 1
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    
+    <span class="c1"># Bloque 2
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    
+    <span class="c1"># Bloque 3
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    
+    <span class="c1"># Bloque 4
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    
+    <span class="c1"># Bloque 5
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    
+    <span class="c1"># Cabeza de clasificación
+</span>    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Flatten</span><span class="p">())</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Crear el modelo
+</span><span class="n">vgg16</span> <span class="o">=</span> <span class="n">create_vgg16</span><span class="p">()</span>
+
+<span class="c1"># Compilar el modelo
+</span><span class="n">vgg16</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="n">vgg16</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de VGG en el campo de la visión por computadora y el aprendizaje profundo ha sido profundo y duradero:</p>
+
+<ol>
+  <li>
+    <p><strong>Validación de la Profundidad</strong>: VGG demostró empíricamente la importancia de la profundidad en las CNN, allanando el camino para arquitecturas aún más profundas como ResNet.</p>
+  </li>
+  <li>
+    <p><strong>Principios de Diseño</strong>: Estableció principios de diseño claros y sistemáticos que siguen influyendo en la arquitectura de CNN modernas.</p>
+  </li>
+  <li>
+    <p><strong>Estándar para Transferencia de Aprendizaje</strong>: Se convirtió en un estándar de facto para transferencia de aprendizaje y extracción de características en numerosas aplicaciones.</p>
+  </li>
+  <li>
+    <p><strong>Benchmark de Arquitecturas</strong>: Sirvió como punto de referencia para evaluar nuevas arquitecturas en términos de precisión, eficiencia y complejidad.</p>
+  </li>
+  <li>
+    <p><strong>Aplicaciones Industriales</strong>: Impulsó la adopción de CNN en aplicaciones industriales gracias a su rendimiento robusto y la disponibilidad de implementaciones pre-entrenadas.</p>
+  </li>
+  <li>
+    <p><strong>Educación e Investigación</strong>: Su claridad arquitectónica la convirtió en un excelente ejemplo pedagógico para enseñar los principios de las CNN.</p>
+  </li>
+</ol>
+
+<p>A pesar de haber sido superada en precisión y eficiencia por arquitecturas posteriores, VGG sigue siendo ampliamente utilizada y estudiada, demostrando la durabilidad de sus principios de diseño fundamentales.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>VGG representa un hito crucial en la evolución de las redes neuronales convolucionales, demostrando el poder de la profundidad y la simplicidad en el diseño arquitectónico. Su enfoque sistemático de utilizar exclusivamente filtros pequeños apilados en secuencias cada vez más profundas estableció principios que siguen influyendo en el diseño de CNN actuales.</p>
+
+<p>Aunque sus limitaciones en términos de eficiencia computacional y memoria han sido abordadas por arquitecturas posteriores, el legado de VGG perdura, especialmente en el ámbito de la transferencia de aprendizaje, donde sigue siendo una opción popular para extraer características visuales robustas y generalizables.</p>
+
+<p>En la próxima lección, exploraremos GoogLeNet (Inception), una arquitectura que abordó algunas de las limitaciones de VGG introduciendo módulos de inception para capturar patrones a múltiples escalas simultáneamente, mejorando significativamente la eficiencia computacional sin sacrificar precisión.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

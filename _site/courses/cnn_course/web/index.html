@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Interactivo de Arquitecturas CNN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>CNN<span>Master</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#modulos">Módulos</a></li>
+                    <li><a href="#interactivos">Interactivos</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#acerca">Acerca de</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Curso Interactivo de Arquitecturas CNN</h1>
+                <h2>Del estado del arte a la práctica</h2>
+                <p>Aprende sobre las diferentes arquitecturas de Redes Neuronales Convolucionales, desde los fundamentos hasta las implementaciones más avanzadas.</p>
+                <div class="cta-buttons">
+                    <a href="#modulos" class="btn primary">Comenzar el curso</a>
+                    <a href="#interactivos" class="btn secondary">Explorar interactivos</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/cnn-hero.png" alt="Arquitecturas CNN">
+            </div>
+        </section>
+
+        <section id="caracteristicas" class="features">
+            <div class="section-header">
+                <h2>Características del Curso</h2>
+                <p>Una experiencia de aprendizaje completa sobre arquitecturas CNN</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Contenido Teórico Completo</h3>
+                    <p>Explicaciones detalladas de cada arquitectura CNN, desde los fundamentos hasta los modelos más avanzados.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Simuladores Interactivos</h3>
+                    <p>Experimenta con diferentes arquitecturas y visualiza su funcionamiento en tiempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Ejercicios Prácticos</h3>
+                    <p>Implementa tus propias CNN y resuelve desafíos de diseño arquitectónico.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análisis Comparativo</h3>
+                    <p>Compara el rendimiento de diferentes arquitecturas en diversos escenarios y conjuntos de datos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="modulos" class="modules">
+            <div class="section-header">
+                <h2>Módulos del Curso</h2>
+                <p>Un recorrido estructurado por las arquitecturas CNN más relevantes</p>
+            </div>
+            <div class="modules-container">
+                <div class="module-card">
+                    <div class="module-number">01</div>
+                    <div class="module-content">
+                        <h3>Fundamentos de las CNN</h3>
+                        <p>Introducción a las redes neuronales convolucionales, operaciones básicas y componentes esenciales.</p>
+                        <ul class="module-topics">
+                            <li>Historia y evolución de las CNN</li>
+                            <li>Operación de convolución</li>
+                            <li>Pooling y funciones de activación</li>
+                            <li>Arquitectura básica de una CNN</li>
+                        </ul>
+                        <a href="modulos/modulo1.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">02</div>
+                    <div class="module-content">
+                        <h3>Arquitecturas CNN Clásicas</h3>
+                        <p>Estudio de las primeras arquitecturas CNN que revolucionaron el campo de la visión por computadora.</p>
+                        <ul class="module-topics">
+                            <li>LeNet-5 (1998)</li>
+                            <li>AlexNet (2012)</li>
+                            <li>VGG (2014)</li>
+                            <li>Análisis comparativo</li>
+                        </ul>
+                        <a href="modulos/modulo2.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">03</div>
+                    <div class="module-content">
+                        <h3>Arquitecturas con Módulos de Inception</h3>
+                        <p>Exploración de arquitecturas que utilizan módulos de inception para capturar características a múltiples escalas.</p>
+                        <ul class="module-topics">
+                            <li>GoogLeNet/Inception-v1</li>
+                            <li>Evolución de Inception (v2, v3, v4)</li>
+                            <li>Inception-ResNet</li>
+                            <li>Aplicaciones prácticas</li>
+                        </ul>
+                        <a href="modulos/modulo3.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">04</div>
+                    <div class="module-content">
+                        <h3>Arquitecturas Residuales</h3>
+                        <p>Análisis de arquitecturas que incorporan conexiones residuales para facilitar el entrenamiento de redes profundas.</p>
+                        <ul class="module-topics">
+                            <li>ResNet y sus variantes</li>
+                            <li>DenseNet</li>
+                            <li>Conexiones residuales vs. densas</li>
+                            <li>Implementación y optimización</li>
+                        </ul>
+                        <a href="modulos/modulo4.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">05</div>
+                    <div class="module-content">
+                        <h3>Arquitecturas Eficientes</h3>
+                        <p>Estudio de arquitecturas optimizadas para dispositivos con recursos limitados.</p>
+                        <ul class="module-topics">
+                            <li>MobileNet (v1, v2, v3)</li>
+                            <li>EfficientNet</li>
+                            <li>ShuffleNet</li>
+                            <li>Despliegue en dispositivos móviles</li>
+                        </ul>
+                        <a href="modulos/modulo5.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">06</div>
+                    <div class="module-content">
+                        <h3>Arquitecturas para Segmentación</h3>
+                        <p>Exploración de arquitecturas especializadas en segmentación semántica y de instancias.</p>
+                        <ul class="module-topics">
+                            <li>U-Net</li>
+                            <li>SegNet</li>
+                            <li>DeepLab</li>
+                            <li>Aplicaciones en imágenes médicas</li>
+                        </ul>
+                        <a href="modulos/modulo6.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">07</div>
+                    <div class="module-content">
+                        <h3>Arquitecturas para Detección de Objetos</h3>
+                        <p>Análisis de arquitecturas diseñadas para la detección y localización de objetos en imágenes.</p>
+                        <ul class="module-topics">
+                            <li>R-CNN y variantes</li>
+                            <li>YOLO (v1-v5)</li>
+                            <li>SSD</li>
+                            <li>Comparativa de rendimiento</li>
+                        </ul>
+                        <a href="modulos/modulo7.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-number">08</div>
+                    <div class="module-content">
+                        <h3>Estado del Arte y Tendencias Futuras</h3>
+                        <p>Exploración de las arquitecturas más recientes y las tendencias emergentes en el campo de las CNN.</p>
+                        <ul class="module-topics">
+                            <li>Transformers en visión</li>
+                            <li>Arquitecturas híbridas</li>
+                            <li>Búsqueda de arquitecturas neuronales</li>
+                            <li>Direcciones futuras</li>
+                        </ul>
+                        <a href="modulos/modulo8.html" class="btn module-btn">Ir al módulo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interactivos" class="interactive">
+            <div class="section-header">
+                <h2>Herramientas Interactivas</h2>
+                <p>Experimenta y aprende con nuestras herramientas interactivas</p>
+            </div>
+            <div class="interactive-grid">
+                <div class="interactive-card">
+                    <div class="interactive-image">
+                        <img src="img/visualizador.png" alt="Visualizador de Convolución">
+                    </div>
+                    <div class="interactive-content">
+                        <h3>Visualizador de Convolución</h3>
+                        <p>Experimenta con diferentes parámetros de convolución y visualiza su efecto en tiempo real.</p>
+                        <a href="../interactive/convolution_visualizer.html" class="btn interactive-btn">Abrir herramienta</a>
+                    </div>
+                </div>
+                
+                <div class="interactive-card">
+                    <div class="interactive-image">
+                        <img src="img/simulador.png" alt="Simulador de Arquitecturas">
+                    </div>
+                    <div class="interactive-content">
+                        <h3>Simulador de Arquitecturas CNN</h3>
+                        <p>Explora diferentes arquitecturas CNN, visualiza sus capas y compara su rendimiento.</p>
+                        <a href="../interactive/architecture_simulator.html" class="btn interactive-btn">Abrir herramienta</a>
+                    </div>
+                </div>
+                
+                <div class="interactive-card">
+                    <div class="interactive-image">
+                        <img src="img/ejercicios.png" alt="Ejercicios Interactivos">
+                    </div>
+                    <div class="interactive-content">
+                        <h3>Ejercicios Interactivos</h3>
+                        <p>Pon a prueba tus conocimientos con cuestionarios, ejercicios de código y desafíos de diseño.</p>
+                        <a href="../interactive/interactive_exercises.html" class="btn interactive-btn">Abrir herramienta</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyecto" class="project">
+            <div class="section-header">
+                <h2>Proyecto Final</h2>
+                <p>Aplica todo lo aprendido en un proyecto integrador</p>
+            </div>
+            <div class="project-container">
+                <div class="project-content">
+                    <h3>Diseño e Implementación de una Arquitectura CNN Personalizada</h3>
+                    <p>En este proyecto final, aplicarás los conocimientos adquiridos para diseñar, implementar y evaluar tu propia arquitectura CNN para resolver un problema específico de visión por computadora.</p>
+                    <div class="project-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Análisis del Problema</h4>
+                                <p>Selecciona un problema de visión por computadora y analiza sus requisitos específicos.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Diseño Arquitectónico</h4>
+                                <p>Diseña una arquitectura CNN adaptada a las necesidades del problema seleccionado.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Implementación</h4>
+                                <p>Implementa tu arquitectura utilizando un framework de deep learning como TensorFlow o PyTorch.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Evaluación y Optimización</h4>
+                                <p>Evalúa el rendimiento de tu arquitectura y optimízala para mejorar sus resultados.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Documentación y Presentación</h4>
+                                <p>Documenta tu proceso de diseño, implementación y resultados en un informe técnico.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="proyecto/descripcion.html" class="btn project-btn">Ver detalles del proyecto</a>
+                </div>
+                <div class="project-image">
+                    <img src="img/proyecto.png" alt="Proyecto Final">
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos" class="resources">
+            <div class="section-header">
+                <h2>Recursos Adicionales</h2>
+                <p>Material complementario para profundizar en el estudio de las CNN</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Bibliografía</h3>
+                    <p>Libros y artículos académicos recomendados sobre CNN y deep learning.</p>
+                    <a href="recursos/bibliografia.html" class="resource-link">Ver bibliografía</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Repositorios de Código</h3>
+                    <p>Implementaciones de referencia de las principales arquitecturas CNN.</p>
+                    <a href="recursos/codigo.html" class="resource-link">Ver repositorios</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Datasets</h3>
+                    <p>Conjuntos de datos para experimentar con diferentes arquitecturas CNN.</p>
+                    <a href="recursos/datasets.html" class="resource-link">Ver datasets</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videotutoriales</h3>
+                    <p>Tutoriales en video sobre implementación y entrenamiento de CNN.</p>
+                    <a href="recursos/videos.html" class="resource-link">Ver videos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="acerca" class="about">
+            <div class="section-header">
+                <h2>Acerca del Curso</h2>
+                <p>Información sobre el desarrollo y los objetivos del curso</p>
+            </div>
+            <div class="about-container">
+                <div class="about-content">
+                    <h3>Objetivos del Curso</h3>
+                    <p>Este curso interactivo sobre arquitecturas CNN tiene como objetivo proporcionar una comprensión profunda de las diferentes arquitecturas de redes neuronales convolucionales, desde sus fundamentos teóricos hasta su implementación práctica.</p>
+                    <p>A través de contenido teórico detallado, herramientas interactivas y ejercicios prácticos, los estudiantes adquirirán las habilidades necesarias para:</p>
+                    <ul class="about-list">
+                        <li>Comprender los principios fundamentales de las CNN</li>
+                        <li>Analizar y comparar diferentes arquitecturas CNN</li>
+                        <li>Seleccionar la arquitectura más adecuada para un problema específico</li>
+                        <li>Implementar y optimizar arquitecturas CNN personalizadas</li>
+                        <li>Mantenerse al día con las tendencias emergentes en el campo</li>
+                    </ul>
+                    <h3>Audiencia Objetivo</h3>
+                    <p>Este curso está diseñado para estudiantes, investigadores y profesionales con conocimientos básicos de deep learning que deseen profundizar en el estudio de las arquitecturas CNN y sus aplicaciones en visión por computadora.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/about.png" alt="Acerca del Curso">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>CNN<span>Master</span></h2>
+                <p>Curso Interactivo de Arquitecturas CNN</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#modulos">Módulos</a></li>
+                        <li><a href="#interactivos">Interactivos</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                        <li><a href="#acerca">Acerca de</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="recursos/bibliografia.html">Bibliografía</a></li>
+                        <li><a href="recursos/codigo.html">Repositorios</a></li>
+                        <li><a href="recursos/datasets.html">Datasets</a></li>
+                        <li><a href="recursos/videos.html">Videotutoriales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="mailto:info@cnnmaster.com">info@cnnmaster.com</a></li>
+                        <li><a href="https://github.com/cnnmaster">GitHub</a></li>
+                        <li><a href="https://twitter.com/cnnmaster">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CNNMaster - Curso Interactivo de Arquitecturas CNN. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

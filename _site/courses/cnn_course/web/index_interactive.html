@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Interactive Tools</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .interactive {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .interactive-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .interactive-image {
+            height: 300px; /* Adjust as needed */
+            background-color: #fff; /* Optional: ensures contrast behind smaller images */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .interactive-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .interactive-content {
+            padding: 20px;
+        }
+
+        .interactive-content h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .interactive-content p {
+            margin-bottom: 20px;
+        }
+
+        .interactive-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .interactive-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="interactive-tools" class="interactive">
+        <div class="section-header">
+            <h2>Interactive Tools</h2>
+            <p>Experiment and learn with our interactive tools</p>
+        </div>
+        <div class="interactive-grid">
+            <div class="interactive-card">
+                <div class="interactive-image">
+                    <img src="img/conv_visualizer.png" alt="Convolution Visualizer">
+                </div>
+                <div class="interactive-content">
+                    <h3>Convolution Visualizer</h3>
+                    <p>Experiment with different convolution parameters and visualize their effect in real time.</p>
+                    <a href="../interactive/convolution_visualizer.html" class="btn interactive-btn">Open Tool</a>
+                </div>
+            </div>
+            
+            <div class="interactive-card">
+                <div class="interactive-image">
+                    <img src="img/cnn_simulator.png" alt="CNN Architecture Simulator">
+                </div>
+                <div class="interactive-content">
+                    <h3>CNN Architecture Simulator</h3>
+                    <p>Explore different CNN architectures, visualize their layers, and compare performance.</p>
+                    <a href="../interactive/cnn_architecture_simulator.html" class="btn interactive-btn">Open Tool</a>
+                </div>
+            </div>
+            
+            <div class="interactive-card">
+                <div class="interactive-image">
+                    <img src="img/exercises.png" alt="Interactive Exercises">
+                </div>
+                <div class="interactive-content">
+                    <h3>Interactive Exercises</h3>
+                    <p>Test your knowledge with quizzes, coding tasks, and design challenges.</p>
+                    <a href="../interactive/interactive_exercises.html" class="btn interactive-btn">Open Tool</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

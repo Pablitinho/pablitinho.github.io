@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo4_densenet.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo4_densenet.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo4_densenet.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-4-arquitecturas-residuales">Módulo 4: Arquitecturas Residuales</h1>
+
+<h2 id="lección-2-densenet">Lección 2: DenseNet</h2>
+
+<h3 id="introducción-a-densenet">Introducción a DenseNet</h3>
+
+<p>DenseNet (Dense Convolutional Network) representa una evolución natural del concepto de conexiones de atajo introducido por ResNet. Desarrollada por Gao Huang, Zhuang Liu, Laurens van der Maaten y Kilian Q. Weinberger, esta arquitectura fue presentada en 2017 en el paper “Densely Connected Convolutional Networks”, que rápidamente se convirtió en una referencia fundamental en el diseño de redes neuronales convolucionales.</p>
+
+<p>Mientras que ResNet introduce conexiones de atajo que suman la entrada de un bloque a su salida (x + F(x)), DenseNet va un paso más allá: conecta cada capa con todas las capas subsiguientes dentro de un bloque denso. Esta conectividad densa permite un flujo de información y gradientes sin precedentes a través de la red, resultando en varias ventajas significativas:</p>
+
+<ol>
+  <li>
+    <p><strong>Mitigación del desvanecimiento del gradiente</strong>: Las conexiones directas a capas posteriores facilitan la propagación de gradientes durante el entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Reutilización de características</strong>: Las características aprendidas en capas tempranas son accesibles directamente por capas posteriores, promoviendo la reutilización de información.</p>
+  </li>
+  <li>
+    <p><strong>Reducción de parámetros</strong>: A pesar de su densidad de conexiones, DenseNet requiere menos parámetros que arquitecturas comparables, ya que cada capa añade solo un pequeño conjunto de mapas de características al “conocimiento colectivo” de la red.</p>
+  </li>
+</ol>
+
+<p>Esta arquitectura no solo logró resultados estado del arte en múltiples conjuntos de datos de clasificación de imágenes, sino que también introdujo principios de diseño que han influido significativamente en arquitecturas CNN posteriores.</p>
+
+<h3 id="conexiones-densas">Conexiones Densas</h3>
+
+<p>El componente fundamental que define a DenseNet es su patrón de conectividad densa entre capas.</p>
+
+<h4 id="principio-de-conectividad-densa">Principio de Conectividad Densa</h4>
+
+<p>En una CNN tradicional, cada capa está conectada solo a la capa inmediatamente anterior y a la siguiente, creando un flujo de información lineal. En ResNet, se añaden conexiones de atajo que permiten que la información salte ciertos bloques. DenseNet lleva este concepto al extremo:</p>
+
+<p>En un bloque denso con L capas, hay L(L+1)/2 conexiones directas. Específicamente, cada capa recibe como entrada las características de todas las capas anteriores y pasa sus propias características a todas las capas subsiguientes.</p>
+
+<p>Matemáticamente, si denotamos la salida de la l-ésima capa como x₁, en una red tradicional tendríamos:</p>
+
+<p>x₁ = H₁(x₁₋₁)</p>
+
+<p>Donde H₁ es una transformación no lineal que puede incluir convolución, normalización por lotes, activación, etc.</p>
+
+<p>En DenseNet, cada capa recibe como entrada las características de todas las capas anteriores:</p>
+
+<p>x₁ = H₁([x₀, x₁, x₂, …, x₁₋₁])</p>
+
+<p>Donde [x₀, x₁, x₂, …, x₁₋₁] representa la concatenación de los mapas de características producidos por las capas 0, 1, 2, …, l-1.</p>
+
+<h4 id="ventajas-de-la-conectividad-densa">Ventajas de la Conectividad Densa</h4>
+
+<p>Esta estructura de conectividad ofrece varias ventajas significativas:</p>
+
+<ol>
+  <li>
+    <p><strong>Flujo de Información Mejorado</strong>: Cada capa tiene acceso directo a los gradientes de la función de pérdida y a la entrada original, facilitando el entrenamiento de redes muy profundas.</p>
+  </li>
+  <li>
+    <p><strong>Supervisión Profunda Implícita</strong>: Similar al efecto de la supervisión profunda explícita (como los clasificadores auxiliares en GoogLeNet), las conexiones densas proporcionan supervisión implícita a capas intermedias.</p>
+  </li>
+  <li>
+    <p><strong>Diversidad de Características</strong>: Las capas posteriores pueden centrarse en extraer características nuevas y complementarias, ya que tienen acceso directo a todas las características extraídas previamente.</p>
+  </li>
+  <li>
+    <p><strong>Regularización Natural</strong>: La conectividad densa actúa como una forma de regularización, reduciendo el sobreajuste en tareas con conjuntos de datos más pequeños.</p>
+  </li>
+</ol>
+
+<h3 id="estructura-y-componentes-de-densenet">Estructura y Componentes de DenseNet</h3>
+
+<p>DenseNet organiza sus capas en bloques densos, separados por capas de transición que reducen la dimensionalidad espacial.</p>
+
+<h4 id="bloques-densos">Bloques Densos</h4>
+
+<p>Un bloque denso es una secuencia de capas donde cada capa está conectada a todas las demás capas de forma feedforward. Cada capa en un bloque denso típicamente consiste en:</p>
+
+<ol>
+  <li><strong>Normalización por Lotes (Batch Normalization)</strong></li>
+  <li><strong>Activación ReLU</strong></li>
+  <li><strong>Convolución 3×3</strong></li>
+</ol>
+
+<p>Esta secuencia se conoce como “BN-ReLU-Conv” y difiere del orden “Conv-BN-ReLU” utilizado en muchas otras arquitecturas. El orden “BN-ReLU-Conv” se inspiró en la arquitectura ResNet-v2 y ayuda a mejorar la regularización y el flujo de gradientes.</p>
+
+<h4 id="tasa-de-crecimiento">Tasa de Crecimiento</h4>
+
+<p>Un hiperparámetro clave en DenseNet es la “tasa de crecimiento” (k), que define cuántos nuevos mapas de características contribuye cada capa al “conocimiento colectivo”. Por ejemplo, si k=12, cada capa añade 12 nuevos mapas de características que se concatenan con todos los mapas de características anteriores.</p>
+
+<p>A pesar de que k suele ser pequeño (típicamente 12, 24 o 32), la cantidad de entrada que recibe cada capa crece cuadráticamente con la profundidad del bloque, ya que incluye todas las características de las capas anteriores.</p>
+
+<h4 id="capas-de-transición">Capas de Transición</h4>
+
+<p>Entre bloques densos, DenseNet utiliza capas de transición para reducir la dimensionalidad espacial mediante:</p>
+
+<ol>
+  <li><strong>Normalización por Lotes</strong></li>
+  <li><strong>Convolución 1×1</strong> (para reducir el número de canales)</li>
+  <li><strong>Average Pooling 2×2</strong> (para reducir la resolución espacial)</li>
+</ol>
+
+<p>Estas capas de transición son esenciales para controlar el crecimiento del modelo y reducir el costo computacional.</p>
+
+<h4 id="compresión">Compresión</h4>
+
+<p>DenseNet introduce un hiperparámetro adicional llamado “factor de compresión” (θ), que determina cuánto se reduce el número de canales en las capas de transición:</p>
+
+<ul>
+  <li>Si θ = 1, el número de canales se mantiene igual</li>
+  <li>Si θ &lt; 1, el número de canales se reduce por un factor θ</li>
+</ul>
+
+<p>Por ejemplo, con θ = 0.5, una capa de transición reduce el número de canales a la mitad. Esto ayuda a hacer el modelo más compacto y eficiente.</p>
+
+<h4 id="arquitectura-completa">Arquitectura Completa</h4>
+
+<p>La arquitectura completa de DenseNet consiste en:</p>
+
+<ol>
+  <li><strong>Capa Inicial</strong>: Convolución 7×7 con stride 2, seguida de Max Pooling 3×3 con stride 2</li>
+  <li><strong>Bloques Densos y Capas de Transición</strong>: Múltiples bloques densos separados por capas de transición</li>
+  <li><strong>Clasificación</strong>: Global Average Pooling seguido de una capa completamente conectada con activación softmax</li>
+</ol>
+
+<h3 id="variantes-de-densenet">Variantes de DenseNet</h3>
+
+<p>La familia DenseNet incluye varias variantes que difieren principalmente en su profundidad y configuración:</p>
+
+<h4 id="densenet-121">DenseNet-121</h4>
+
+<ul>
+  <li>4 bloques densos</li>
+  <li>Configuración de capas por bloque: [6, 12, 24, 16]</li>
+  <li>Tasa de crecimiento k = 32</li>
+  <li>Aproximadamente 8 millones de parámetros</li>
+</ul>
+
+<h4 id="densenet-169">DenseNet-169</h4>
+
+<ul>
+  <li>4 bloques densos</li>
+  <li>Configuración de capas por bloque: [6, 12, 32, 32]</li>
+  <li>Tasa de crecimiento k = 32</li>
+  <li>Aproximadamente 14 millones de parámetros</li>
+</ul>
+
+<h4 id="densenet-201">DenseNet-201</h4>
+
+<ul>
+  <li>4 bloques densos</li>
+  <li>Configuración de capas por bloque: [6, 12, 48, 32]</li>
+  <li>Tasa de crecimiento k = 32</li>
+  <li>Aproximadamente 20 millones de parámetros</li>
+</ul>
+
+<h4 id="densenet-264">DenseNet-264</h4>
+
+<ul>
+  <li>4 bloques densos</li>
+  <li>Configuración de capas por bloque: [6, 12, 64, 48]</li>
+  <li>Tasa de crecimiento k = 32</li>
+  <li>Aproximadamente 34 millones de parámetros</li>
+</ul>
+
+<h4 id="densenet-bc">DenseNet-BC</h4>
+
+<p>La variante “BC” incorpora dos modificaciones para mejorar la eficiencia:</p>
+<ul>
+  <li><strong>B</strong>: Utiliza un “cuello de botella” (bottleneck) con convoluciones 1×1 antes de cada convolución 3×3 para reducir el número de canales de entrada</li>
+  <li><strong>C</strong>: Aplica compresión (θ &lt; 1) en las capas de transición</li>
+</ul>
+
+<p>Esta variante reduce significativamente el número de parámetros y el costo computacional mientras mantiene o incluso mejora el rendimiento.</p>
+
+<h3 id="comparativa-con-resnet">Comparativa con ResNet</h3>
+
+<p>Aunque DenseNet y ResNet comparten la idea fundamental de facilitar el flujo de información a través de conexiones de atajo, existen diferencias significativas en su enfoque:</p>
+
+<h4 id="tipo-de-conexión">Tipo de Conexión</h4>
+
+<ul>
+  <li><strong>ResNet</strong>: Utiliza conexiones aditivas (x + F(x)), sumando la identidad a la salida transformada</li>
+  <li><strong>DenseNet</strong>: Utiliza concatenación ([x, F(x)]), preservando la identidad y la transformación como entidades separadas</li>
+</ul>
+
+<h4 id="crecimiento-de-características">Crecimiento de Características</h4>
+
+<ul>
+  <li><strong>ResNet</strong>: El número de características permanece constante a través de un bloque residual</li>
+  <li><strong>DenseNet</strong>: El número de características crece linealmente con la profundidad dentro de un bloque denso</li>
+</ul>
+
+<h4 id="reutilización-de-características">Reutilización de Características</h4>
+
+<ul>
+  <li><strong>ResNet</strong>: Implícitamente permite cierta reutilización a través de la suma</li>
+  <li><strong>DenseNet</strong>: Explícitamente promueve la reutilización al mantener todas las características anteriores accesibles</li>
+</ul>
+
+<h4 id="eficiencia-paramétrica">Eficiencia Paramétrica</h4>
+
+<ul>
+  <li><strong>ResNet</strong>: Requiere aprender redundancias en cada bloque</li>
+  <li><strong>DenseNet</strong>: Evita aprender características redundantes gracias a la concatenación y acceso directo a características anteriores</li>
+</ul>
+
+<h4 id="rendimiento-empírico">Rendimiento Empírico</h4>
+
+<p>En términos de precisión, DenseNet-201 (20M parámetros) alcanza un rendimiento comparable a ResNet-101 (44M parámetros), demostrando su mayor eficiencia paramétrica.</p>
+
+<h3 id="implementación-simplificada-de-densenet">Implementación Simplificada de DenseNet</h3>
+
+<p>A continuación, se presenta una implementación conceptual simplificada de DenseNet utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">dense_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">blocks</span><span class="p">,</span> <span class="n">growth_rate</span><span class="p">):</span>
+    <span class="s">"""
+    Implementación de un bloque denso
+    
+    Args:
+        x: Tensor de entrada
+        blocks: Número de capas en el bloque denso
+        growth_rate: Tasa de crecimiento (k)
+    
+    Returns:
+        Tensor de salida del bloque denso
+    """</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">blocks</span><span class="p">):</span>
+        <span class="c1"># Cada capa en el bloque denso
+</span>        <span class="c1"># BN-ReLU-Conv
+</span>        <span class="n">y</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">growth_rate</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+        
+        <span class="c1"># Concatenar con todas las características anteriores
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Concatenate</span><span class="p">()([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">transition_layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">compression_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="s">"""
+    Implementación de una capa de transición
+    
+    Args:
+        x: Tensor de entrada
+        compression_factor: Factor de compresión (theta)
+    
+    Returns:
+        Tensor de salida de la capa de transición
+    """</span>
+    <span class="c1"># Obtener el número de filtros de entrada
+</span>    <span class="n">filters</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Aplicar compresión
+</span>    <span class="n">filters</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">filters</span> <span class="o">*</span> <span class="n">compression_factor</span><span class="p">)</span>
+    
+    <span class="c1"># BN-ReLU-Conv(1x1)-AvgPool
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">AveragePooling2D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">create_densenet</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> 
+                   <span class="n">growth_rate</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">compression_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="s">"""
+    Crea un modelo DenseNet
+    
+    Args:
+        input_shape: Forma del tensor de entrada
+        blocks: Lista con el número de capas en cada bloque denso
+        growth_rate: Tasa de crecimiento (k)
+        compression_factor: Factor de compresión (theta)
+        num_classes: Número de clases para la clasificación
+    
+    Returns:
+        Modelo DenseNet
+    """</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    
+    <span class="c1"># Capa inicial
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Bloques densos con capas de transición
+</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">block_size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">blocks</span><span class="p">):</span>
+        <span class="c1"># Bloque denso
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">dense_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="n">growth_rate</span><span class="p">)</span>
+        
+        <span class="c1"># Capa de transición (excepto después del último bloque)
+</span>        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">transition_layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">compression_factor</span><span class="p">)</span>
+    
+    <span class="c1"># Clasificador
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Crear DenseNet-121
+</span><span class="n">densenet121</span> <span class="o">=</span> <span class="n">create_densenet</span><span class="p">(</span><span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+
+<span class="c1"># Compilar el modelo
+</span><span class="n">densenet121</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+                   <span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+                   <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="k">print</span><span class="p">(</span><span class="s">"DenseNet-121 Summary:"</span><span class="p">)</span>
+<span class="n">densenet121</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Esta implementación simplificada captura los elementos esenciales de la arquitectura DenseNet, incluyendo los bloques densos y las capas de transición con compresión.</p>
+
+<h3 id="aplicaciones-prácticas-de-densenet">Aplicaciones Prácticas de DenseNet</h3>
+
+<p>DenseNet ha encontrado aplicación en una amplia gama de tareas de visión por computadora:</p>
+
+<h4 id="1-clasificación-de-imágenes">1. Clasificación de Imágenes</h4>
+
+<p>Su aplicación original, donde demostró excelente precisión con menor número de parámetros que arquitecturas comparables.</p>
+
+<h4 id="2-segmentación-semántica">2. Segmentación Semántica</h4>
+
+<p>Arquitecturas como FC-DenseNet (Fully Convolutional DenseNet) adaptan la conectividad densa para segmentación pixel a pixel, logrando resultados estado del arte en conjuntos de datos como CamVid y Gatech.</p>
+
+<h4 id="3-detección-de-objetos">3. Detección de Objetos</h4>
+
+<p>Como backbone en frameworks de detección, donde su capacidad para preservar y reutilizar características de diferentes niveles de abstracción resulta particularmente beneficiosa.</p>
+
+<h4 id="4-análisis-de-imágenes-médicas">4. Análisis de Imágenes Médicas</h4>
+
+<p>Particularmente efectiva en tareas médicas con conjuntos de datos limitados, donde su eficiencia paramétrica y capacidad de regularización ayudan a prevenir el sobreajuste:</p>
+<ul>
+  <li>Segmentación de órganos en imágenes 3D</li>
+  <li>Detección de lesiones en mamografías</li>
+  <li>Clasificación de patologías en radiografías</li>
+</ul>
+
+<h4 id="5-reconocimiento-facial">5. Reconocimiento Facial</h4>
+
+<p>Utilizada en sistemas de verificación e identificación facial, donde la preservación de características a múltiples escalas es crucial.</p>
+
+<h4 id="6-super-resolución">6. Super-resolución</h4>
+
+<p>En tareas de mejora de resolución de imágenes, donde la reutilización de características a diferentes escalas ayuda a reconstruir detalles finos.</p>
+
+<h3 id="ventajas-y-limitaciones">Ventajas y Limitaciones</h3>
+
+<h4 id="ventajas-de-densenet">Ventajas de DenseNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Eficiencia Paramétrica</strong>: Logra igual o mejor rendimiento que arquitecturas comparables con significativamente menos parámetros.</p>
+  </li>
+  <li>
+    <p><strong>Mitigación del Desvanecimiento del Gradiente</strong>: Las conexiones densas facilitan la propagación de gradientes a todas las capas.</p>
+  </li>
+  <li>
+    <p><strong>Reutilización de Características</strong>: Promueve explícitamente la reutilización de características, evitando redundancias.</p>
+  </li>
+  <li>
+    <p><strong>Regularización Implícita</strong>: La conectividad densa actúa como regularizador, reduciendo el sobreajuste.</p>
+  </li>
+  <li>
+    <p><strong>Estabilidad de Entrenamiento</strong>: Tiende a ser más estable durante el entrenamiento que arquitecturas comparables.</p>
+  </li>
+</ol>
+
+<h4 id="limitaciones-de-densenet">Limitaciones de DenseNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Consumo de Memoria</strong>: Aunque tiene menos parámetros, requiere almacenar más activaciones intermedias durante el entrenamiento debido a la concatenación de características.</p>
+  </li>
+  <li>
+    <p><strong>Costo Computacional</strong>: A pesar de su eficiencia paramétrica, el costo computacional puede ser alto debido al creciente número de canales de entrada para cada capa.</p>
+  </li>
+  <li>
+    <p><strong>Complejidad de Implementación</strong>: La gestión de las conexiones densas y el crecimiento de características requiere una implementación cuidadosa.</p>
+  </li>
+  <li>
+    <p><strong>Escalabilidad</strong>: El crecimiento cuadrático de conexiones puede limitar la escalabilidad a redes extremadamente profundas sin modificaciones adicionales.</p>
+  </li>
+</ol>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de DenseNet en el campo del aprendizaje profundo ha sido significativo:</p>
+
+<ol>
+  <li>
+    <p><strong>Eficiencia Paramétrica</strong>: Demostró que es posible diseñar arquitecturas más eficientes en términos de parámetros sin sacrificar rendimiento.</p>
+  </li>
+  <li>
+    <p><strong>Flujo de Información</strong>: Llevó al extremo el concepto de facilitar el flujo de información a través de la red, inspirando arquitecturas posteriores.</p>
+  </li>
+  <li>
+    <p><strong>Reutilización de Características</strong>: Estableció un paradigma explícito de reutilización de características que ha influido en numerosos diseños posteriores.</p>
+  </li>
+  <li>
+    <p><strong>Aplicaciones Médicas</strong>: Ha tenido un impacto particularmente notable en aplicaciones médicas, donde los conjuntos de datos suelen ser limitados.</p>
+  </li>
+  <li>
+    <p><strong>Inspiración Arquitectónica</strong>: Conceptos de DenseNet han influido en arquitecturas posteriores como HRNet (High-Resolution Network) y elementos de EfficientNet.</p>
+  </li>
+</ol>
+
+<p>El paper original de DenseNet, “Densely Connected Convolutional Networks”, ha acumulado más de 20,000 citas, reflejando su impacto significativo en el campo.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>DenseNet representa una evolución natural y elegante del concepto de conexiones de atajo introducido por ResNet. Al conectar cada capa con todas las capas subsiguientes, DenseNet maximiza el flujo de información a través de la red, facilitando el entrenamiento de redes profundas y promoviendo la reutilización de características.</p>
+
+<p>Su principal innovación —la conectividad densa— no solo resuelve el problema del desvanecimiento del gradiente, sino que también introduce beneficios adicionales como la reutilización explícita de características y la regularización implícita. Esto resulta en modelos que son notablemente eficientes en términos de parámetros, logrando rendimiento estado del arte con menos recursos que arquitecturas comparables.</p>
+
+<p>El legado de DenseNet perdura en numerosas arquitecturas modernas que han adoptado o adaptado sus principios de conectividad densa y reutilización de características. Su impacto se extiende más allá de la clasificación de imágenes, influyendo en el diseño de redes para segmentación, detección y aplicaciones médicas, entre otras.</p>
+
+<p>En la próxima lección, exploraremos las arquitecturas eficientes como MobileNet y EfficientNet, que llevan la optimización de recursos a un nuevo nivel, permitiendo el despliegue de CNN potentes en dispositivos con recursos limitados.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

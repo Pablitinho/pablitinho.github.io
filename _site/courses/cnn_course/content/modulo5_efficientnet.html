@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo5_efficientnet.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo5_efficientnet.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo5_efficientnet.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-5-arquitecturas-eficientes">Módulo 5: Arquitecturas Eficientes</h1>
+
+<h2 id="lección-2-efficientnet">Lección 2: EfficientNet</h2>
+
+<h3 id="introducción-a-efficientnet">Introducción a EfficientNet</h3>
+
+<p>EfficientNet representa un avance revolucionario en el diseño de redes neuronales convolucionales, introduciendo un enfoque sistemático y principiado para escalar arquitecturas CNN. Desarrollada por Mingxing Tan y Quoc V. Le de Google Research en 2019, esta familia de modelos estableció nuevos estándares de eficiencia, logrando precisión estado del arte con significativamente menos parámetros y operaciones que arquitecturas previas.</p>
+
+<p>A diferencia de enfoques anteriores que escalaban redes arbitrariamente en una sola dimensión (profundidad, anchura o resolución), EfficientNet propone un método de “escalado compuesto” que aumenta todas estas dimensiones simultáneamente siguiendo un conjunto de principios matemáticamente fundamentados. Este enfoque surge de la observación de que existe una relación interdependiente entre estas dimensiones, y escalarlas de manera equilibrada produce resultados óptimos.</p>
+
+<p>El punto de partida para esta familia de modelos es EfficientNet-B0, una arquitectura base diseñada mediante búsqueda de arquitectura neural (NAS) optimizando específicamente para eficiencia. A partir de esta base, se derivan los modelos B1-B7 aplicando progresivamente mayores factores de escalado compuesto, creando una familia de redes con diferentes equilibrios entre precisión y eficiencia.</p>
+
+<p>El impacto de EfficientNet ha sido profundo, demostrando que es posible diseñar modelos que son simultáneamente más precisos y más eficientes que el estado del arte previo. En el momento de su publicación, EfficientNet-B7 alcanzó 84.4% de precisión top-1 en ImageNet, superando a modelos previos con hasta 8.4 veces menos parámetros y 6.1 veces menos operaciones.</p>
+
+<h3 id="escalado-compuesto">Escalado Compuesto</h3>
+
+<p>El concepto de escalado compuesto es la innovación central que define a EfficientNet, proporcionando un método sistemático para escalar redes neuronales en múltiples dimensiones simultáneamente.</p>
+
+<h4 id="limitaciones-de-enfoques-de-escalado-tradicionales">Limitaciones de Enfoques de Escalado Tradicionales</h4>
+
+<p>Históricamente, las CNN se han escalado principalmente en una sola dimensión:</p>
+
+<ol>
+  <li><strong>Escalado de Profundidad</strong>: Aumentar el número de capas (como en ResNet-18 → ResNet-200)
+    <ul>
+      <li>Captura características más complejas y aumenta el campo receptivo</li>
+      <li>Limitación: Sufre de desvanecimiento del gradiente y aumenta la dificultad de entrenamiento</li>
+    </ul>
+  </li>
+  <li><strong>Escalado de Anchura</strong>: Aumentar el número de canales (como en Wide ResNet)
+    <ul>
+      <li>Captura características más finas y facilita el entrenamiento</li>
+      <li>Limitación: Captura limitada de características de alto nivel</li>
+    </ul>
+  </li>
+  <li><strong>Escalado de Resolución</strong>: Aumentar la resolución de entrada (224×224 → 299×299 → 600×600)
+    <ul>
+      <li>Captura patrones más finos y detalles</li>
+      <li>Limitación: Rendimiento marginal decreciente a resoluciones muy altas</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Cada enfoque tiene ventajas pero también limitaciones inherentes cuando se aplica aisladamente.</p>
+
+<h4 id="principio-del-escalado-compuesto">Principio del Escalado Compuesto</h4>
+
+<p>La intuición detrás del escalado compuesto es que las dimensiones de profundidad, anchura y resolución están interrelacionadas, y escalarlas de manera equilibrada produce resultados óptimos.</p>
+
+<p>Los autores de EfficientNet formalizaron esta intuición mediante un estudio sistemático, llegando a la siguiente conclusión:</p>
+
+<p>Si queremos utilizar 2ᴺ veces más recursos computacionales, entonces deberíamos:</p>
+<ul>
+  <li>Aumentar la profundidad de la red por αᴺ</li>
+  <li>Aumentar la anchura de la red por βᴺ</li>
+  <li>Aumentar la resolución de entrada por γᴺ</li>
+</ul>
+
+<p>Donde α, β, γ son constantes determinadas empíricamente, y α · β² · γ² ≈ 2 para mantener la eficiencia computacional.</p>
+
+<h4 id="implementación-práctica">Implementación Práctica</h4>
+
+<p>En la práctica, el escalado compuesto se implementa en dos pasos:</p>
+
+<ol>
+  <li><strong>Paso 1</strong>: Encontrar los coeficientes α, β, γ mediante una búsqueda en rejilla, manteniendo la restricción α · β² · γ² ≈ 2
+    <ul>
+      <li>Para EfficientNet, los valores encontrados fueron: α = 1.2, β = 1.1, γ = 1.15</li>
+    </ul>
+  </li>
+  <li><strong>Paso 2</strong>: Aplicar estos coeficientes para escalar la red base (EfficientNet-B0) con diferentes valores de N:
+    <ul>
+      <li>EfficientNet-B1: N = 1</li>
+      <li>EfficientNet-B2: N = 2</li>
+      <li>…</li>
+      <li>EfficientNet-B7: N = 7</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Este enfoque sistemático garantiza que todas las dimensiones se escalen de manera equilibrada, maximizando la eficiencia del modelo resultante.</p>
+
+<h3 id="bloques-mbconv">Bloques MBConv</h3>
+
+<p>Además del escalado compuesto, EfficientNet se caracteriza por su uso de bloques MBConv (Mobile Inverted Bottleneck Convolution), heredados de MobileNetV2 pero con algunas mejoras.</p>
+
+<h4 id="estructura-del-bloque-mbconv">Estructura del Bloque MBConv</h4>
+
+<p>Un bloque MBConv sigue la estructura de cuello de botella invertido:</p>
+
+<ol>
+  <li><strong>Expansión</strong>: Convolución 1×1 que aumenta el número de canales (típicamente por un factor de 6)</li>
+  <li><strong>Filtrado Espacial</strong>: Convolución separable en profundidad 3×3 o 5×5</li>
+  <li><strong>Compresión</strong>: Convolución 1×1 que reduce el número de canales</li>
+  <li><strong>Conexión Residual</strong>: Si las dimensiones de entrada y salida coinciden</li>
+</ol>
+
+<p>Las mejoras específicas en EfficientNet incluyen:</p>
+
+<ol>
+  <li><strong>Squeeze-and-Excitation (SE)</strong>: Módulo de atención que recalibra adaptativamente los pesos de los canales</li>
+  <li><strong>Swish Activation</strong>: Función de activación f(x) = x · sigmoid(x) que ha demostrado mejor rendimiento que ReLU</li>
+  <li><strong>Uso de Convoluciones 5×5</strong>: En algunos bloques para capturar contexto espacial más amplio</li>
+</ol>
+
+<h4 id="variantes-de-mbconv">Variantes de MBConv</h4>
+
+<p>EfficientNet utiliza dos variantes principales:</p>
+
+<ol>
+  <li><strong>MBConv1</strong>: Factor de expansión = 1 (sin expansión)</li>
+  <li><strong>MBConv6</strong>: Factor de expansión = 6 (expansión 6x)</li>
+</ol>
+
+<p>Además, cada variante puede utilizar kernel 3×3 o 5×5 para la convolución en profundidad.</p>
+
+<h3 id="arquitectura-efficientnet-b0">Arquitectura EfficientNet-B0</h3>
+
+<p>EfficientNet-B0 es la arquitectura base a partir de la cual se derivan todos los demás modelos mediante escalado compuesto. Fue diseñada mediante búsqueda de arquitectura neural (NAS) optimizando específicamente para eficiencia.</p>
+
+<h4 id="estructura-general">Estructura General</h4>
+
+<p>La arquitectura de EfficientNet-B0 consta de:</p>
+
+<ol>
+  <li><strong>Capa Inicial</strong>: Convolución estándar 3×3 con stride=2</li>
+  <li><strong>Bloques MBConv</strong>: 7 etapas con diferentes configuraciones</li>
+  <li><strong>Cabeza de Clasificación</strong>: Convolución 1×1, Pooling Global, Dropout y Clasificador Lineal</li>
+</ol>
+
+<h4 id="configuración-detallada">Configuración Detallada</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Etapa</th>
+      <th>Operador</th>
+      <th>Resolución</th>
+      <th>Canales</th>
+      <th>Capas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Conv 3×3</td>
+      <td>224×224</td>
+      <td>32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>MBConv1, k3×3</td>
+      <td>112×112</td>
+      <td>16</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>MBConv6, k3×3</td>
+      <td>112×112</td>
+      <td>24</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>MBConv6, k5×5</td>
+      <td>56×56</td>
+      <td>40</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>MBConv6, k3×3</td>
+      <td>28×28</td>
+      <td>80</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>MBConv6, k5×5</td>
+      <td>14×14</td>
+      <td>112</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>MBConv6, k5×5</td>
+      <td>14×14</td>
+      <td>192</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>MBConv6, k3×3</td>
+      <td>7×7</td>
+      <td>320</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Conv 1×1 &amp; Pooling &amp; FC</td>
+      <td>7×7</td>
+      <td>1280</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="características-clave">Características Clave</h4>
+
+<ul>
+  <li><strong>Parámetros</strong>: 5.3 millones</li>
+  <li><strong>Operaciones</strong>: 0.39 BFLOPS</li>
+  <li><strong>Precisión Top-1 en ImageNet</strong>: 77.1%</li>
+  <li><strong>Resolución de Entrada</strong>: 224×224</li>
+</ul>
+
+<h3 id="familia-de-modelos-b0-b7">Familia de Modelos: B0-B7</h3>
+
+<p>A partir de EfficientNet-B0, se deriva una familia completa de modelos aplicando diferentes niveles de escalado compuesto.</p>
+
+<h4 id="factores-de-escalado">Factores de Escalado</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Factor de Escalado (N)</th>
+      <th>Profundidad (α^N)</th>
+      <th>Anchura (β^N)</th>
+      <th>Resolución (γ^N)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B0</td>
+      <td>-</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>224</td>
+    </tr>
+    <tr>
+      <td>B1</td>
+      <td>1</td>
+      <td>1.2</td>
+      <td>1.1</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>2</td>
+      <td>1.4</td>
+      <td>1.2</td>
+      <td>260</td>
+    </tr>
+    <tr>
+      <td>B3</td>
+      <td>3</td>
+      <td>1.8</td>
+      <td>1.4</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <td>B4</td>
+      <td>4</td>
+      <td>2.2</td>
+      <td>1.8</td>
+      <td>380</td>
+    </tr>
+    <tr>
+      <td>B5</td>
+      <td>5</td>
+      <td>2.6</td>
+      <td>2.2</td>
+      <td>456</td>
+    </tr>
+    <tr>
+      <td>B6</td>
+      <td>6</td>
+      <td>3.1</td>
+      <td>2.6</td>
+      <td>528</td>
+    </tr>
+    <tr>
+      <td>B7</td>
+      <td>7</td>
+      <td>3.7</td>
+      <td>3.0</td>
+      <td>600</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="comparativa-de-rendimiento">Comparativa de Rendimiento</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Parámetros</th>
+      <th>FLOPS</th>
+      <th>Precisión Top-1 (ImageNet)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B0</td>
+      <td>5.3M</td>
+      <td>0.39B</td>
+      <td>77.1%</td>
+    </tr>
+    <tr>
+      <td>B1</td>
+      <td>7.8M</td>
+      <td>0.70B</td>
+      <td>79.1%</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>9.2M</td>
+      <td>1.0B</td>
+      <td>80.1%</td>
+    </tr>
+    <tr>
+      <td>B3</td>
+      <td>12M</td>
+      <td>1.8B</td>
+      <td>81.6%</td>
+    </tr>
+    <tr>
+      <td>B4</td>
+      <td>19M</td>
+      <td>4.2B</td>
+      <td>82.9%</td>
+    </tr>
+    <tr>
+      <td>B5</td>
+      <td>30M</td>
+      <td>9.9B</td>
+      <td>83.6%</td>
+    </tr>
+    <tr>
+      <td>B6</td>
+      <td>43M</td>
+      <td>19B</td>
+      <td>84.0%</td>
+    </tr>
+    <tr>
+      <td>B7</td>
+      <td>66M</td>
+      <td>37B</td>
+      <td>84.4%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Esta familia de modelos ofrece diferentes puntos de equilibrio entre precisión y eficiencia, permitiendo seleccionar el modelo más adecuado según las restricciones específicas de cada aplicación.</p>
+
+<h3 id="comparativa-con-otras-arquitecturas">Comparativa con Otras Arquitecturas</h3>
+
+<p>EfficientNet estableció nuevos estándares de eficiencia, superando significativamente a arquitecturas previas en términos de precisión por parámetro y precisión por operación.</p>
+
+<h4 id="precisión-vs-tamaño-del-modelo">Precisión vs. Tamaño del Modelo</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Parámetros</th>
+      <th>Precisión Top-1 (ImageNet)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ResNet-50</td>
+      <td>26M</td>
+      <td>76.0%</td>
+    </tr>
+    <tr>
+      <td>ResNet-152</td>
+      <td>60M</td>
+      <td>77.8%</td>
+    </tr>
+    <tr>
+      <td>DenseNet-201</td>
+      <td>20M</td>
+      <td>77.7%</td>
+    </tr>
+    <tr>
+      <td>Inception-v4</td>
+      <td>48M</td>
+      <td>80.0%</td>
+    </tr>
+    <tr>
+      <td>ResNeXt-101</td>
+      <td>84M</td>
+      <td>80.9%</td>
+    </tr>
+    <tr>
+      <td>SENet</td>
+      <td>146M</td>
+      <td>82.7%</td>
+    </tr>
+    <tr>
+      <td>NASNet-A</td>
+      <td>89M</td>
+      <td>82.7%</td>
+    </tr>
+    <tr>
+      <td>EfficientNet-B3</td>
+      <td>12M</td>
+      <td>81.6%</td>
+    </tr>
+    <tr>
+      <td>EfficientNet-B7</td>
+      <td>66M</td>
+      <td>84.4%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>EfficientNet-B7 supera a todos los modelos previos con significativamente menos parámetros. Por ejemplo, logra 1.7% mejor precisión que SENet con 2.2x menos parámetros.</p>
+
+<h4 id="precisión-vs-costo-computacional">Precisión vs. Costo Computacional</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>FLOPS</th>
+      <th>Precisión Top-1 (ImageNet)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ResNet-50</td>
+      <td>4.1B</td>
+      <td>76.0%</td>
+    </tr>
+    <tr>
+      <td>ResNet-152</td>
+      <td>11.5B</td>
+      <td>77.8%</td>
+    </tr>
+    <tr>
+      <td>DenseNet-201</td>
+      <td>4.3B</td>
+      <td>77.7%</td>
+    </tr>
+    <tr>
+      <td>Inception-v4</td>
+      <td>13B</td>
+      <td>80.0%</td>
+    </tr>
+    <tr>
+      <td>NASNet-A</td>
+      <td>24B</td>
+      <td>82.7%</td>
+    </tr>
+    <tr>
+      <td>EfficientNet-B3</td>
+      <td>1.8B</td>
+      <td>81.6%</td>
+    </tr>
+    <tr>
+      <td>EfficientNet-B7</td>
+      <td>37B</td>
+      <td>84.4%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>EfficientNet-B3 logra mejor precisión que Inception-v4 con 7.2x menos operaciones, mientras que EfficientNet-B4 supera a NASNet-A con 5.7x menos operaciones.</p>
+
+<h3 id="implementación-simplificada-de-efficientnet">Implementación Simplificada de EfficientNet</h3>
+
+<p>A continuación, se presenta una implementación conceptual simplificada de un bloque MBConv y la estructura básica de EfficientNet utilizando TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">squeeze_excite_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+    <span class="s">"""
+    Implementación del bloque Squeeze-and-Excitation
+    
+    Args:
+        x: Tensor de entrada
+        ratio: Ratio de reducción para el cuello de botella
+    
+    Returns:
+        Tensor con atención de canal aplicada
+    """</span>
+    <span class="n">filters</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">filters</span><span class="p">))(</span><span class="n">se</span><span class="p">)</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">filters</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'swish'</span><span class="p">)(</span><span class="n">se</span><span class="p">)</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">)(</span><span class="n">se</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">layers</span><span class="p">.</span><span class="n">Multiply</span><span class="p">()([</span><span class="n">x</span><span class="p">,</span> <span class="n">se</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">mbconv_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters_out</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">expansion_factor</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">use_se</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">use_residual</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="s">"""
+    Implementación de un bloque MBConv (Mobile Inverted Bottleneck Convolution)
+    
+    Args:
+        x: Tensor de entrada
+        filters_out: Número de filtros de salida
+        kernel_size: Tamaño del kernel para la convolución en profundidad
+        expansion_factor: Factor de expansión para la primera convolución 1x1
+        stride: Stride para la convolución en profundidad
+        use_se: Si es True, incluye bloque Squeeze-and-Excitation
+        use_residual: Si es True, añade una conexión residual
+    
+    Returns:
+        Tensor de salida del bloque MBConv
+    """</span>
+    <span class="n">filters_in</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># Conexión residual solo si stride=1 y filtros de entrada = filtros de salida
+</span>    <span class="n">residual</span> <span class="o">=</span> <span class="n">stride</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">filters_in</span> <span class="o">==</span> <span class="n">filters_out</span> <span class="ow">and</span> <span class="n">use_residual</span>
+    
+    <span class="c1"># Fase de expansión
+</span>    <span class="k">if</span> <span class="n">expansion_factor</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">expand</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters_in</span> <span class="o">*</span> <span class="n">expansion_factor</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">use_bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">expand</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">expand</span><span class="p">)</span>
+        <span class="n">expand</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'swish'</span><span class="p">)(</span><span class="n">expand</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">expand</span> <span class="o">=</span> <span class="n">x</span>
+    
+    <span class="c1"># Fase de filtrado espacial (convolución en profundidad)
+</span>    <span class="n">depthwise</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">DepthwiseConv2D</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">use_bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)(</span><span class="n">expand</span><span class="p">)</span>
+    <span class="n">depthwise</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">depthwise</span><span class="p">)</span>
+    <span class="n">depthwise</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'swish'</span><span class="p">)(</span><span class="n">depthwise</span><span class="p">)</span>
+    
+    <span class="c1"># Squeeze-and-Excitation
+</span>    <span class="k">if</span> <span class="n">use_se</span><span class="p">:</span>
+        <span class="n">depthwise</span> <span class="o">=</span> <span class="n">squeeze_excite_block</span><span class="p">(</span><span class="n">depthwise</span><span class="p">)</span>
+    
+    <span class="c1"># Fase de proyección
+</span>    <span class="n">project</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters_out</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">use_bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)(</span><span class="n">depthwise</span><span class="p">)</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">project</span><span class="p">)</span>
+    
+    <span class="c1"># Añadir conexión residual si corresponde
+</span>    <span class="k">if</span> <span class="n">residual</span><span class="p">:</span>
+        <span class="n">project</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Add</span><span class="p">()([</span><span class="n">project</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">project</span>
+
+<span class="k">def</span> <span class="nf">create_efficientnet_b0</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="s">"""
+    Crea un modelo EfficientNet-B0
+    
+    Args:
+        input_shape: Forma del tensor de entrada
+        num_classes: Número de clases para la clasificación
+    
+    Returns:
+        Modelo EfficientNet-B0
+    """</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    
+    <span class="c1"># Capa inicial
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">use_bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'swish'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Configuración de bloques MBConv
+</span>    <span class="c1"># [filters_out, kernel_size, expansion_factor, stride, num_layers]
+</span>    <span class="n">block_settings</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>   <span class="c1"># MBConv1, k3x3
+</span>        <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>   <span class="c1"># MBConv6, k3x3
+</span>        <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>   <span class="c1"># MBConv6, k5x5
+</span>        <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>   <span class="c1"># MBConv6, k3x3
+</span>        <span class="p">[</span><span class="mi">112</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>  <span class="c1"># MBConv6, k5x5
+</span>        <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>  <span class="c1"># MBConv6, k5x5
+</span>        <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>   <span class="c1"># MBConv6, k3x3
+</span>    <span class="p">]</span>
+    
+    <span class="c1"># Bloques MBConv
+</span>    <span class="k">for</span> <span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">expansion</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">num_layers</span> <span class="ow">in</span> <span class="n">block_settings</span><span class="p">:</span>
+        <span class="c1"># Primer bloque con stride especificado
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">mbconv_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">expansion</span><span class="p">,</span> <span class="n">stride</span><span class="p">)</span>
+        
+        <span class="c1"># Bloques restantes con stride=1
+</span>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_layers</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">mbconv_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">expansion</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Cabeza de clasificación
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">use_bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Activation</span><span class="p">(</span><span class="s">'swish'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Clasificador
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Crear EfficientNet-B0
+</span><span class="n">efficientnet_b0</span> <span class="o">=</span> <span class="n">create_efficientnet_b0</span><span class="p">()</span>
+
+<span class="c1"># Compilar el modelo
+</span><span class="n">efficientnet_b0</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+                       <span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+                       <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="c1"># Resumen del modelo
+</span><span class="k">print</span><span class="p">(</span><span class="s">"EfficientNet-B0 Summary:"</span><span class="p">)</span>
+<span class="n">efficientnet_b0</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Esta implementación simplificada captura los elementos esenciales de EfficientNet-B0, incluyendo los bloques MBConv con Squeeze-and-Excitation y la activación Swish.</p>
+
+<h3 id="evolución-efficientnetv2">Evolución: EfficientNetV2</h3>
+
+<p>En 2021, los mismos autores presentaron EfficientNetV2, una evolución que mejora significativamente la eficiencia de entrenamiento y velocidad de inferencia.</p>
+
+<h4 id="innovaciones-principales">Innovaciones Principales</h4>
+
+<ol>
+  <li>
+    <p><strong>Bloque Fused-MBConv</strong>: Nuevo bloque que fusiona la convolución de expansión 1×1 y la convolución en profundidad en una única convolución estándar para ciertas capas, reduciendo latencia.</p>
+  </li>
+  <li>
+    <p><strong>Estrategia de Escalado Progresivo</strong>: Entrenamiento que aumenta gradualmente la resolución de las imágenes y regularización, acelerando el entrenamiento hasta 4x.</p>
+  </li>
+  <li>
+    <p><strong>Arquitectura Optimizada</strong>: Diseño mejorado con mejor equilibrio entre diferentes operaciones para reducir memoria y aumentar velocidad.</p>
+  </li>
+</ol>
+
+<h4 id="mejoras-de-rendimiento">Mejoras de Rendimiento</h4>
+
+<p>EfficientNetV2 logró mejoras significativas sobre EfficientNetV1:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Parámetros</th>
+      <th>Tiempo de Entrenamiento</th>
+      <th>Precisión Top-1 (ImageNet)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EfficientNet-B7</td>
+      <td>66M</td>
+      <td>139 horas</td>
+      <td>84.4%</td>
+    </tr>
+    <tr>
+      <td>EfficientNetV2-S</td>
+      <td>22M</td>
+      <td>13.7 horas</td>
+      <td>83.9%</td>
+    </tr>
+    <tr>
+      <td>EfficientNetV2-M</td>
+      <td>54M</td>
+      <td>24.3 horas</td>
+      <td>85.2%</td>
+    </tr>
+    <tr>
+      <td>EfficientNetV2-L</td>
+      <td>120M</td>
+      <td>33.3 horas</td>
+      <td>85.7%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>EfficientNetV2-S es 6.8x más rápido de entrenar que EfficientNet-B7 con precisión similar, mientras que EfficientNetV2-L alcanza 1.3% mejor precisión con 4.2x entrenamiento más rápido.</p>
+
+<h3 id="aplicaciones-prácticas-de-efficientnet">Aplicaciones Prácticas de EfficientNet</h3>
+
+<p>EfficientNet ha encontrado aplicación en una amplia gama de tareas de visión por computadora:</p>
+
+<h4 id="1-clasificación-de-imágenes">1. Clasificación de Imágenes</h4>
+
+<p>Su aplicación original, donde estableció nuevos estándares de precisión y eficiencia en ImageNet y otros conjuntos de datos.</p>
+
+<h4 id="2-transferencia-de-aprendizaje">2. Transferencia de Aprendizaje</h4>
+
+<p>Particularmente efectiva como modelo base para transferencia a nuevos dominios con datos limitados, gracias a su capacidad de capturar características robustas con pocos parámetros.</p>
+
+<h4 id="3-detección-de-objetos">3. Detección de Objetos</h4>
+
+<p>Como backbone en frameworks como EfficientDet, que aplica principios similares de escalado compuesto a la tarea de detección, logrando estado del arte en COCO.</p>
+
+<h4 id="4-segmentación-semántica">4. Segmentación Semántica</h4>
+
+<p>Adaptada para segmentación mediante arquitecturas encoder-decoder, donde la eficiencia del encoder EfficientNet permite modelos más ligeros.</p>
+
+<h4 id="5-aplicaciones-móviles-y-edge">5. Aplicaciones Móviles y Edge</h4>
+
+<p>Variantes más pequeñas (B0-B2) son adecuadas para despliegue en dispositivos con recursos limitados, ofreciendo buen equilibrio entre precisión y eficiencia.</p>
+
+<h4 id="6-análisis-médico">6. Análisis Médico</h4>
+
+<p>Utilizada en análisis de imágenes médicas, donde la capacidad de procesar imágenes de alta resolución con eficiencia es crucial.</p>
+
+<h3 id="ventajas-y-limitaciones">Ventajas y Limitaciones</h3>
+
+<h4 id="ventajas-de-efficientnet">Ventajas de EfficientNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Eficiencia Paramétrica</strong>: Logra precisión estado del arte con significativamente menos parámetros que arquitecturas comparables.</p>
+  </li>
+  <li>
+    <p><strong>Escalabilidad Sistemática</strong>: El método de escalado compuesto proporciona un enfoque principiado para crear modelos de diferentes tamaños.</p>
+  </li>
+  <li>
+    <p><strong>Transferencia Efectiva</strong>: Excelente rendimiento en transferencia a nuevos dominios y tareas.</p>
+  </li>
+  <li>
+    <p><strong>Resolución Adaptativa</strong>: Capacidad de procesar imágenes de mayor resolución de manera eficiente, crucial para ciertas aplicaciones.</p>
+  </li>
+  <li>
+    <p><strong>Familia Completa</strong>: Ofrece modelos desde muy ligeros (B0) hasta muy potentes (B7), facilitando la selección según restricciones específicas.</p>
+  </li>
+</ol>
+
+<h4 id="limitaciones-de-efficientnet">Limitaciones de EfficientNet</h4>
+
+<ol>
+  <li>
+    <p><strong>Complejidad de Implementación</strong>: La arquitectura y especialmente el escalado compuesto son más complejos de implementar correctamente.</p>
+  </li>
+  <li>
+    <p><strong>Costo de Entrenamiento</strong>: Los modelos más grandes (B5-B7) requieren recursos significativos para entrenamiento, especialmente con resoluciones altas.</p>
+  </li>
+  <li>
+    <p><strong>Latencia en Inferencia</strong>: Aunque eficiente en parámetros y operaciones, la estructura secuencial puede limitar la paralelización en ciertos hardware.</p>
+  </li>
+  <li>
+    <p><strong>Sensibilidad a Hiperparámetros</strong>: El rendimiento puede variar significativamente con diferentes configuraciones de entrenamiento.</p>
+  </li>
+  <li>
+    <p><strong>Optimización Específica</strong>: Puede requerir optimizaciones específicas para diferentes plataformas de hardware para máximo rendimiento.</p>
+  </li>
+</ol>
+
+<h3 id="impacto-y-legado">Impacto y Legado</h3>
+
+<p>El impacto de EfficientNet en el campo del aprendizaje profundo ha sido profundo:</p>
+
+<ol>
+  <li>
+    <p><strong>Paradigma de Escalado</strong>: Estableció el escalado compuesto como método estándar para crear familias de modelos, influenciando arquitecturas posteriores.</p>
+  </li>
+  <li>
+    <p><strong>Eficiencia como Prioridad</strong>: Reforzó la importancia de la eficiencia paramétrica y computacional como objetivos primarios de diseño.</p>
+  </li>
+  <li>
+    <p><strong>Benchmark de Arquitecturas</strong>: Se convirtió en referencia estándar para evaluar la eficiencia de nuevas arquitecturas.</p>
+  </li>
+  <li>
+    <p><strong>Aplicaciones Prácticas</strong>: Facilitó la adopción de CNN avanzadas en escenarios con recursos limitados.</p>
+  </li>
+  <li>
+    <p><strong>Inspiración Metodológica</strong>: Su enfoque sistemático y principiado para el diseño arquitectónico ha influido en investigaciones posteriores.</p>
+  </li>
+</ol>
+
+<p>El paper original de EfficientNet, “EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks”, ha acumulado más de 10,000 citas en solo tres años, reflejando su impacto significativo en el campo.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>EfficientNet representa un avance fundamental en el diseño de redes neuronales convolucionales, introduciendo un enfoque sistemático y principiado para escalar arquitecturas CNN. Su innovación central —el escalado compuesto— proporciona un método matemáticamente fundamentado para aumentar simultáneamente la profundidad, anchura y resolución de manera equilibrada, logrando un rendimiento óptimo.</p>
+
+<p>Partiendo de una arquitectura base (EfficientNet-B0) diseñada mediante búsqueda neural para eficiencia, la familia EfficientNet demuestra que es posible crear modelos que son simultáneamente más precisos y más eficientes que el estado del arte previo. Esta combinación de precisión y eficiencia ha permitido la aplicación de CNN avanzadas en escenarios previamente inaccesibles debido a restricciones de recursos.</p>
+
+<p>El legado de EfficientNet perdura no solo en sus aplicaciones directas, sino en la influencia metodológica que ha ejercido en el diseño de arquitecturas posteriores. Su enfoque sistemático para equilibrar diferentes dimensiones arquitectónicas ha establecido un nuevo estándar para la evaluación y desarrollo de modelos CNN eficientes.</p>
+
+<p>En la próxima lección, exploraremos arquitecturas especializadas para segmentación semántica, comenzando con U-Net, una arquitectura diseñada específicamente para segmentación precisa con conjuntos de datos limitados, particularmente en el dominio de imágenes médicas.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

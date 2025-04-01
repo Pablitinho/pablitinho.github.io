@@ -759,3 +759,23 @@ html, body { overflow-x: hidden; }
 
 /* Ajuste para los párrafos dentro del hidden-list */
 .hidden-list p { margin-bottom: 10px; /* Espacio entre párrafos */ text-align: left; /* Asegura que el texto esté alineado a la izquierda */ }
+
+.nav-menu .drop-down > a { color: #ffffff; /* Set the text color to white (or any visible color) */ text-decoration: none; /* Optional: Remove underline if needed */ }
+
+/* Ensure the dropdown items are styled correctly */
+.nav-menu .drop-down ul li a { color: #ffffff; /* Set the text color for dropdown items */ padding: 8px 16px; /* Add padding for better spacing */ display: block; /* Ensure the links fill the dropdown item area */ }
+
+/* Hover effect for the "Online Courses" link */
+.nav-menu .drop-down > a:hover { color: #ffcc00; /* Change to a different color on hover (optional) */ text-decoration: none; /* Optional: Remove underline */ }
+
+/* Ensure dropdown menu items are visible */
+.nav-menu .drop-down ul li a { color: #ffffff; /* Set the text color to white (or any visible color) */ background-color: #333333; /* Dark background for contrast */ padding: 8px 16px; /* Add padding for better spacing */ display: block; /* Ensure the links fill the dropdown item area */ text-decoration: none; /* Remove underline */ }
+
+/* Hover effect for dropdown menu items */
+.nav-menu .drop-down ul li a:hover { color: #ffcc00; /* Change to a different color on hover (optional) */ background-color: #444444; /* Slightly lighter background on hover */ }
+
+/* Style the dropdown container */
+.nav-menu .drop-down ul { position: absolute; top: 100%; /* Position below the parent link */ left: 0; background-color: #333333; /* Dark background for contrast */ list-style: none; /* Remove bullet points */ margin: 0; padding: 0; z-index: 1000; /* Ensure it appears above other content */ display: none; /* Hide by default */ }
+
+/* Show the dropdown menu when hovering over the parent link */
+.nav-menu .drop-down:hover > ul { display: block; /* Show the dropdown menu */ }

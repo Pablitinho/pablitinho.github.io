@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeMTe4qAAAAAN4ZqdaH-qmJl41hbE2DnUqYWQBq"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dr. Pablo Guzman | Thi is Dr. Pablo Guzmans personal website.</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dr. Pablo Guzman" />
+<meta name="author" content="Dr. Pablo Guzman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thi is Dr. Pablo Guzmans personal website." />
+<meta property="og:description" content="Thi is Dr. Pablo Guzmans personal website." />
+<link rel="canonical" href="http://localhost:4000/courses/cnn_course/content/modulo1_introduccion.html" />
+<meta property="og:url" content="http://localhost:4000/courses/cnn_course/content/modulo1_introduccion.html" />
+<meta property="og:site_name" content="Dr. Pablo Guzman" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dr. Pablo Guzman" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Pablo Guzman"},"description":"Thi is Dr. Pablo Guzmans personal website.","headline":"Dr. Pablo Guzman","url":"http://localhost:4000/courses/cnn_course/content/modulo1_introduccion.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="../../../assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/icofont/icofont.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/boxicons/css/boxicons.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/owl.carousel/assets/owl.carousel.min.css" | relative_url }}">
+  <link rel="stylesheet" href="../../../assets/css/vendor/venobox/venobox.css" | relative_url }}">
+  <link rel="stylesheet" href=""><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Dr. Pablo Guzman" />
+<style>
+ 
+
+    .timeline-image {
+      width: 180px;  
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;  
+      border-radius: 50%;  
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  
+    .timeline-image img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;  
+        border-radius: 50%;
+    }
+  
+  
+    </style>
+ 
+</head>
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
+        <ul>
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>[Translated Content]</p>
+<h1 id="módulo-1-fundamentos-de-las-cnn">Módulo 1: Fundamentos de las CNN</h1>
+
+<h2 id="lección-1-introducción-a-las-redes-neuronales-convolucionales">Lección 1: Introducción a las Redes Neuronales Convolucionales</h2>
+
+<h3 id="historia-y-evolución-de-las-cnn">Historia y Evolución de las CNN</h3>
+
+<p>Las Redes Neuronales Convolucionales (CNN) representan uno de los avances más significativos en el campo del aprendizaje profundo y la visión por computadora. Su desarrollo ha sido el resultado de décadas de investigación inspirada en el funcionamiento del sistema visual biológico.</p>
+
+<h4 id="orígenes-biológicos">Orígenes Biológicos</h4>
+
+<p>El concepto de las CNN está inspirado en la organización del córtex visual de los mamíferos. En 1959, los neurocientíficos David Hubel y Torsten Wiesel descubrieron que las neuronas en el córtex visual responden selectivamente a regiones específicas del campo visual, y que diferentes neuronas se activan ante diferentes características visuales como bordes orientados o movimiento en direcciones específicas. Este descubrimiento fundamental, que les valió el Premio Nobel de Medicina en 1981, sentó las bases para entender cómo el cerebro procesa la información visual de manera jerárquica.</p>
+
+<h4 id="neocognitrón-el-precursor">Neocognitrón: El Precursor</h4>
+
+<p>En 1980, el científico japonés Kunihiko Fukushima propuso el “Neocognitrón”, un modelo computacional inspirado en estos descubrimientos biológicos. El Neocognitrón introdujo la idea de células simples que detectan características locales y células complejas que combinan estas características, creando invariancia a pequeñas transformaciones. Este modelo es considerado el precursor directo de las CNN modernas.</p>
+
+<h4 id="lenet-la-primera-cnn-moderna">LeNet: La Primera CNN Moderna</h4>
+
+<p>El verdadero nacimiento de las CNN modernas ocurrió en 1989, cuando Yann LeCun y sus colegas en AT&amp;T Bell Labs desarrollaron una red convolucional para reconocimiento de dígitos manuscritos. Esta arquitectura, posteriormente refinada como LeNet-5 en 1998, introdujo los componentes esenciales que definen a las CNN actuales: capas convolucionales, funciones de activación no lineales y capas de submuestreo (pooling).</p>
+
+<p>LeNet-5 demostró un rendimiento excepcional en el reconocimiento de dígitos manuscritos y fue implementada comercialmente por varios bancos para procesar cheques. Sin embargo, las limitaciones computacionales de la época y la falta de grandes conjuntos de datos etiquetados restringieron su aplicación a problemas más complejos.</p>
+
+<h4 id="el-invierno-de-las-cnn">El Invierno de las CNN</h4>
+
+<p>Durante la primera década del 2000, las CNN experimentaron un período de relativo estancamiento. Otros enfoques de aprendizaje automático, como las Máquinas de Vectores de Soporte (SVM), dominaban el campo de la visión por computadora. Las CNN requerían grandes cantidades de datos etiquetados y recursos computacionales que no estaban ampliamente disponibles en ese momento.</p>
+
+<h4 id="el-renacimiento-alexnet-y-la-revolución-del-aprendizaje-profundo">El Renacimiento: AlexNet y la Revolución del Aprendizaje Profundo</h4>
+
+<p>El punto de inflexión llegó en 2012, cuando Alex Krizhevsky, Ilya Sutskever y Geoffrey Hinton presentaron AlexNet en la competición ImageNet Large Scale Visual Recognition Challenge (ILSVRC). AlexNet redujo dramáticamente la tasa de error en clasificación de imágenes del 26% al 15.3%, superando por un amplio margen a todos los enfoques tradicionales.</p>
+
+<p>AlexNet introdujo varias innovaciones clave:</p>
+<ul>
+  <li>Uso de unidades ReLU (Rectified Linear Unit) como función de activación</li>
+  <li>Implementación de Dropout para reducir el sobreajuste</li>
+  <li>Entrenamiento eficiente en GPUs</li>
+  <li>Técnicas de aumento de datos para mejorar la generalización</li>
+</ul>
+
+<p>Este éxito desencadenó una revolución en el campo de la visión por computadora y el aprendizaje profundo. En los años siguientes, las CNN se convirtieron en el enfoque dominante para una amplia gama de tareas de procesamiento de imágenes.</p>
+
+<h4 id="la-era-moderna-profundidad-y-especialización">La Era Moderna: Profundidad y Especialización</h4>
+
+<p>Desde 2012, hemos presenciado una rápida evolución de las arquitecturas CNN:</p>
+
+<ul>
+  <li>
+    <p><strong>2014</strong>: VGGNet exploró la importancia de la profundidad con sus 16-19 capas, mientras que GoogLeNet (Inception) introdujo módulos de inception para capturar características a múltiples escalas simultáneamente.</p>
+  </li>
+  <li>
+    <p><strong>2015</strong>: ResNet revolucionó el entrenamiento de redes muy profundas (hasta 152 capas) mediante conexiones residuales, superando el problema del desvanecimiento del gradiente.</p>
+  </li>
+  <li>
+    <p><strong>2017-Presente</strong>: Surgimiento de arquitecturas especializadas como MobileNet para dispositivos móviles, EfficientNet para optimizar la eficiencia, y arquitecturas específicas para tareas como segmentación (U-Net) y detección de objetos (YOLO, SSD).</p>
+  </li>
+</ul>
+
+<p>En los últimos años, las CNN han comenzado a integrarse con otros paradigmas como los mecanismos de atención y los transformers, dando lugar a arquitecturas híbridas que aprovechan las fortalezas de diferentes enfoques.</p>
+
+<h3 id="principios-fundamentales-de-la-convolución">Principios Fundamentales de la Convolución</h3>
+
+<p>La operación de convolución es el componente central que da nombre a las CNN. Esta operación matemática permite a la red aprender filtros que detectan patrones específicos en los datos de entrada.</p>
+
+<h4 id="qué-es-la-convolución">¿Qué es la Convolución?</h4>
+
+<p>En el contexto del procesamiento de imágenes, la convolución es una operación matemática que combina dos funciones: la imagen de entrada y un filtro (o kernel). El filtro se desliza sobre la imagen de entrada, realizando una multiplicación elemento por elemento seguida de una suma en cada posición, generando un mapa de características que resalta patrones específicos.</p>
+
+<p>Matemáticamente, para una imagen 2D, la convolución se expresa como:</p>
+
+\[(I * K)(i, j) = \sum_m \sum_n I(i+m, j+n) \cdot K(m, n)\]
+
+<p>Donde:</p>
+<ul>
+  <li>$I$ es la imagen de entrada</li>
+  <li>$K$ es el filtro o kernel</li>
+  <li>$*$ denota la operación de convolución</li>
+</ul>
+
+<h4 id="propiedades-clave-de-la-convolución">Propiedades Clave de la Convolución</h4>
+
+<p>La convolución posee varias propiedades que la hacen especialmente adecuada para el procesamiento de imágenes:</p>
+
+<ol>
+  <li>
+    <p><strong>Localidad espacial</strong>: Cada valor en el mapa de características depende solo de una pequeña región de la entrada, reflejando la naturaleza local de la información visual.</p>
+  </li>
+  <li>
+    <p><strong>Compartición de parámetros</strong>: El mismo filtro se aplica a diferentes partes de la imagen, lo que reduce drásticamente el número de parámetros y permite detectar el mismo patrón independientemente de su ubicación.</p>
+  </li>
+  <li>
+    <p><strong>Invariancia a la traslación</strong>: Los patrones pueden ser detectados independientemente de su posición exacta en la imagen.</p>
+  </li>
+  <li>
+    <p><strong>Composición jerárquica</strong>: Las capas convolucionales sucesivas pueden combinar características simples para formar representaciones cada vez más complejas y abstractas.</p>
+  </li>
+</ol>
+
+<h4 id="hiperparámetros-de-la-convolución">Hiperparámetros de la Convolución</h4>
+
+<p>La operación de convolución en las CNN está controlada por varios hiperparámetros:</p>
+
+<ol>
+  <li>
+    <p><strong>Tamaño del filtro</strong>: Define las dimensiones del kernel (por ejemplo, 3×3, 5×5). Filtros más grandes capturan contextos más amplios pero requieren más cómputo.</p>
+  </li>
+  <li>
+    <p><strong>Stride (paso)</strong>: Determina cuánto se desplaza el filtro entre aplicaciones consecutivas. Un stride mayor reduce las dimensiones espaciales del mapa de características resultante.</p>
+  </li>
+  <li>
+    <p><strong>Padding (relleno)</strong>: Añade píxeles (generalmente ceros) alrededor de la imagen de entrada para controlar las dimensiones del mapa de características y preservar información en los bordes.</p>
+  </li>
+  <li>
+    <p><strong>Número de filtros</strong>: Cada capa convolucional puede aprender múltiples filtros, cada uno especializado en detectar un patrón diferente, generando múltiples mapas de características.</p>
+  </li>
+</ol>
+
+<h4 id="tipos-de-convolución">Tipos de Convolución</h4>
+
+<p>A medida que las CNN han evolucionado, se han desarrollado variantes de la operación de convolución estándar:</p>
+
+<ol>
+  <li>
+    <p><strong>Convolución Dilatada (Atrous)</strong>: Introduce “agujeros” en el filtro, aumentando su campo receptivo sin incrementar el número de parámetros.</p>
+  </li>
+  <li>
+    <p><strong>Convolución Separable en Profundidad</strong>: Descompone la convolución estándar en dos operaciones: una convolución en profundidad seguida de una convolución puntual, reduciendo significativamente el costo computacional.</p>
+  </li>
+  <li>
+    <p><strong>Convolución Transpuesta (Deconvolución)</strong>: Permite aumentar las dimensiones espaciales, útil en tareas como segmentación semántica.</p>
+  </li>
+  <li>
+    <p><strong>Convolución Grupal</strong>: Divide los canales de entrada en grupos y aplica convoluciones separadas a cada grupo, reduciendo parámetros y cómputo.</p>
+  </li>
+</ol>
+
+<h3 id="componentes-básicos-de-las-cnn">Componentes Básicos de las CNN</h3>
+
+<p>Las CNN están compuestas por varios tipos de capas que trabajan en conjunto para transformar la imagen de entrada en representaciones cada vez más abstractas y, finalmente, en la salida deseada.</p>
+
+<h4 id="capa-convolucional">Capa Convolucional</h4>
+
+<p>La capa convolucional es el bloque fundamental de las CNN. Como se explicó anteriormente, aplica filtros a la entrada para producir mapas de características que resaltan patrones específicos. Cada neurona en un mapa de características está conectada solo a una región local de la capa anterior, lo que contrasta con las redes neuronales tradicionales donde cada neurona está conectada a todas las neuronas de la capa anterior.</p>
+
+<p>Las primeras capas convolucionales suelen detectar características de bajo nivel como bordes, texturas y colores, mientras que las capas más profundas combinan estas características para detectar patrones más complejos como formas, partes de objetos y, eventualmente, objetos completos.</p>
+
+<h4 id="capa-de-activación">Capa de Activación</h4>
+
+<p>Después de cada operación de convolución, se aplica una función de activación no lineal. Esta no linealidad es crucial, ya que permite a la red aprender representaciones complejas que no serían posibles con transformaciones puramente lineales.</p>
+
+<p>Las funciones de activación más comunes en CNN incluyen:</p>
+
+<ol>
+  <li><strong>ReLU (Rectified Linear Unit)</strong>: $f(x) = \max(0, x)$
+    <ul>
+      <li>La más utilizada por su simplicidad y eficiencia</li>
+      <li>Ayuda a mitigar el problema del desvanecimiento del gradiente</li>
+      <li>Introduce esparcidad en la red</li>
+    </ul>
+  </li>
+  <li><strong>Leaky ReLU</strong>: $f(x) = \max(\alpha x, x)$ donde $\alpha$ es un valor pequeño (por ejemplo, 0.01)
+    <ul>
+      <li>Variante que permite un pequeño gradiente cuando la unidad no está activa</li>
+    </ul>
+  </li>
+  <li><strong>ELU (Exponential Linear Unit)</strong>: $f(x) = x$ si $x &gt; 0$, $f(x) = \alpha(e^x - 1)$ si $x \leq 0$
+    <ul>
+      <li>Puede producir activaciones negativas, lo que ayuda a centrar los datos</li>
+    </ul>
+  </li>
+  <li><strong>Sigmoid</strong>: $f(x) = \frac{1}{1 + e^{-x}}$
+    <ul>
+      <li>Utilizada principalmente en las capas de salida para problemas de clasificación binaria</li>
+    </ul>
+  </li>
+  <li><strong>Tanh (Tangente Hiperbólica)</strong>: $f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$
+    <ul>
+      <li>Similar a sigmoid pero con rango [-1, 1]</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="capa-de-pooling">Capa de Pooling</h4>
+
+<p>Las capas de pooling reducen las dimensiones espaciales (ancho y alto) de los mapas de características, lo que:</p>
+<ul>
+  <li>Disminuye el número de parámetros y cálculos en la red</li>
+  <li>Proporciona invariancia a pequeñas traslaciones y distorsiones</li>
+  <li>Ayuda a la red a enfocarse en características más generales</li>
+</ul>
+
+<p>Los tipos más comunes son:</p>
+
+<ol>
+  <li><strong>Max Pooling</strong>: Selecciona el valor máximo de cada región, preservando las características más prominentes.
+    <ul>
+      <li>Es el tipo más utilizado por su capacidad para destacar características dominantes</li>
+    </ul>
+  </li>
+  <li><strong>Average Pooling</strong>: Calcula el promedio de cada región, preservando información de fondo.
+    <ul>
+      <li>Útil cuando la información de contexto es importante</li>
+    </ul>
+  </li>
+  <li><strong>Global Pooling</strong>: Reduce cada mapa de características a un solo valor (máximo o promedio), creando un vector de características global.
+    <ul>
+      <li>Frecuentemente utilizado antes de las capas completamente conectadas</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="capa-de-normalización">Capa de Normalización</h4>
+
+<p>Las capas de normalización ayudan a estabilizar y acelerar el entrenamiento:</p>
+
+<ol>
+  <li><strong>Batch Normalization</strong>: Normaliza las activaciones de cada mini-batch, reduciendo el “internal covariate shift”.
+    <ul>
+      <li>Permite tasas de aprendizaje más altas</li>
+      <li>Actúa como regularizador</li>
+      <li>Reduce la dependencia de la inicialización de pesos</li>
+    </ul>
+  </li>
+  <li><strong>Layer Normalization</strong>: Similar a batch normalization pero normaliza a través de las características en lugar de a través del batch.
+    <ul>
+      <li>Útil cuando los tamaños de batch son pequeños</li>
+    </ul>
+  </li>
+  <li><strong>Instance Normalization</strong>: Normaliza cada muestra individualmente.
+    <ul>
+      <li>Comúnmente utilizada en tareas de transferencia de estilo</li>
+    </ul>
+  </li>
+  <li><strong>Group Normalization</strong>: Divide los canales en grupos y normaliza dentro de cada grupo.
+    <ul>
+      <li>Compromiso entre batch y layer normalization</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="capa-completamente-conectada-fully-connected">Capa Completamente Conectada (Fully Connected)</h4>
+
+<p>Después de varias capas convolucionales y de pooling, las CNN típicamente incluyen una o más capas completamente conectadas:</p>
+
+<ol>
+  <li>
+    <p><strong>Flatten</strong>: Convierte los mapas de características 2D en un vector 1D.</p>
+  </li>
+  <li><strong>Dense (Fully Connected)</strong>: Conecta cada neurona de entrada con cada neurona de salida.
+    <ul>
+      <li>Integra información de todas las ubicaciones espaciales</li>
+      <li>Realiza el razonamiento de alto nivel</li>
+    </ul>
+  </li>
+  <li><strong>Capa de Salida</strong>: La última capa completamente conectada produce la salida final.
+    <ul>
+      <li>Para clasificación: número de neuronas igual al número de clases</li>
+      <li>Para regresión: número de neuronas igual al número de valores a predecir</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="capa-de-dropout">Capa de Dropout</h4>
+
+<p>El Dropout es una técnica de regularización que previene el sobreajuste:</p>
+
+<ol>
+  <li><strong>Durante el entrenamiento</strong>: Desactiva aleatoriamente un porcentaje de neuronas en cada iteración.
+    <ul>
+      <li>Fuerza a la red a aprender representaciones redundantes</li>
+      <li>Simula el entrenamiento de múltiples redes diferentes</li>
+    </ul>
+  </li>
+  <li><strong>Durante la inferencia</strong>: Todas las neuronas están activas, pero sus salidas se escalan según la tasa de dropout.</li>
+</ol>
+
+<h3 id="arquitectura-básica-de-una-cnn">Arquitectura Básica de una CNN</h3>
+
+<p>Una CNN típica sigue un patrón general de organización de capas:</p>
+
+<ol>
+  <li>
+    <p><strong>Capa de Entrada</strong>: Recibe la imagen raw (por ejemplo, una imagen RGB de 224×224×3).</p>
+  </li>
+  <li><strong>Bloque Convolucional</strong>: Secuencia repetida de:
+    <ul>
+      <li>Capa Convolucional</li>
+      <li>Activación (generalmente ReLU)</li>
+      <li>Opcionalmente Normalización</li>
+      <li>Opcionalmente Pooling</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Múltiples Bloques Convolucionales</strong>: Apilados secuencialmente, con el número de filtros generalmente aumentando con la profundidad mientras las dimensiones espaciales disminuyen.</p>
+  </li>
+  <li><strong>Cabeza de Clasificación/Regresión</strong>:
+    <ul>
+      <li>Flatten o Global Pooling</li>
+      <li>Una o más capas Fully Connected con Dropout</li>
+      <li>Capa de salida con activación apropiada (softmax para clasificación multiclase, sigmoid para clasificación binaria, lineal para regresión)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Este patrón básico ha evolucionado significativamente con arquitecturas modernas que introducen conexiones residuales, módulos de inception, y otros componentes avanzados que estudiaremos en módulos posteriores.</p>
+
+<h3 id="conclusión">Conclusión</h3>
+
+<p>Las Redes Neuronales Convolucionales representan un avance revolucionario en el campo de la visión por computadora, inspirado en el funcionamiento del sistema visual biológico. Su capacidad para aprender automáticamente jerarquías de características a partir de datos ha transformado numerosas aplicaciones, desde el reconocimiento de imágenes hasta la conducción autónoma.</p>
+
+<p>En las próximas lecciones, profundizaremos en las operaciones fundamentales de las CNN, exploraremos técnicas de entrenamiento efectivas, y analizaremos cómo estas redes han evolucionado desde arquitecturas simples como LeNet hasta los complejos modelos del estado del arte actual.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+</footer>
+<!-- Vendor JS Files -->
+<script src="../assets/css/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/css/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../assets/css/vendor/php-email-form/validate.js"></script>
+<script src="../assets/css/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="../assets/css/vendor/counterup/counterup.min.js"></script>
+<script src="../assets/css/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="../assets/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../assets/css/vendor/venobox/venobox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>

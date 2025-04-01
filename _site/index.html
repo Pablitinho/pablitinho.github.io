@@ -61,25 +61,26 @@
     </style>
  
 </head>
-<body><header id = "header" class="fixed-top  d-flex justify-content-center align-items-center">
+<body><header id="header" class="fixed-top d-flex justify-content-center align-items-center">
   <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+
+      <li class="drop-down">
+        <a>Online Courses</a>
         <ul>
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#experience">Work</a></li>
-          <li><a href="#publications">Publications</a></li>          
-          <li><a href="#portfolio">Portfolio</a></li>
-          <!-- <li><a href="/notes">Notes</a></li> -->
-          <li><a href="#contact">Contact</a></li>
-
-          <!-- <li><a href="/blog/">Blog</a></li> -->
-
-          <!-- <li><a href="#resume">Resume</a></li> -->
-
+          <li><a href="/courses/cnn_course/web/index_interactive.html">Interactive DeepLearning</a></li>
         </ul>
-        
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav><!-- .nav-menu -->
 </header>
 <!-- ======= Hero Section ======= -->
@@ -728,19 +729,13 @@
           <h2>My Portfolio</h2>
         </div>
 
-        <!-- <ul id="portfolio-flters" class="d-flex justify-content-center">
-          <li data-filter="*" class="filter-active">Default</li>
-          <li data-filter=".filter-app">Newest First</li>
-          <li data-filter=".filter-card">Oldest First</li>
-        </ul> -->
-
         <ul id="portfolio-flters" class="d-flex justify-content-center">
           <li data-filter="*" class="filter-active">All</li>
           <li data-filter=".filter-cv">Computer Vision</li>
           <li data-filter=".filter-dl">Deep Learning</li>
           <li data-filter=".filter-robot">Robotic</li>
           <li data-filter=".filter-simulation">Simulation</li>
-          <!-- <li data-filter=".filter-app">App</li> -->
+ 
         </ul>
 
         <div class="row portfolio-container">
@@ -848,16 +843,7 @@
             </div>
           </div>
 
-          <!--  Eye Tracking -->
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-dl filter-cv"  data-date-order="1">
-            <div class="portfolio-img"><img src="assets/img/eye_tracking.png" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Eye Tracking</h4>
-              <p>Deep Learning</p>
-              <a href="https://www.youtube.com/watch?v=4uy_GZZsuAQ&list=PLKvAya8WilmCIv2aez6zyPJYAfysgCHMW" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
-              <p class="icon-caption"></p>
-            </div>
-          </div> -->
+ 
           <div class="col-lg-4 col-md-6 portfolio-item filter-dl filter-cv" data-date-order="1">
             <div class="portfolio-img">
               <div class="video-container" data-video-id="4uy_GZZsuAQ">
@@ -884,16 +870,6 @@
           </div>
  
 
-          <!-- Pose Estimation -->
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-cv filter-dl" data-date-order="11">
-            <div class="portfolio-img"><img src="assets/img/pose_estimation.png" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Pose Estimation on TensorRT</h4>
-              <p>Computer Vision</p>
-              <a href="https://www.youtube.com/watch?v=Hc9b1ffHU1Y" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
-            </div>
-          </div> -->
-
           <div class="col-lg-4 col-md-6 portfolio-item filter-dl filter-cv" data-date-order="1">
             <div class="portfolio-img">
               <div class="video-container" data-video-id="Hc9b1ffHU1Y">
@@ -909,16 +885,6 @@
             </div>
           </div>
 
-          <!-- Optical Flow -->
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-cv" data-date-order="11">
-            <div class="portfolio-img"><img src="assets/img/optical_flow.png" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Total Variation: Optical Flow</h4>
-              <p>Computer Vision</p>
-              <a href="https://www.youtube.com/watch?v=iXgbpVPNmVw" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
-            </div>
-          </div>          
-        </div> -->
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-cv" data-date-order="1">
           <div class="portfolio-img">
