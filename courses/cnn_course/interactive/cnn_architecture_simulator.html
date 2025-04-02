@@ -251,7 +251,7 @@
     </style>
 </head>
 <body>
-    <h1>Simulador de Arquitecturas CNN</h1>
+    <h1>CNN Architecture Simulator</h1>
     
     <div id="error-message" class="error-message"></div>
     
@@ -376,76 +376,6 @@
         </div>
     </div>
 
-    <!-- <div id="comparison" class="tab-content">
-        <div class="container">
-            <div class="panel">
-                <h2>Comparativa de Arquitecturas</h2>
-                <div class="controls">
-                    <div class="control-group">
-                        <label for="comparison-metric">Métrica de comparación:</label>
-                        <select id="comparison-metric" onchange="updateComparisonChart()">
-                            <option value="accuracy">Precisión (Top-1)</option>
-                            <option value="params">Número de parámetros</option>
-                            <option value="flops">FLOPS</option>
-                            <option value="inference">Tiempo de inferencia</option>
-                            <option value="efficiency">Eficiencia (Precisión/FLOPS)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="comparison-hardware">Hardware:</label>
-                        <select id="comparison-hardware" onchange="updateComparisonChart()">
-                            <option value="cpu">CPU</option>
-                            <option value="gpu">GPU</option>
-                            <option value="mobile">Dispositivo móvil</option>
-                        </select>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label>Arquitecturas a comparar:</label>
-                        <div>
-                            <input type="checkbox" id="compare-lenet" checked>
-                            <label for="compare-lenet" style="display: inline;">LeNet-5</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="compare-alexnet" checked>
-                            <label for="compare-alexnet" style="display: inline;">AlexNet</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="compare-vgg16" checked>
-                            <label for="compare-vgg16" style="display: inline;">VGG16</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="compare-inception" checked>
-                            <label for="compare-inception" style="display: inline;">GoogLeNet</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="compare-resnet" checked>
-                            <label for="compare-resnet" style="display: inline;">ResNet-50</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="compare-mobilenet" checked>
-                            <label for="compare-mobilenet" style="display: inline;">MobileNet</label>
-                        </div>
-                    </div>
-                    
-                    <button onclick="updateComparisonChart()">Actualizar Comparativa</button>
-                </div>
-            </div>
-            
-            <div class="panel">
-                <h2>Gráfico Comparativo</h2>
-                <div class="comparison-chart">
-                    <canvas id="comparison-chart"></canvas>
-                </div>
-                
-                <div class="layer-info">
-                    <h3>Análisis Comparativo</h3>
-                    <p id="comparison-analysis">Selecciona las arquitecturas y métricas para ver un análisis comparativo.</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div id="comparison" class="tab-content">
         <div class="container">
             <div class="panel">
