@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
+<head>
   {%- include head.html -%}
 
+  </head>
   <body>
+
+    <!-- Efecto puntero: contenedor -->
+    <div id="creature-wrapper">
+      <div id="creature"></div>
+    </div>
 
     {%- include header.html -%}
     {%- include hero.html -%}
@@ -20,7 +26,11 @@
 
     {%- include footer.html -%}
 
+    <!-- Mouse Effect Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script type="module" src="{{ '/js/mouse-effect.js' | relative_url }}"></script>
 
+     
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var videoContainers = document.querySelectorAll('.video-container');
@@ -40,6 +50,10 @@
         });
       });
     </script>
+
+
+
+
   </body>
 
 </html>
